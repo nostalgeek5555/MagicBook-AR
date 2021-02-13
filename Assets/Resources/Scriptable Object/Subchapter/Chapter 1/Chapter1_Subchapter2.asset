@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08000def2daa89f47990b482c672b9db, type: 3}
+  m_Name: Chapter1_Subchapter2
+  m_EditorClassIdentifier: 
+  subchapterID: 1
+  subchapterUnlocked: 0
+  subchapterName: Chapter1_Subchapter2
+  subchapterTitle: Bentuk bentuk energi
+  subchapterIcon: {fileID: 0}
+  subchapterContents:
+  - {fileID: 11400000, guid: 361cbd9a2a4c06e499f618d6199c030e, type: 2}
+  - {fileID: 11400000, guid: 8b050e6eff547d048b56a3387e3c5cb0, type: 2}
+  - {fileID: 11400000, guid: c05a3e98bad5089409adfcfa693f15ff, type: 2}
+  - {fileID: 11400000, guid: c89b89a0c8929894c96837cf4851b263, type: 2}
