@@ -3,3 +3,14 @@ Logs/
 Library/
 Packages/
 UserSettings/
+obj/
+.vs/
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
+EditorMigrationScripts.csproj
+LeanCommon.csproj
+LeanPool.csproj
+NaughtyAttributes.Core.csproj
+NaughtyAttributes.Editor.csproj
+NaughtyAttributes.Test.csproj
+New-MagicBookAR.sln

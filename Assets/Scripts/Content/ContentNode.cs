@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using TMPro;
+using DG.Tweening;
 
 public class ContentNode : MonoBehaviour
 {
@@ -13,7 +14,9 @@ public class ContentNode : MonoBehaviour
     public Image contentImage;
     public RawImage contentVideoImage;
     public TextMeshProUGUI contentText;
+    public TextMeshProUGUI videoStatusText;
     public VideoPlayer videoPlayer;
+    public Button videoButton;
     
 
     [SerializeField]
@@ -82,7 +85,6 @@ public class ContentNode : MonoBehaviour
             yield return null;
         }
 
-        yield return null;
         OnVideoReady(videoPlayer.isPrepared);
 
         //videoPlayer.source = VideoSource.Url;
@@ -95,36 +97,72 @@ public class ContentNode : MonoBehaviour
 
     private void PendingVideoOnReady(bool isVideoReady)
     {
+        videoButton.gameObject.SetActive(true);
+        videoStatusText.gameObject.SetActive(false);
+
         if (isVideoReady)
         {
-            videoPlayer.Play();
-            Debug.Log("video ready");
+            //on click video when video is playing/paused
+            videoButton.onClick.RemoveAllListeners();
+            videoButton.onClick.AddListener(() =>
+            {
+                if (videoPlayer.isPaused || !videoPlayer.isPlaying)
+                {
+                    SetVideoStatus(VideoStatus.Play);
+                    videoPlayer.Play();
+                }
+
+                else
+                {
+                    SetVideoStatus(VideoStatus.Pause);
+                    videoPlayer.Pause();
+                }
+
+            });
         }
     }
 
-    private string RequestURL(string folderName, string fileName)
-    {
-        string path = folderName;
-        Debug.Log("combined path " + Path.Combine(Application.persistentDataPath, folderName, fileName));
-        string newDirPath;
+    //private string RequestURL(string folderName, string fileName)
+    //{
+    //    string path = folderName;
+    //    Debug.Log("combined path " + Path.Combine(Application.persistentDataPath, folderName, fileName));
+    //    string newDirPath;
 
-        Debug.Log("path " + Path.Combine(Application.persistentDataPath, path));
-        if (Directory.Exists(Path.Combine(Application.persistentDataPath, path)))
-        {
-            newDirPath = Path.Combine(Application.persistentDataPath, path);
-            Debug.Log("path combined " + Path.Combine(Application.persistentDataPath, path));
-            return newDirPath;
-        }
+    //    Debug.Log("path " + Path.Combine(Application.persistentDataPath, path));
+    //    if (Directory.Exists(Path.Combine(Application.persistentDataPath, path)))
+    //    {
+    //        newDirPath = Path.Combine(Application.persistentDataPath, path);
+    //        Debug.Log("path combined " + Path.Combine(Application.persistentDataPath, path));
+    //        return newDirPath;
+    //    }
 
-        else 
-        {
-            newDirPath = Path.Combine(Application.persistentDataPath, path);
-            Debug.Log("path combined " + Path.Combine(Application.persistentDataPath, path));
-            Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, path));
-            return newDirPath;
-        }
+    //    else 
+    //    {
+    //        newDirPath = Path.Combine(Application.persistentDataPath, path);
+    //        Debug.Log("path combined " + Path.Combine(Application.persistentDataPath, path));
+    //        Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, path));
+    //        return newDirPath;
+    //    }
         
-    }
+    //}
 
     
+    private void SetVideoStatus(VideoStatus videoStatus)
+    {
+        videoStatusText.gameObject.SetActive(true);
+        Debug.Log("status text " + videoStatusText.gameObject.activeSelf);
+        videoStatusText.text = videoStatus.ToString();
+
+        Sequence sequence = DOTween.Sequence();
+        sequence.AppendInterval(1f);
+        sequence.AppendCallback(() =>
+        {
+            videoStatusText.gameObject.SetActive(false);
+        });
+    }
+
+    public enum VideoStatus
+    {
+        Play, Pause, Stop
+    }
 }
