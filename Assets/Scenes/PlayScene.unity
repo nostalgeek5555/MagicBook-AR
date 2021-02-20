@@ -1175,11 +1175,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3164850787682064126, guid: 86e781fa1254a814583312545aa935a9,
-        type: 3}
-      propertyPath: contentVideoPrefab
-      value: 
-      objectReference: {fileID: 3291060961655240482}
     - target: {fileID: 3509066992311951225, guid: 86e781fa1254a814583312545aa935a9,
         type: 3}
       propertyPath: m_AspectRatio
@@ -1339,12 +1334,6 @@ PrefabInstance:
 --- !u!224 &3291060961655240481 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5280381417850144888, guid: 169119473de5bbe4599a4b8f0f14a535,
-    type: 3}
-  m_PrefabInstance: {fileID: 3291060961655240480}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3291060961655240482 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4913242620731643778, guid: 169119473de5bbe4599a4b8f0f14a535,
     type: 3}
   m_PrefabInstance: {fileID: 3291060961655240480}
   m_PrefabAsset: {fileID: 0}

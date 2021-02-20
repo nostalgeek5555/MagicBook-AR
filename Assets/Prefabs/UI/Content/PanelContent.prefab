@@ -181,7 +181,7 @@ MonoBehaviour:
     type: 3}
   contentTextPrefab: {fileID: 8744418234860602669, guid: d82a2f9eedf230748b76e15f730ba208,
     type: 3}
-  contentVideoPrefab: {fileID: 4913242620731643778, guid: 169119473de5bbe4599a4b8f0f14a535,
+  contentVideoPrefab: {fileID: 5988371485650853114, guid: fac6578208ecc4f4498a8f04c6c6e98f,
     type: 3}
   contentNodeParent: {fileID: 1306503440792118816}
 --- !u!1 &1306503442455914717

@@ -17,6 +17,13 @@ public class ContentNode : MonoBehaviour
     public TextMeshProUGUI videoStatusText;
     public VideoPlayer videoPlayer;
     public Button videoButton;
+
+    [Header("Video UI")]
+    public Image videoFillamount;
+    public Animator videoButtonPanelAnimator;
+
+    public delegate void OnVideoPlaying(double videoTime);
+    public event OnVideoPlaying OnVideo;
     
 
     [SerializeField]
@@ -24,7 +31,16 @@ public class ContentNode : MonoBehaviour
 
     [SerializeField]
     private string URLvideo;
-    
+
+    private void OnEnable()
+    {
+        //videoPlayer.prepareCompleted 
+    }
+
+    private void OnDisable()
+    {
+        
+    }
 
     public void InitContentNode(ContentPartSO _contentPartSO, int _contentOrder)
     {
@@ -67,6 +83,7 @@ public class ContentNode : MonoBehaviour
         }
     }
 
+ #region Video Content Type
     private IEnumerator RequestVideo(string URL, Action<bool> OnVideoReady)
     {
         videoPlayer.source = VideoSource.VideoClip;
@@ -74,11 +91,11 @@ public class ContentNode : MonoBehaviour
 
         CustomRenderTexture customRenderTexture = new CustomRenderTexture(Convert.ToInt32(videoPlayer.width), Convert.ToInt32(videoPlayer.height));
         customRenderTexture.Create();
-
         contentVideoImage.texture = customRenderTexture;
         videoPlayer.targetTexture = customRenderTexture;
         videoPlayer.playOnAwake = false;
         videoPlayer.Prepare();
+        
 
         while (videoPlayer.isPrepared == false)
         {
@@ -109,19 +126,41 @@ public class ContentNode : MonoBehaviour
                 if (videoPlayer.isPaused || !videoPlayer.isPlaying)
                 {
                     SetVideoStatus(VideoStatus.Play);
-                    videoPlayer.Play();
                 }
 
-                else
+                else if (videoPlayer.isPlaying)
                 {
                     SetVideoStatus(VideoStatus.Pause);
-                    videoPlayer.Pause();
                 }
 
             });
         }
     }
 
+    private void OnVideoPlay(bool isVideoPlaying)
+    {
+        if (isVideoPlaying) 
+        {
+            
+        }
+
+        else
+        {
+
+        }
+    }
+
+    private void Update()
+    {
+        //if (videoPlayer.isPlaying)
+        //{
+        //    if (videoFillamount.fillAmount <= 1)
+        //    {
+        //        videoFillamount.fillAmount += 1 / Convert.ToSingle(videoPlayer.length);
+        //    }
+        //}    
+    }
+    
     //private string RequestURL(string folderName, string fileName)
     //{
     //    string path = folderName;
@@ -159,10 +198,58 @@ public class ContentNode : MonoBehaviour
         {
             videoStatusText.gameObject.SetActive(false);
         });
+
+        switch (videoStatus)
+        {
+            case VideoStatus.Play:
+                videoPlayer.Play();
+                videoButtonPanelAnimator.SetTrigger("Hide");
+                break;
+
+            case VideoStatus.Pause:
+                videoPlayer.Pause();
+                videoButtonPanelAnimator.SetTrigger("Hide");
+                break;
+
+            case VideoStatus.Stop:
+                videoFillamount.fillAmount = 0;
+                videoPlayer.Stop();
+                videoButtonPanelAnimator.SetTrigger("Hide");
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private IEnumerator WaitAnimation(float waitTime, string animationTrigger)
+    {
+        yield return WaitForSeconds(waitTime);
+        videoButtonPanelAnimator.SetTrigger(animationTrigger);
+        
+    }
+    public void PlayVideo()
+    {
+        SetVideoStatus(VideoStatus.Play);
+    }
+
+    public void PauseVideo()
+    {
+        SetVideoStatus(VideoStatus.Pause);
+    }
+
+    public void StopVideo()
+    {
+        if (videoPlayer.isPlaying)
+        {
+            SetVideoStatus(VideoStatus.Stop);
+        }
     }
 
     public enum VideoStatus
     {
         Play, Pause, Stop
     }
+
+#endregion
 }

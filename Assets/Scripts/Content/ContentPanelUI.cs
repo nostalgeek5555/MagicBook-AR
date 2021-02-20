@@ -47,7 +47,7 @@ public class ContentPanelUI : MonoBehaviour
                         case ContentPartSO.ContentType.Video:
                             contentNode = LeanPool.Spawn(contentVideoPrefab, contentNodeParent).GetComponent<ContentNode>();
                             contentNode.InitContentNode(contentPartSO, i);
-                            Debug.Log("spawn text " + contentPartSO.contentType);
+                            Debug.Log("spawn video " + contentPartSO.contentType);
                             break;
                         case ContentPartSO.ContentType.Question:
                             break;
