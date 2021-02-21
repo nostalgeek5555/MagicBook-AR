@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.Video;
 using TMPro;
 using DG.Tweening;
+using UnityEngine.EventSystems;
 
 public class ContentNode : MonoBehaviour
 {
@@ -16,14 +17,11 @@ public class ContentNode : MonoBehaviour
     public TextMeshProUGUI contentText;
     public TextMeshProUGUI videoStatusText;
     public VideoPlayer videoPlayer;
-    public Button videoButton;
-
+    
     [Header("Video UI")]
+    public Button videoButton;
     public Image videoFillamount;
     public Animator videoButtonPanelAnimator;
-
-    public delegate void OnVideoPlaying(double videoTime);
-    public event OnVideoPlaying OnVideo;
     
 
     [SerializeField]
@@ -31,16 +29,6 @@ public class ContentNode : MonoBehaviour
 
     [SerializeField]
     private string URLvideo;
-
-    private void OnEnable()
-    {
-        //videoPlayer.prepareCompleted 
-    }
-
-    private void OnDisable()
-    {
-        
-    }
 
     public void InitContentNode(ContentPartSO _contentPartSO, int _contentOrder)
     {
@@ -71,7 +59,7 @@ public class ContentNode : MonoBehaviour
                 break;
             
             case ContentPartSO.ContentType.Video:
-                Debug.Log("data path " + Application.persistentDataPath);
+                StartCoroutine(OnTouchVideoDisplay(5, ButtonPanelAnim.Show.ToString(), ButtonPanelAnim.Hide.ToString(), DoNext));
                 StartCoroutine(RequestVideo(URLvideo, PendingVideoOnReady));
                 break;
             
@@ -83,7 +71,8 @@ public class ContentNode : MonoBehaviour
         }
     }
 
- #region Video Content Type
+    #region Video Content Type
+
     private IEnumerator RequestVideo(string URL, Action<bool> OnVideoReady)
     {
         videoPlayer.source = VideoSource.VideoClip;
@@ -119,6 +108,9 @@ public class ContentNode : MonoBehaviour
 
         if (isVideoReady)
         {
+            StartCoroutine(CreateThumbnail(0.5f, 0.1f));
+            contentVideoImage.gameObject.SetActive(false);
+            contentImage.gameObject.SetActive(true);
             //on click video when video is playing/paused
             videoButton.onClick.RemoveAllListeners();
             videoButton.onClick.AddListener(() =>
@@ -137,57 +129,30 @@ public class ContentNode : MonoBehaviour
         }
     }
 
-    private void OnVideoPlay(bool isVideoPlaying)
+    private IEnumerator CreateThumbnail(float thumbnailFrameTime, float waitTime)
     {
-        if (isVideoPlaying) 
-        {
-            
-        }
-
-        else
-        {
-
-        }
+        int width = videoPlayer.texture.width;
+        int height = videoPlayer.texture.height;
+        videoPlayer.time = thumbnailFrameTime;
+        videoPlayer.SetDirectAudioMute(0, true);
+        videoPlayer.Play();
+        RenderTexture renderTexture = new RenderTexture(width, height, 24, RenderTextureFormat.ARGB32);
+        yield return new WaitForSeconds(waitTime);
+        Texture2D texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+        RenderTexture.active = videoPlayer.targetTexture;
+        texture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+        texture.Apply();
+        contentImage.sprite = Sprite.Create(texture, new Rect(0, 0, width, height), new Vector2(0.5f, 0.5f));
+        videoPlayer.Stop();
+        videoPlayer.SetDirectAudioMute(0, false);
+        RenderTexture.active = null;
+        Debug.Log("create thumbnail");
     }
-
-    private void Update()
-    {
-        //if (videoPlayer.isPlaying)
-        //{
-        //    if (videoFillamount.fillAmount <= 1)
-        //    {
-        //        videoFillamount.fillAmount += 1 / Convert.ToSingle(videoPlayer.length);
-        //    }
-        //}    
-    }
-    
-    //private string RequestURL(string folderName, string fileName)
-    //{
-    //    string path = folderName;
-    //    Debug.Log("combined path " + Path.Combine(Application.persistentDataPath, folderName, fileName));
-    //    string newDirPath;
-
-    //    Debug.Log("path " + Path.Combine(Application.persistentDataPath, path));
-    //    if (Directory.Exists(Path.Combine(Application.persistentDataPath, path)))
-    //    {
-    //        newDirPath = Path.Combine(Application.persistentDataPath, path);
-    //        Debug.Log("path combined " + Path.Combine(Application.persistentDataPath, path));
-    //        return newDirPath;
-    //    }
-
-    //    else 
-    //    {
-    //        newDirPath = Path.Combine(Application.persistentDataPath, path);
-    //        Debug.Log("path combined " + Path.Combine(Application.persistentDataPath, path));
-    //        Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, path));
-    //        return newDirPath;
-    //    }
-        
-    //}
-
     
     private void SetVideoStatus(VideoStatus videoStatus)
     {
+        contentImage.gameObject.SetActive(false);
+        contentVideoImage.gameObject.SetActive(true);
         videoStatusText.gameObject.SetActive(true);
         Debug.Log("status text " + videoStatusText.gameObject.activeSelf);
         videoStatusText.text = videoStatus.ToString();
@@ -203,18 +168,15 @@ public class ContentNode : MonoBehaviour
         {
             case VideoStatus.Play:
                 videoPlayer.Play();
-                videoButtonPanelAnimator.SetTrigger("Hide");
                 break;
 
             case VideoStatus.Pause:
                 videoPlayer.Pause();
-                videoButtonPanelAnimator.SetTrigger("Hide");
                 break;
 
             case VideoStatus.Stop:
                 videoFillamount.fillAmount = 0;
                 videoPlayer.Stop();
-                videoButtonPanelAnimator.SetTrigger("Hide");
                 break;
 
             default:
@@ -222,12 +184,28 @@ public class ContentNode : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitAnimation(float waitTime, string animationTrigger)
+    private IEnumerator OnTouchVideoDisplay(float waitTime, string animationName, string nextAnimation, Action<string> OnWaitFinish)
     {
-        yield return WaitForSeconds(waitTime);
-        videoButtonPanelAnimator.SetTrigger(animationTrigger);
-        
+        if (!videoButtonPanelAnimator.GetCurrentAnimatorStateInfo(0).IsName(animationName))
+        {
+            Debug.Log("show panel");
+            videoButtonPanelAnimator.SetTrigger(animationName);
+            yield return new WaitForSeconds(waitTime);
+            OnWaitFinish(nextAnimation);
+        }
     }
+
+    private void DoNext(string animationName)
+    {
+        videoButtonPanelAnimator.SetTrigger(animationName);
+        Debug.Log("hide panel");
+    }
+
+    public void TouchVideoButton()
+    {
+        StartCoroutine(OnTouchVideoDisplay(5, ButtonPanelAnim.Show.ToString(), ButtonPanelAnim.Hide.ToString(), DoNext));
+    }
+
     public void PlayVideo()
     {
         SetVideoStatus(VideoStatus.Play);
@@ -246,10 +224,17 @@ public class ContentNode : MonoBehaviour
         }
     }
 
+    
+
     public enum VideoStatus
     {
         Play, Pause, Stop
     }
 
-#endregion
+    #endregion
+
+    public enum ButtonPanelAnim
+    {
+        Show, Hide
+    }
 }
