@@ -17,8 +17,9 @@ public class ContentNode : MonoBehaviour
     public TextMeshProUGUI contentText;
     public TextMeshProUGUI videoStatusText;
     public VideoPlayer videoPlayer;
-    
+
     [Header("Video UI")]
+    public Image thumbnailImageLayer;
     public Button videoButton;
     public Image videoFillamount;
     public Animator videoButtonPanelAnimator;
@@ -108,9 +109,12 @@ public class ContentNode : MonoBehaviour
 
         if (isVideoReady)
         {
+            //create video thumbnail based on video played
             StartCoroutine(CreateThumbnail(0.5f, 0.1f));
             contentVideoImage.gameObject.SetActive(false);
             contentImage.gameObject.SetActive(true);
+            thumbnailImageLayer.gameObject.SetActive(true);
+
             //on click video when video is playing/paused
             videoButton.onClick.RemoveAllListeners();
             videoButton.onClick.AddListener(() =>
@@ -151,10 +155,11 @@ public class ContentNode : MonoBehaviour
     
     private void SetVideoStatus(VideoStatus videoStatus)
     {
+        videoPlayer.SetDirectAudioVolume(0, 0);
+        thumbnailImageLayer.gameObject.SetActive(false);
         contentImage.gameObject.SetActive(false);
         contentVideoImage.gameObject.SetActive(true);
         videoStatusText.gameObject.SetActive(true);
-        Debug.Log("status text " + videoStatusText.gameObject.activeSelf);
         videoStatusText.text = videoStatus.ToString();
 
         Sequence sequence = DOTween.Sequence();

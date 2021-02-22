@@ -6,6 +6,7 @@ using System.Linq;
 
 public class ContentPanelUI : MonoBehaviour
 {
+    public GameObject contentBG;
     public GameObject contentImagePrefab;
     public GameObject contentTextPrefab;
     public GameObject contentVideoPrefab;
@@ -13,10 +14,16 @@ public class ContentPanelUI : MonoBehaviour
 
     private void OnEnable()
     {
+        contentBG.SetActive(true);
         InitAllContents();
     }
 
-    
+    private void OnDisable()
+    {
+        contentBG.SetActive(false);
+    }
+
+
     public void InitAllContents()
     {
         DespawnAllContents();
