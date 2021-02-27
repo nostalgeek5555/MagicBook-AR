@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
-  m_Name: chap1_20
+  m_Name: chap1_sub2_2
   m_EditorClassIdentifier: 
-  contentType: 1
-  contentName: 
-  contentImage: {fileID: 21300000, guid: be749b760fd46aa47bf3b8a635c4a03c, type: 3}
+  contentType: 0
+  textType: 0
+  alignmentOptions: 0
+  contentImage: {fileID: 0}
   contentText: 
+  videoName: 
   videoURL: 
