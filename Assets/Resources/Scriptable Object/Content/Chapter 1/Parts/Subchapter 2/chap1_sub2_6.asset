@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: chap1_sub2_6
   m_EditorClassIdentifier: 
   contentType: 0
-  textType: 0
-  alignmentOptions: 0
+  textType: 2
+  alignmentOptions: 513
   contentImage: {fileID: 0}
-  contentText: 
+  contentText: merupakan energi yang dimiliki oleh benda yang bergerak, angin yang
+    berhembus, dan baling-baling kipas angin yang bergerak.
   videoName: 
   videoURL: 

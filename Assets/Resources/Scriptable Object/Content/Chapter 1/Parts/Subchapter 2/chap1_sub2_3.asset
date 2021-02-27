@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: chap1_sub2_3
   m_EditorClassIdentifier: 
   contentType: 0
-  textType: 0
-  alignmentOptions: 0
+  textType: 2
+  alignmentOptions: 513
   contentImage: {fileID: 0}
-  contentText: 
+  contentText: merupakan energi yang tersimpan dalam senyawa-senyawa kimia. Sumber
+    energi kimia dapat berasal dari makanan, bahan bakar minyak, kayu bakar, aki,
+    baterai, dll.
   videoName: 
   videoURL: 

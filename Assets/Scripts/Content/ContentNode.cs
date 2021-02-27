@@ -53,13 +53,12 @@ public class ContentNode : MonoBehaviour
                 contentImage.rectTransform.sizeDelta = new Vector2(imagewidth, 400);
 
                 //contentImage.SetNativeSize();
-                Debug.Log("image height " + contentImage.sprite.texture.height);
                 break;
             
             case ContentPartSO.ContentType.Text:
                 contentText.gameObject.SetActive(true);
                 contentText.text = contentPartSO.contentText;
-                contentText.alignment = TextAlignmentOptions.MidlineRight;
+                contentText.alignment = contentPartSO.alignmentOptions;
                 break;
             
             case ContentPartSO.ContentType.Video:

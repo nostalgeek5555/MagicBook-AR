@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
-  m_Name: chap1_4
+  m_Name: chap1_sub1_4
   m_EditorClassIdentifier: 
-  contentType: 1
-  contentName: 
+  contentType: 0
+  textType: 2
+  alignmentOptions: 258
   contentImage: {fileID: 21300000, guid: 7f4e52ddb7930e5499b9d00ea25038ae, type: 3}
-  contentText: 
+  contentText: "Energi berasal dari kata dalam Bahasa Yunani \u201Cenergia\u201D 
+    berarti kegiatan atau aktivitas, terdiri atas en (dalam) dan ergon (kerja)."
+  videoName: 
   videoURL: 

@@ -10,10 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
-  m_Name: chap1_6
+  m_Name: chap1_sub1_6
   m_EditorClassIdentifier: 
-  contentType: 1
-  contentName: 
+  contentType: 0
+  textType: 2
+  alignmentOptions: 513
   contentImage: {fileID: 21300000, guid: 289da70dce470dc42bf44238daf55147, type: 3}
-  contentText: 
+  contentText: "Energi adalah kemampuan untuk melakukan usaha (kerja) atau melakukan
+    perubahan.   Dalam satuan SI, energi dinyatakan dalam joule (j). satuan energi
+    lainnya adalah kalori (kal). 1 kalori \u2248 4,18 joule atau 1 joule \u2248 0,24
+    kalori."
+  videoName: 
   videoURL: 

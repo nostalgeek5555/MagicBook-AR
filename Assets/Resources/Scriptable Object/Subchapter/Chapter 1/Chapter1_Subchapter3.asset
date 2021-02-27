@@ -18,10 +18,24 @@ MonoBehaviour:
   subchapterTitle: Sumber energi
   subchapterIcon: {fileID: 0}
   subchapterContents:
-  - {fileID: 11400000, guid: 8b050e6eff547d048b56a3387e3c5cb0, type: 2}
-  - {fileID: 11400000, guid: c05a3e98bad5089409adfcfa693f15ff, type: 2}
-  - {fileID: 11400000, guid: 361cbd9a2a4c06e499f618d6199c030e, type: 2}
-  - {fileID: 11400000, guid: c89b89a0c8929894c96837cf4851b263, type: 2}
-  - {fileID: 11400000, guid: 8b050e6eff547d048b56a3387e3c5cb0, type: 2}
-  - {fileID: 11400000, guid: 8b050e6eff547d048b56a3387e3c5cb0, type: 2}
-  - {fileID: 11400000, guid: c05a3e98bad5089409adfcfa693f15ff, type: 2}
+  - {fileID: 11400000, guid: b7e8ecb1271ae864384a2a7ff81595d5, type: 2}
+  - {fileID: 11400000, guid: 3b6d476637085dd418555263ac7734c7, type: 2}
+  - {fileID: 11400000, guid: 1b24e5668f367ba4e896868bc0d459e0, type: 2}
+  - {fileID: 11400000, guid: a34360bd74dc4d6429e3da75faabe9e0, type: 2}
+  - {fileID: 11400000, guid: f7d4fcccf0ed5464cbfd527215da9f11, type: 2}
+  - {fileID: 11400000, guid: d1d160e8d008d1a4f8aa6c44743b4fbf, type: 2}
+  - {fileID: 11400000, guid: ceea5fbc8be47e143b61afa9c33ca209, type: 2}
+  - {fileID: 11400000, guid: e86176503c465794682b503e1c86d99a, type: 2}
+  - {fileID: 11400000, guid: c15315bf1dd51a34f88f77ff53834e92, type: 2}
+  - {fileID: 11400000, guid: 6c8a171b8b5a915438428f2cb1a3752e, type: 2}
+  - {fileID: 11400000, guid: f72884b6f276af340ac1f5d6bc1f247b, type: 2}
+  - {fileID: 11400000, guid: d4610c0fab80f5b42ae13879a13ca512, type: 2}
+  - {fileID: 11400000, guid: ccc50b5f3f633ca45ad8a8940cf379a8, type: 2}
+  - {fileID: 11400000, guid: b78a59cbee6b8424590802fac8f5cba6, type: 2}
+  - {fileID: 11400000, guid: 8a2b965e57a079e4abb6dd877db53359, type: 2}
+  - {fileID: 11400000, guid: ed34d9dfdf7a697448df3ac6c6f033ae, type: 2}
+  - {fileID: 11400000, guid: 2af8f1ce853253247a26de0b8b2243f8, type: 2}
+  - {fileID: 11400000, guid: 76bcaab5c8d7bd14d903846d25730151, type: 2}
+  - {fileID: 11400000, guid: 879bf122db5a6ed44996bc2137b1d886, type: 2}
+  - {fileID: 11400000, guid: 65ee65153120b4d4da0e7adfe6bf3b62, type: 2}
+  - {fileID: 11400000, guid: 8f817a232103a16468d9ac6a70a56ad5, type: 2}

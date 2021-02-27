@@ -19,7 +19,7 @@ public class ContentPartSO : ScriptableObject
 
     public enum TextType
     {
-        Title, Line, Paragraph
+        Title, Line, Paragraph, Watermark
     }
 
 }

@@ -10,10 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
-  m_Name: chap1_3
+  m_Name: chap1_sub1_3
   m_EditorClassIdentifier: 
-  contentType: 1
-  contentName: 
+  contentType: 0
+  textType: 2
+  alignmentOptions: 513
   contentImage: {fileID: 21300000, guid: 3f454b168e9cd7a4aabd8fa919e85641, type: 3}
-  contentText: 
+  contentText: Pada suatu pagi, terlihat keluarga pak Jani sedang melakukan aktivitas
+    di teras rumah. Pak Jani sedang melakukan olahraga agar tubuhnya tetap segar
+    dan bugar, Bu Jani sedang menjemur pakaian di bawah sinar matahari bersama dengan
+    anaknya yang masih bayi. Setiap aktivitas manusia memerlukan energi. Olahraga
+    dan menjemur pakaian memerlukan energi.
+  videoName: 
   videoURL: 

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: chap1_sub2_5
   m_EditorClassIdentifier: 
   contentType: 0
-  textType: 0
-  alignmentOptions: 0
+  textType: 1
+  alignmentOptions: 257
   contentImage: {fileID: 0}
-  contentText: 
+  contentText: 2) Energi Kinetik
   videoName: 
   videoURL: 
