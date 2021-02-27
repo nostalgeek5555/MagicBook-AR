@@ -1,13 +1,10 @@
-using System.IO;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using TMPro;
 using DG.Tweening;
-using UnityEngine.EventSystems;
 
 public class ContentNode : MonoBehaviour
 {
@@ -35,7 +32,7 @@ public class ContentNode : MonoBehaviour
     {
         transform.SetSiblingIndex(_contentOrder);
         contentPartSO = _contentPartSO;
-        fileName = _contentPartSO.contentName;
+        fileName = _contentPartSO.videoName;
 
         if (contentImage != null)
         {
@@ -52,11 +49,17 @@ public class ContentNode : MonoBehaviour
             case ContentPartSO.ContentType.Image:
                 contentImage.gameObject.SetActive(true);
                 contentImage.sprite = contentPartSO.contentImage;
+                float imagewidth = contentImage.rectTransform.sizeDelta.x;
+                contentImage.rectTransform.sizeDelta = new Vector2(imagewidth, 400);
+
+                //contentImage.SetNativeSize();
+                Debug.Log("image height " + contentImage.sprite.texture.height);
                 break;
             
             case ContentPartSO.ContentType.Text:
                 contentText.gameObject.SetActive(true);
                 contentText.text = contentPartSO.contentText;
+                contentText.alignment = TextAlignmentOptions.MidlineRight;
                 break;
             
             case ContentPartSO.ContentType.Video:

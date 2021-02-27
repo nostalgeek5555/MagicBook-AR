@@ -1099,17 +1099,17 @@ PrefabInstance:
     - target: {fileID: 1306503440792118817, guid: 86e781fa1254a814583312545aa935a9,
         type: 3}
       propertyPath: m_ChildForceExpandHeight
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1306503441643313509, guid: 86e781fa1254a814583312545aa935a9,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -350
+      value: -370
       objectReference: {fileID: 0}
     - target: {fileID: 1306503441643313509, guid: 86e781fa1254a814583312545aa935a9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 1306503442035633820, guid: 86e781fa1254a814583312545aa935a9,
         type: 3}
@@ -1266,6 +1266,12 @@ PrefabInstance:
       propertyPath: contentBG
       value: 
       objectReference: {fileID: 1783557970}
+    - target: {fileID: 3164850787682064126, guid: 86e781fa1254a814583312545aa935a9,
+        type: 3}
+      propertyPath: contentImagePrefab
+      value: 
+      objectReference: {fileID: 632629133958358898, guid: dea6ce7b73c8754478c0f02e22d4c1d2,
+        type: 3}
     - target: {fileID: 3509066992311951225, guid: 86e781fa1254a814583312545aa935a9,
         type: 3}
       propertyPath: m_AspectRatio
