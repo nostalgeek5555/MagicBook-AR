@@ -6,6 +6,7 @@ public class CustomEditorContentSO : Editor
     public SerializedProperty
         contentType,
         contentImage,
+        imageWatermark,
         contentText,
         textType,
         alignmentOptions,
@@ -16,6 +17,7 @@ public class CustomEditorContentSO : Editor
     {
         contentType = serializedObject.FindProperty("contentType");
         contentImage = serializedObject.FindProperty("contentImage");
+        imageWatermark = serializedObject.FindProperty("imageWatermarkText");
         contentText = serializedObject.FindProperty("contentText");
         textType = serializedObject.FindProperty("textType");
         alignmentOptions = serializedObject.FindProperty("alignmentOptions");
@@ -41,6 +43,7 @@ public class CustomEditorContentSO : Editor
 
             case ContentPartSO.ContentType.Image:
                 EditorGUILayout.PropertyField(contentImage);
+                EditorGUILayout.PropertyField(imageWatermark);
                 break;
 
             case ContentPartSO.ContentType.Video:

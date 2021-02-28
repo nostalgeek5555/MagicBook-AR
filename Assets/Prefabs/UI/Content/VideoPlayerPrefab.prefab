@@ -1461,15 +1461,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a1df451fc536c4785a1fdc50cf4572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contentType: 2
   contentPartSO: {fileID: 0}
-  contentImage: {fileID: 3208067673099327022}
-  contentVideoImage: {fileID: 5988371485005417181}
   contentText: {fileID: 0}
+  contentImage: {fileID: 3208067673099327022}
+  imageWatermarkText: {fileID: 0}
+  contentVideoImage: {fileID: 5988371485005417181}
   videoStatusText: {fileID: 5988371484554054879}
   videoPlayer: {fileID: 5988371484561409861}
   thumbnailImageLayer: {fileID: 7031809786000234081}
   videoButton: {fileID: 5988371485650852999}
-  videoFillamount: {fileID: 5988371484639651667}
   videoButtonPanelAnimator: {fileID: 5988371484876339279}
   fileName: 
   URLvideo: 

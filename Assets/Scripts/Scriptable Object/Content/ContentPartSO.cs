@@ -8,6 +8,7 @@ public class ContentPartSO : ScriptableObject
     public TextType textType;
     public TextAlignmentOptions alignmentOptions;
     public Sprite contentImage;
+    public string imageWatermarkText;
     public string contentText;
     public string videoName;
     public string videoURL;

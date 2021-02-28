@@ -8,20 +8,25 @@ using DG.Tweening;
 
 public class ContentNode : MonoBehaviour
 {
-    public ContentPartSO contentPartSO;
-    public Image contentImage;
-    public RawImage contentVideoImage;
+    [Header("Main Content Identifier")]
+    public string contentID;
+    public ContentPartSO.ContentType contentType;
+    
+    [Header("Text Content Type")]
     public TextMeshProUGUI contentText;
+
+    [Header("Image Content Type")]
+    public Image contentImage;
+    public TextMeshProUGUI imageWatermarkText;
+
+    [Header("Video Content Type")]
+    public RawImage contentVideoImage;
     public TextMeshProUGUI videoStatusText;
     public VideoPlayer videoPlayer;
-
-    [Header("Video UI")]
     public Image thumbnailImageLayer;
     public Button videoButton;
-    public Image videoFillamount;
     public Animator videoButtonPanelAnimator;
     
-
     [SerializeField]
     private string fileName;
 
@@ -31,7 +36,8 @@ public class ContentNode : MonoBehaviour
     public void InitContentNode(ContentPartSO _contentPartSO, int _contentOrder)
     {
         transform.SetSiblingIndex(_contentOrder);
-        contentPartSO = _contentPartSO;
+        contentID = _contentPartSO.name;
+        contentType = _contentPartSO.contentType;
         fileName = _contentPartSO.videoName;
 
         if (contentImage != null)
@@ -44,21 +50,23 @@ public class ContentNode : MonoBehaviour
             contentText.gameObject.SetActive(false);
         }
 
-        switch (contentPartSO.contentType)
+        switch (contentType)
         {
             case ContentPartSO.ContentType.Image:
                 contentImage.gameObject.SetActive(true);
-                contentImage.sprite = contentPartSO.contentImage;
-                float imagewidth = contentImage.rectTransform.sizeDelta.x;
-                contentImage.rectTransform.sizeDelta = new Vector2(imagewidth, 400);
+                contentImage.sprite = _contentPartSO.contentImage;
+                imageWatermarkText.text = _contentPartSO.imageWatermarkText;
+                //float imagewidth = contentImage.rectTransform.sizeDelta.x;
+                //contentImage.rectTransform.sizeDelta = new Vector2(imagewidth, 400);
+
 
                 //contentImage.SetNativeSize();
                 break;
             
             case ContentPartSO.ContentType.Text:
                 contentText.gameObject.SetActive(true);
-                contentText.text = contentPartSO.contentText;
-                contentText.alignment = contentPartSO.alignmentOptions;
+                contentText.text = _contentPartSO.contentText;
+                contentText.alignment = _contentPartSO.alignmentOptions;
                 break;
             
             case ContentPartSO.ContentType.Video:
@@ -182,7 +190,6 @@ public class ContentNode : MonoBehaviour
                 break;
 
             case VideoStatus.Stop:
-                videoFillamount.fillAmount = 0;
                 videoPlayer.Stop();
                 break;
 

@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Lean.Pool;
-using System.Linq;
 
 public class ContentPanelUI : MonoBehaviour
 {
@@ -32,7 +29,6 @@ public class ContentPanelUI : MonoBehaviour
         {
             if (UIManager.Instance.currentSubchapterName != "")
             {
-                Debug.Log("current subchapter name " + UIManager.Instance.currentSubchapterName);
                 SubchapterSO subchapterSO = GameManager.Instance.allSubchapterData[UIManager.Instance.currentChapterName + "|" + UIManager.Instance.currentSubchapterName];
                 ContentNode contentNode;
                 for (int i = 0; i < subchapterSO.subchapterContents.Count; i++)
@@ -44,17 +40,17 @@ public class ContentPanelUI : MonoBehaviour
                         case ContentPartSO.ContentType.Image:
                             contentNode = LeanPool.Spawn(contentImagePrefab, contentNodeParent).GetComponent<ContentNode>();
                             contentNode.InitContentNode(contentPartSO, i);
-                            Debug.Log("spawn image " + contentPartSO.contentType);
+
                             break;
                         case ContentPartSO.ContentType.Text:
                             contentNode = LeanPool.Spawn(contentTextPrefab, contentNodeParent).GetComponent<ContentNode>();
                             contentNode.InitContentNode(contentPartSO, i);
-                            Debug.Log("spawn text " + contentPartSO.contentType);
+
                             break;
                         case ContentPartSO.ContentType.Video:
                             contentNode = LeanPool.Spawn(contentVideoPrefab, contentNodeParent).GetComponent<ContentNode>();
                             contentNode.InitContentNode(contentPartSO, i);
-                            Debug.Log("spawn video " + contentPartSO.contentType);
+
                             break;
                         case ContentPartSO.ContentType.Question:
                             break;
