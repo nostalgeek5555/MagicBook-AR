@@ -163,27 +163,26 @@ public class ContentPanelUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         {
             if (GetInstance().playerData != null)
             {
-                GetInstance().currentSubchapterID++;
-                int nextSubchapterID = GetInstance().currentSubchapterID;
-                string nextSubchapterName = GetInstance().playerData.allChapterUnlocked[GetInstance().currentChapterName].subchapterNameList[nextSubchapterID];
-                string nextKeyName = GetInstance().currentChapterName + "|" + nextSubchapterName;
-
-                if (!GetInstance().playerData.subchapterUnlocked.ContainsKey(nextKeyName))
+                if (GetInstance().currentSubchapterID < GetInstance().currentTotalSubchapter - 1)
                 {
-                    if (GetInstance().playerData.allChapterUnlocked[GetInstance().currentChapterName].totalSubchapterUnlocked < GetInstance().currentTotalSubchapter)
+                    GetInstance().currentSubchapterID++;
+                    int nextSubchapterID = GetInstance().currentSubchapterID;
+                    string nextSubchapterName = GetInstance().playerData.allChapterUnlocked[GetInstance().currentChapterName].subchapterNameList[nextSubchapterID];
+                    string nextKeyName = GetInstance().currentChapterName + "|" + nextSubchapterName;
+                    GetInstance().currentSubchapterName = nextSubchapterName;
+                    if (!GetInstance().playerData.subchapterUnlocked.ContainsKey(nextKeyName))
                     {
-                        GetInstance().currentSubchapterName = nextSubchapterName;
-                        if (!GetInstance().playerData.subchapterUnlocked.ContainsKey(nextKeyName))
-                        {
-                            GetInstance().playerData.subchapterUnlocked.Add(nextKeyName, true);
-                            GetInstance().playerData.allChapterUnlocked[GetInstance().currentChapterName].totalSubchapterUnlocked++;
-                            GetInstance().SaveData();
-                        }
-                        scrollRect.verticalNormalizedPosition = 0;
-                        InitAllContents();
+                        GetInstance().playerData.subchapterUnlocked.Add(nextKeyName, true);
+                        GetInstance().playerData.allChapterUnlocked[GetInstance().currentChapterName].totalSubchapterUnlocked++;
+                        GetInstance().SaveData();
                     }
+                    scrollRect.verticalNormalizedPosition = 0;
+                    InitAllContents();
+                }
 
-                    else
+                else
+                {
+                    if (GetInstance().currentChapterID < GetInstance().playerData.totalChapter - 1)
                     {
                         GetInstance().currentSubchapterID = 0;
                         GetInstance().currentChapterID++;
@@ -202,36 +201,14 @@ public class ContentPanelUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                                     GetInstance().chapterData.subchapterNameList.Add(subchapterName);
                                 }
                                 GetInstance().playerData.allChapterUnlocked.Add(nextChapterName, GetInstance().chapterData);
-                                nextSubchapterName = GetInstance().playerData.allChapterUnlocked[nextChapterName].subchapterNameList[GetInstance().currentSubchapterID];
-                                nextKeyName = nextChapterName + "|" + nextSubchapterName;
+                                string nextSubchapterName = GetInstance().playerData.allChapterUnlocked[nextChapterName].subchapterNameList[GetInstance().currentSubchapterID];
+                                string nextKeyName = nextChapterName + "|" + nextSubchapterName;
                                 GetInstance().playerData.subchapterUnlocked.Add(nextKeyName, true);
                                 GetInstance().SaveData();
                                 PanelController.Instance.ActiveDeactivePanel("subchapter", "content");
                             }
-
-                            else
-                            {
-                                PanelController.Instance.ActiveDeactivePanel("subchapter", "content");
-                            }
                         }
-                        
-
-                        else
-                        {
-
-                            PanelController.Instance.ActiveDeactivePanel("subchapter", "content");
-                        }
-                    }
-                }
-
-                else
-                {
-                    if (nextSubchapterID < GetInstance().playerData.allChapterUnlocked[GetInstance().currentChapterName].totalSubchapterUnlocked)
-                    {
-                        Debug.Log("current key exist");
-                        GetInstance().currentSubchapterName = nextSubchapterName;
-                        scrollRect.verticalNormalizedPosition = 0;
-                        InitAllContents();
+                        PanelController.Instance.ActiveDeactivePanel("subchapter", "content");
                     }
 
                     else
@@ -239,6 +216,8 @@ public class ContentPanelUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                         PanelController.Instance.ActiveDeactivePanel("subchapter", "content");
                     }
                 }
+               
+
             }
         }
     }
