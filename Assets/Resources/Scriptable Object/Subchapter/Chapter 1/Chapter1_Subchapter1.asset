@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08000def2daa89f47990b482c672b9db, type: 3}
   m_Name: Chapter1_Subchapter1
   m_EditorClassIdentifier: 
-  subchapterID: 1
+  subchapterID: 0
   subchapterUnlocked: 0
   subchapterName: Chapter1_Subchapter1
   subchapterTitle: Energi

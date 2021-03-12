@@ -115,22 +115,30 @@ public class DataManager : MonoBehaviour
         playerData.currentChapter = GameManager.Instance.allChapterList[0].chapterName;
         playerData.currentSubchapter = GameManager.Instance.allSubchapterList[0].subchapterName;
         playerData.chapterUnlocked.Add(playerData.currentChapter, true);
-        ChapterData chapterData = new ChapterData(0, playerData.currentChapter, true, GameManager.Instance.allChapterData[playerData.currentChapter].subchapterList.Count, 1);
+        chapterData = new ChapterData(0, playerData.currentChapter, true, GameManager.Instance.allChapterData[playerData.currentChapter].subchapterList.Count, 1);
         //Debug.Log("subchapter count " + playerData.allChapterUnlocked[playerData.currentChapter].subchapterNameList);
-
         for (int i = 0; i < GameManager.Instance.allChapterData[playerData.currentChapter].subchapterList.Count; i++)
         {
             Debug.Log("new subchapter added name " + GameManager.Instance.allChapterData[playerData.currentChapter].subchapterList[i].subchapterName);
             string subchapterName = GameManager.Instance.allChapterData[playerData.currentChapter].subchapterList[i].subchapterName;
             chapterData.subchapterNameList.Add(subchapterName);
         }
-        playerData.allChapterUnlocked = new Dictionary<string, ChapterData>();
         playerData.allChapterUnlocked.Add(GameManager.Instance.allChapterList[0].chapterName, chapterData);
         Debug.Log("subchapter count " + playerData.allChapterUnlocked[playerData.currentChapter].subchapterNameList.Count);
         string subchapterUnlocked = GameManager.Instance.allChapterList[0].chapterName + "|" + GameManager.Instance.allSubchapterList[0].subchapterName;
         playerData.subchapterUnlocked.Add(subchapterUnlocked, true);
         Debug.Log("current chapter unlocked data " + playerData.allChapterUnlocked[playerData.currentChapter].totalSubchapterUnlocked);
         SaveData();
+    }
+
+    public void RefreshGlobalData()
+    {
+        currentChapterID = 0;
+        currentChapterName = "";
+        currentSubchapterID = 0;
+        currentSubchapterName = "";
+        currentSubchapterTitle = "";
+        currentTotalSubchapter = 0;
     }
 
     public void CheckCurrentSubchapterUnlocked()
@@ -148,39 +156,38 @@ public class DataManager : MonoBehaviour
     public void UnlockNextChapterSubchapter()
     {
         Debug.Log("current chapter name " + currentChapterName);
-        //if (playerData.allChapterUnlocked[currentChapterName].totalSubchapterUnlocked < currentTotalSubchapter - 1)
-        //{
-        //    if (currentSubchapterID < playerData.allChapterUnlocked[currentChapterName].totalSubchapter - 1)
-        //    {
-        //        int nextSubchapterID = currentChapterID++;
-        //        Debug.Log("next subchapter id " + nextSubchapterID);
-        //        string nextSubchapterName = playerData.allChapterUnlocked[currentChapterName].subchapterNameList[nextSubchapterID];
-        //        Debug.Log("next subchapter name " + nextSubchapterName);
-        //        string nextKeyName = currentChapterName + "|" + nextSubchapterName;
-        //        if (!playerData.subchapterUnlocked.ContainsKey(nextKeyName))
-        //        {
-        //            playerData.subchapterUnlocked.Add(nextKeyName, true);
-        //            playerData.allChapterUnlocked[currentChapterName].totalSubchapterUnlocked++;
-        //            SaveData();
-        //            currentSubchapterName = playerData.allChapterUnlocked[currentChapterName].subchapterNameList[playerData.allChapterUnlocked[currentChapterName].totalSubchapterUnlocked];
-        //            Debug.Log("unlock new subchapter " + currentSubchapterName);
-        //        }
-        //    }
-           
-        //}
+        if (playerData.allChapterUnlocked[currentChapterName].totalSubchapterUnlocked < currentTotalSubchapter - 1)
+        {
+            if (currentSubchapterID < playerData.allChapterUnlocked[currentChapterName].totalSubchapter - 1)
+            {
+                int nextSubchapterID = currentChapterID++;
+                Debug.Log("next subchapter id " + nextSubchapterID);
+                string nextSubchapterName = playerData.allChapterUnlocked[currentChapterName].subchapterNameList[nextSubchapterID];
+                Debug.Log("next subchapter name " + nextSubchapterName);
+                string nextKeyName = currentChapterName + "|" + nextSubchapterName;
+                if (!playerData.subchapterUnlocked.ContainsKey(nextKeyName))
+                {
+                    playerData.subchapterUnlocked.Add(nextKeyName, true);
+                    playerData.allChapterUnlocked[currentChapterName].totalSubchapterUnlocked++;
+                    SaveData();
+                    currentSubchapterName = playerData.allChapterUnlocked[currentChapterName].subchapterNameList[playerData.allChapterUnlocked[currentChapterName].totalSubchapterUnlocked];
+                    Debug.Log("unlock new subchapter " + currentSubchapterName);
+                }
+            }
 
-        //else
-        //{
-        //    string nextChapterName = GameManager.Instance.allcurrentChapter[currentChapterID++];
-        //    playerData.chapterUnlocked.Add(nextChapterName, true);
-        //    ChapterData chapterData = new ChapterData(currentChapterID, nextChapterName, true, GameManager.Instance.allChapterData[nextChapterName].subchapterList.Count, 1);
-        //    playerData.allChapterUnlocked.Add(nextChapterName, chapterData);
+        }
 
-        //    PanelController.Instance.ActiveDeactivePanel("chapter", "subchapter");
-        //    SaveData();
-        //    Debug.Log("unlock new chapter " + currentChapterName);
-        //    return PartType.Chapter.ToString();
-        //}
+        else
+        {
+            string nextChapterName = GameManager.Instance.allcurrentChapter[currentChapterID++];
+            playerData.chapterUnlocked.Add(nextChapterName, true);
+            ChapterData chapterData = new ChapterData(currentChapterID, nextChapterName, true, GameManager.Instance.allChapterData[nextChapterName].subchapterList.Count, 1);
+            playerData.allChapterUnlocked.Add(nextChapterName, chapterData);
+
+            PanelController.Instance.ActiveDeactivePanel("chapter", "subchapter");
+            SaveData();
+            Debug.Log("unlock new chapter " + currentChapterName);
+        }
     }
 
     public void LoadResources()

@@ -36,8 +36,8 @@ public class PanelSubchapterUI : MonoBehaviour
             {
                 string currentSubchapterKey = GameManager.Instance.allSubchapterData.Keys.ElementAt(i);
                 string chapterKey = currentSubchapterKey.Substring(0, currentSubchapterKey.IndexOf("|"));
-                //Debug.Log(currentSubchapterKey);
-                //Debug.Log(chapterKey);
+                Debug.Log(currentSubchapterKey);
+                Debug.Log(chapterKey);
                 if (chapterKey == DataManager.Instance.currentChapterName)
                 {
                     SubchapterSO subchapterSO = GameManager.Instance.allSubchapterData[currentSubchapterKey];

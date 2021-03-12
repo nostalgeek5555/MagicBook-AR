@@ -57,9 +57,9 @@ public class ContentPanelUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
         if (GameManager.Instance.allSubchapterData.Count > 0)
         {
-            if (DataManager.Instance.currentSubchapterName != "")
+            if (GetInstance().currentSubchapterName != "")
             {
-                SubchapterSO subchapterSO = GameManager.Instance.allSubchapterData[DataManager.Instance.currentChapterName + "|" + DataManager.Instance.currentSubchapterName];
+                SubchapterSO subchapterSO = GameManager.Instance.allSubchapterData[GetInstance().currentChapterName + "|" + GetInstance().currentSubchapterName];
                 ContentNode contentNode;
                 for (int i = 0; i < subchapterSO.subchapterContents.Count; i++)
                 {
@@ -115,6 +115,7 @@ public class ContentPanelUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     {
         ((IDragHandler)scrollRect).OnDrag(eventData);
 
+        Debug.Log("on drag");
         if (scrollRect.verticalNormalizedPosition <= 0 && scrollRect.verticalNormalizedPosition >= 0.8)
         {
             nextButton.interactable = true;
@@ -156,45 +157,90 @@ public class ContentPanelUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         
     }
 
-    public void UnlockChapterSubchapter()
+    public void UnlockNextChapterSubchapter()
     {
-        Debug.Log("chapter name " + GetInstance().currentChapterName);
-        //if (GetInstance() != null)
-        //{
-        //    if (GetInstance().playerData != null)
-        //    {
-        //        if (GetInstance().playerData.allChapterUnlocked[GetInstance().currentChapterName].totalSubchapterUnlocked < GetInstance().currentTotalSubchapter - 1)
-        //        {
-        //            string keyName = GetInstance().currentChapterName + "|" + GetInstance().currentSubchapterName;
-        //            if (!GetInstance().playerData.subchapterUnlocked.ContainsKey(keyName))
-        //            {
-        //                GetInstance().playerData.subchapterUnlocked.Add(keyName, true);
-        //                GetInstance().playerData.allChapterUnlocked[GetInstance().currentChapterName].totalSubchapterUnlocked++;
-        //                GetInstance().SaveData();
-        //                GetInstance().currentSubchapterName = GetInstance().playerData.allChapterUnlocked[GetInstance().currentChapterName].subchapterNameList[GetInstance().playerData.allChapterUnlocked[GetInstance().currentChapterName].totalSubchapterUnlocked];
-        //                scrollRect.verticalNormalizedPosition = 0;
-        //                InitAllContents();
-        //                Debug.Log("unlock next subchapter " + GetInstance().playerData.subchapterUnlocked);
-        //            }
-        //        }
+        if (GetInstance() != null)
+        {
+            if (GetInstance().playerData != null)
+            {
+                GetInstance().currentSubchapterID++;
+                int nextSubchapterID = GetInstance().currentSubchapterID;
+                string nextSubchapterName = GetInstance().playerData.allChapterUnlocked[GetInstance().currentChapterName].subchapterNameList[nextSubchapterID];
+                string nextKeyName = GetInstance().currentChapterName + "|" + nextSubchapterName;
 
-        //        else
-        //        {
-        //            if (DataManager.Instance.currentChapterID < GameManager.Instance.allChapterList.Count - 1)
-        //            {
-        //                string nextChapterName = GameManager.Instance.allcurrentChapter[DataManager.Instance.currentChapterID++];
-        //                DataManager.Instance.playerData.chapterUnlocked.Add(nextChapterName, true);
-        //                DataManager.ChapterData chapterData = new DataManager.ChapterData(DataManager.Instance.currentChapterID, nextChapterName, true, GameManager.Instance.allChapterData[nextChapterName].subchapterList.Count, 1);
-        //                DataManager.Instance.playerData.allChapterUnlocked.Add(nextChapterName, chapterData);
+                if (!GetInstance().playerData.subchapterUnlocked.ContainsKey(nextKeyName))
+                {
+                    if (GetInstance().playerData.allChapterUnlocked[GetInstance().currentChapterName].totalSubchapterUnlocked < GetInstance().currentTotalSubchapter)
+                    {
+                        GetInstance().currentSubchapterName = nextSubchapterName;
+                        if (!GetInstance().playerData.subchapterUnlocked.ContainsKey(nextKeyName))
+                        {
+                            GetInstance().playerData.subchapterUnlocked.Add(nextKeyName, true);
+                            GetInstance().playerData.allChapterUnlocked[GetInstance().currentChapterName].totalSubchapterUnlocked++;
+                            GetInstance().SaveData();
+                        }
+                        scrollRect.verticalNormalizedPosition = 0;
+                        InitAllContents();
+                    }
 
-        //                PanelController.Instance.ActiveDeactivePanel("chapter", "subchapter");
-        //                DataManager.Instance.SaveData();
+                    else
+                    {
+                        GetInstance().currentSubchapterID = 0;
+                        GetInstance().currentChapterID++;
+                        string nextChapterName = GameManager.Instance.allcurrentChapter[GetInstance().currentChapterID];
 
-        //                Debug.Log("next chapter unlocked " + nextChapterName);
-        //            }
-        //        }
-        //    }
-        //}
+                        if (!GetInstance().playerData.chapterUnlocked.ContainsKey(nextChapterName))
+                        {
+                            if (GetInstance().playerData.totalChapterUnlocked < GameManager.Instance.allChapterList.Count)
+                            {
+                                GetInstance().playerData.totalChapterUnlocked++;
+                                GetInstance().playerData.chapterUnlocked.Add(nextChapterName, true);
+                                GetInstance().chapterData = new DataManager.ChapterData(GetInstance().currentChapterID, nextChapterName, true, GameManager.Instance.allChapterData[nextChapterName].subchapterList.Count, 1);
+                                for (int i = 0; i < GameManager.Instance.allChapterData[nextChapterName].subchapterList.Count; i++)
+                                {
+                                    string subchapterName = GameManager.Instance.allChapterData[nextChapterName].subchapterList[i].subchapterName;
+                                    GetInstance().chapterData.subchapterNameList.Add(subchapterName);
+                                }
+                                GetInstance().playerData.allChapterUnlocked.Add(nextChapterName, GetInstance().chapterData);
+                                nextSubchapterName = GetInstance().playerData.allChapterUnlocked[nextChapterName].subchapterNameList[GetInstance().currentSubchapterID];
+                                nextKeyName = nextChapterName + "|" + nextSubchapterName;
+                                GetInstance().playerData.subchapterUnlocked.Add(nextKeyName, true);
+                                GetInstance().SaveData();
+                                PanelController.Instance.ActiveDeactivePanel("subchapter", "content");
+                            }
+
+                            else
+                            {
+                                PanelController.Instance.ActiveDeactivePanel("subchapter", "content");
+                            }
+                        }
+                        
+
+                        else
+                        {
+
+                            PanelController.Instance.ActiveDeactivePanel("subchapter", "content");
+                        }
+                    }
+                }
+
+                else
+                {
+                    if (nextSubchapterID < GetInstance().playerData.allChapterUnlocked[GetInstance().currentChapterName].totalSubchapterUnlocked)
+                    {
+                        Debug.Log("current key exist");
+                        GetInstance().currentSubchapterName = nextSubchapterName;
+                        scrollRect.verticalNormalizedPosition = 0;
+                        InitAllContents();
+                    }
+
+                    else
+                    {
+                        PanelController.Instance.ActiveDeactivePanel("subchapter", "content");
+                    }
+                }
+            }
+        }
     }
 
     private static DataManager GetInstance()
