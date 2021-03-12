@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08000def2daa89f47990b482c672b9db, type: 3}
+  m_Name: Chapter2_Subchapter1
+  m_EditorClassIdentifier: 
+  subchapterID: 0
+  subchapterUnlocked: 0
+  subchapterName: Chapter2_Subchapter1
+  subchapterTitle: Perubahan Energi
+  subchapterIcon: {fileID: 0}
+  subchapterContents:
+  - {fileID: 11400000, guid: 5bdfeba7664b8b34e8ade2b7eccb2a67, type: 2}
+  - {fileID: 11400000, guid: cafd5a8acd5ed174bb9e81dc1ccf0c57, type: 2}
+  - {fileID: 11400000, guid: b141b8a279940784899f0da10c09b3dd, type: 2}
+  - {fileID: 11400000, guid: f362b309d846efc448f6b4231a7f1a05, type: 2}
+  - {fileID: 11400000, guid: a8e23614dce05ae43bc75fcac3fc3262, type: 2}
+  - {fileID: 11400000, guid: d6e1366c283a6a14b8c76a20cd376d44, type: 2}
+  - {fileID: 11400000, guid: 12356e33be48ed047a1756aaec21207e, type: 2}
+  - {fileID: 11400000, guid: 6292d923b039fc449b4fa1a375c5327e, type: 2}

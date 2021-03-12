@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
+  m_Name: chap2_sub2_22
+  m_EditorClassIdentifier: 
+  contentType: 0
+  textType: 2
+  alignmentOptions: 513
+  contentImage: {fileID: 0}
+  imageWatermarkText: 
+  contentText: "Hukum kekekalan energi menyatakan bahwa \u201CEnergi tidak dapat
+    diciptakan dan tidak dapat dimusnahkan. Energi hanya dapat berubah dari suatu
+    bentuk ke bentuk yang lain.\u201D Hukum kekekalan energi juga berlaku pada energi
+    mekanik. Energi mekanik merupakan penjumlahan energi kinetik dan energi potensial."
+  videoName: 
+  videoURL: 

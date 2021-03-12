@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
   m_Name: chap1_sub3_21
   m_EditorClassIdentifier: 
-  contentType: 0
+  contentType: 1
   textType: 0
   alignmentOptions: 0
-  contentImage: {fileID: 0}
+  contentImage: {fileID: 21300000, guid: 1e296c3154f416f4399589cad64829de, type: 3}
+  imageWatermarkText: 'Sumber: fin.co.id'
   contentText: 
   videoName: 
   videoURL: 

@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using System;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "Content", menuName = "Scriptable Object/Content/ContentParts")]
 public class ContentPartSO : ScriptableObject
@@ -12,6 +14,9 @@ public class ContentPartSO : ScriptableObject
     public string contentText;
     public string videoName;
     public string videoURL;
+
+    [SerializeField]
+    public Dictionary<string, List<Tuple<int, int>>> keyValuePairs;
 
     public enum ContentType
     {

@@ -13,11 +13,6 @@ public class UIManager : MonoBehaviour
     public GameObject subchapterPanel;
     public GameObject contentPanel;
 
-    [Header("Current Chapter/Subchapter")]
-    public string currentChapterName;
-    public string currentSubchapterName;
-    public SubchapterSO currentSubchapterSO;
-
     private void Awake()
     {
         if (Instance == null)

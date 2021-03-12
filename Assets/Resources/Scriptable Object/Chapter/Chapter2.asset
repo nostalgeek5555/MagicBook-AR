@@ -15,10 +15,7 @@ MonoBehaviour:
   chapterID: 1
   chapterUnlocked: 0
   chapterName: Bab II
-  chapterTitle: Daftar Isi
+  chapterTitle: Ayo hemat energi
   subchapterList:
-  - {fileID: 11400000, guid: c61d480ec2616f548a3de8b2b758338c, type: 2}
-  - {fileID: 11400000, guid: ad64f68311058274fa741ba1d277a3b2, type: 2}
-  - {fileID: 11400000, guid: 039789608efc65d45996e66201dc7809, type: 2}
-  - {fileID: 11400000, guid: f690fc5182d561b449b8ca101c30890f, type: 2}
-  - {fileID: 11400000, guid: 1c12df4ebdb83404f82e2369db91530e, type: 2}
+  - {fileID: 11400000, guid: e43d0208c62e4c24498889c920f7b414, type: 2}
+  - {fileID: 11400000, guid: 75d12212ecbacde418d78e2fa85c4f9d, type: 2}

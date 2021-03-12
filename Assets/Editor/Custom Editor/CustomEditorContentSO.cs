@@ -30,7 +30,7 @@ public class CustomEditorContentSO : Editor
         serializedObject.Update();
 
         EditorGUILayout.PropertyField(contentType);
-        
+
         ContentPartSO.ContentType _contentType = (ContentPartSO.ContentType)contentType.enumValueIndex;
 
         switch (_contentType)

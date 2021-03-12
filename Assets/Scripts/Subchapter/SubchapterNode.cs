@@ -1,38 +1,64 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class SubchapterNode : MonoBehaviour
 {
-    public SubchapterSO subchapterSO;
+    [Header("Subchapter Data")]
     public int subchapterID;
     public bool subchapterUnlocked;
     public string subchapterName;
     public string subchapterTitle;
+
+    [Header("Subchapter Node UI")]
     public Button subchapterButton;
     public TextMeshProUGUI subchapterTitleTxt;
     
     public void InitSubchapter(SubchapterSO _subchapterSO)
     {
-        subchapterSO = _subchapterSO;
-        subchapterID = subchapterSO.subchapterID;
-        subchapterName = subchapterSO.subchapterName;
-        subchapterTitle = subchapterSO.subchapterTitle;
-        subchapterTitleTxt.text = subchapterName;
+        subchapterID = _subchapterSO.subchapterID;
+        subchapterName = _subchapterSO.subchapterName;
+        subchapterTitle = _subchapterSO.subchapterTitle;
+        subchapterTitleTxt.text = subchapterTitle;
 
-        subchapterButton.onClick.RemoveAllListeners();
-        subchapterButton.onClick.AddListener(() =>
+        if (DataManager.Instance != null)
         {
-            OpenContentPanel();
-        });
+            if (DataManager.Instance.playerData != null)
+            {
+                string currentSubchapterKey = DataManager.Instance.currentChapterName + "|" + _subchapterSO.subchapterName;
+                if (DataManager.Instance.playerData.subchapterUnlocked.ContainsKey(currentSubchapterKey))
+                {
+                    subchapterUnlocked = DataManager.Instance.playerData.subchapterUnlocked[currentSubchapterKey];
+                    if (subchapterUnlocked)
+                    {
+                        subchapterButton.interactable = true;
+                        subchapterButton.onClick.RemoveAllListeners();
+                        subchapterButton.onClick.AddListener(() =>
+                        {
+                            OpenContentPanel();
+                        });
+                    }
+
+                    else
+                    {
+                        subchapterButton.interactable = false;
+                    }
+                }
+
+                else
+                {
+                    subchapterUnlocked = false;
+                    subchapterButton.interactable = false;
+                }
+            }
+        }
     }
 
     private void OpenContentPanel()
     {
-        UIManager.Instance.currentSubchapterName = subchapterName;
+        DataManager.Instance.currentSubchapterID = subchapterID;
+        DataManager.Instance.currentSubchapterName = subchapterName;
+        DataManager.Instance.currentSubchapterTitle = subchapterTitle;
         PanelController.Instance.ActiveDeactivePanel("content", "subchapter");
-        
     }
 }

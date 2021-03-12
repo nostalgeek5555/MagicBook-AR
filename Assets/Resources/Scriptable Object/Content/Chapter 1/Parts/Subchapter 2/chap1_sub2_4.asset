@@ -16,6 +16,7 @@ MonoBehaviour:
   textType: 0
   alignmentOptions: 0
   contentImage: {fileID: 21300000, guid: 099e48f9ac36de64e9159a7e44e686c4, type: 3}
+  imageWatermarkText: 'Sumber: GuruPendidikan.com'
   contentText: 
   videoName: 
   videoURL: 

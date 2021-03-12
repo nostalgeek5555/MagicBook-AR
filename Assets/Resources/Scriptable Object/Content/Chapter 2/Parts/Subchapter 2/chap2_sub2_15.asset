@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08000def2daa89f47990b482c672b9db, type: 3}
-  m_Name: Chapter1_Subchapter5
+  m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
+  m_Name: chap2_sub2_15
   m_EditorClassIdentifier: 
-  subchapterID: 1
-  subchapterUnlocked: 0
-  subchapterName: Chapter1_Subchapter5
-  subchapterTitle: Intro
-  subchapterIcon: {fileID: 0}
-  subchapterContents:
-  - {fileID: 0}
+  contentType: 0
+  textType: 1
+  alignmentOptions: 513
+  contentImage: {fileID: 0}
+  imageWatermarkText: 
+  contentText: h    = ketinggian (m)
+  videoName: 
+  videoURL: 

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
+  m_Name: chap1_sub3_33
+  m_EditorClassIdentifier: 
+  contentType: 0
+  textType: 2
+  alignmentOptions: 513
+  contentImage: {fileID: 0}
+  imageWatermarkText: 
+  contentText: Nuklir tidak didapatkan dari fosil, namun berasal dari uranium yang
+    juga terbatas. Energi nuklir tidak melepaskan gas rumah kaca secara langsung
+    yang menyebabkan polusi udara, namun proses penambangan uranium untuk bahan nuklir
+    dan pembuatan pembangkit nuklir menggunakan banyak energi. nuklir juga memiliki
+    resiko menimbulkan limbah zat radioaktif yang berbahaya bagi makhluk hidup.
+  videoName: 
+  videoURL: 

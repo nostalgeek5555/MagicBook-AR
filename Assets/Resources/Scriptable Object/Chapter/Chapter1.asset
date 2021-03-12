@@ -15,7 +15,7 @@ MonoBehaviour:
   chapterID: 1
   chapterUnlocked: 0
   chapterName: Bab I
-  chapterTitle: Intro
+  chapterTitle: Energi
   subchapterList:
   - {fileID: 11400000, guid: c61d480ec2616f548a3de8b2b758338c, type: 2}
   - {fileID: 11400000, guid: ad64f68311058274fa741ba1d277a3b2, type: 2}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 
 public class PanelController : MonoBehaviour
@@ -71,14 +72,14 @@ public class PanelController : MonoBehaviour
     {
         if (UIManager.Instance.chapterPanel.activeInHierarchy == true)
         {
-            Debug.Log("back to main menu");
+            //Debug.Log("back to main menu");
             SceneManager.LoadScene(0);
             Refresh();
         }
 
         else if (UIManager.Instance.subchapterPanel.activeInHierarchy == true)
         { 
-            Debug.Log("back to chapter panel");
+            //Debug.Log("back to chapter panel");
             UIManager.Instance.subchapterPanel.SetActive(false);
             UIManager.Instance.chapterPanel.SetActive(true);
             Refresh();
@@ -86,7 +87,7 @@ public class PanelController : MonoBehaviour
 
         else if (UIManager.Instance.contentPanel.activeInHierarchy == true)
         {
-            Debug.Log("back to chapter panel");
+            //Debug.Log("back to chapter panel");
             UIManager.Instance.contentPanel.SetActive(false);
             UIManager.Instance.subchapterPanel.SetActive(true);
             Refresh();
@@ -104,8 +105,8 @@ public class PanelController : MonoBehaviour
 
         else if (currentScene.buildIndex != 0)
         {
-            Debug.Log("back button active");
             backButton.gameObject.SetActive(true);
+            
         }
     }
 }

@@ -33,6 +33,7 @@ public class ContentNode : MonoBehaviour
     [SerializeField]
     private string URLvideo;
 
+
     public void InitContentNode(ContentPartSO _contentPartSO, int _contentOrder)
     {
         transform.SetSiblingIndex(_contentOrder);
@@ -66,6 +67,7 @@ public class ContentNode : MonoBehaviour
             case ContentPartSO.ContentType.Text:
                 contentText.gameObject.SetActive(true);
                 contentText.text = _contentPartSO.contentText;
+                contentText.autoSizeTextContainer = true;
                 contentText.alignment = _contentPartSO.alignmentOptions;
                 break;
             
@@ -160,12 +162,11 @@ public class ContentNode : MonoBehaviour
         videoPlayer.Stop();
         videoPlayer.SetDirectAudioMute(0, false);
         RenderTexture.active = null;
-        Debug.Log("create thumbnail");
+        //Debug.Log("create thumbnail");
     }
     
     private void SetVideoStatus(VideoStatus videoStatus)
     {
-        videoPlayer.SetDirectAudioVolume(0, 0);
         thumbnailImageLayer.gameObject.SetActive(false);
         contentImage.gameObject.SetActive(false);
         contentVideoImage.gameObject.SetActive(true);
