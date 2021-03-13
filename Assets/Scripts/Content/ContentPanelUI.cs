@@ -4,13 +4,12 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 using Lean.Pool;
-public class ContentPanelUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class ContentPanelUI : MonoBehaviour
 {
     [ReadOnly]
     [SerializeField]
     private string currentSubchapterTitle;
 
-    public DataManager.SubchapterData subchapterData;
     public TextMeshProUGUI contentTitleText;
     public GameObject contentBG;
     public GameObject contentImagePrefab;
@@ -18,6 +17,7 @@ public class ContentPanelUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     public GameObject contentVideoPrefab;
     public Transform contentNodeParent;
     public ScrollRect scrollRect;
+    public GameObject buttonsInContentLayout;
     public Button nextButton;
 
     private void OnEnable()
@@ -25,7 +25,6 @@ public class ContentPanelUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         if (UIManager.Instance != null)
         {
             currentSubchapterTitle = DataManager.Instance.currentSubchapterTitle;
-            contentTitleText.text = currentSubchapterTitle;
         }
         nextButton.interactable = false;
         contentBG.SetActive(true);
@@ -54,6 +53,8 @@ public class ContentPanelUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     public void InitAllContents()
     {
         DespawnAllContents();
+
+        contentTitleText.text = currentSubchapterTitle;
 
         if (GameManager.Instance.allSubchapterData.Count > 0)
         {
@@ -90,8 +91,9 @@ public class ContentPanelUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                             break;
                     }
                 }
-                nextButton.transform.SetAsLastSibling();
-                Debug.Log("next button index " + nextButton.transform.GetSiblingIndex());
+
+                buttonsInContentLayout.transform.SetAsLastSibling();
+                ScrollToTop(scrollRect);
             }
         }
     }
@@ -111,12 +113,10 @@ public class ContentPanelUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         }
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public void OnScrolling()
     {
-        ((IDragHandler)scrollRect).OnDrag(eventData);
-
         Debug.Log("on drag");
-        if (scrollRect.verticalNormalizedPosition <= 0 && scrollRect.verticalNormalizedPosition >= 0.8)
+        if (scrollRect.verticalNormalizedPosition <= 0.3)
         {
             nextButton.interactable = true;
             Debug.Log("current button next interactable " + nextButton.interactable);
@@ -127,35 +127,7 @@ public class ContentPanelUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
             nextButton.interactable = false;
         }
     }
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        ((IBeginDragHandler)scrollRect).OnBeginDrag(eventData);
-
-        if (scrollRect.verticalNormalizedPosition <= 0 && scrollRect.verticalNormalizedPosition <= 0.8)
-        {
-            nextButton.interactable = true;
-            Debug.Log("current button next interactable " + nextButton.interactable);
-        }
-
-        else
-        {
-            nextButton.interactable = false;
-        }
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        ((IEndDragHandler)scrollRect).OnEndDrag(eventData);
-
-        if (scrollRect.verticalNormalizedPosition <= 0 && scrollRect.verticalNormalizedPosition <= 0.8)
-        {
-            nextButton.interactable = true;
-            Debug.Log("current button next interactable " + nextButton.interactable);
-        }
-
-        
-    }
+    
 
     public void UnlockNextChapterSubchapter()
     {
@@ -170,13 +142,13 @@ public class ContentPanelUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                     string nextSubchapterName = GetInstance().playerData.allChapterUnlocked[GetInstance().currentChapterName].subchapterNameList[nextSubchapterID];
                     string nextKeyName = GetInstance().currentChapterName + "|" + nextSubchapterName;
                     GetInstance().currentSubchapterName = nextSubchapterName;
+                    currentSubchapterTitle = GameManager.Instance.allSubchapterData[nextKeyName].subchapterTitle;
                     if (!GetInstance().playerData.subchapterUnlocked.ContainsKey(nextKeyName))
                     {
                         GetInstance().playerData.subchapterUnlocked.Add(nextKeyName, true);
                         GetInstance().playerData.allChapterUnlocked[GetInstance().currentChapterName].totalSubchapterUnlocked++;
                         GetInstance().SaveData();
                     }
-                    scrollRect.verticalNormalizedPosition = 0;
                     InitAllContents();
                 }
 
@@ -187,11 +159,11 @@ public class ContentPanelUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
                         GetInstance().currentSubchapterID = 0;
                         GetInstance().currentChapterID++;
                         string nextChapterName = GameManager.Instance.allcurrentChapter[GetInstance().currentChapterID];
-
                         if (!GetInstance().playerData.chapterUnlocked.ContainsKey(nextChapterName))
                         {
                             if (GetInstance().playerData.totalChapterUnlocked < GameManager.Instance.allChapterList.Count)
                             {
+                                
                                 GetInstance().playerData.totalChapterUnlocked++;
                                 GetInstance().playerData.chapterUnlocked.Add(nextChapterName, true);
                                 GetInstance().chapterData = new DataManager.ChapterData(GetInstance().currentChapterID, nextChapterName, true, GameManager.Instance.allChapterData[nextChapterName].subchapterList.Count, 1);

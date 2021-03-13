@@ -14,7 +14,6 @@ public class DataManager : MonoBehaviour
     public static DataManager Instance;
     public PlayerData playerData;
     public ChapterData chapterData;
-    public SubchapterData subchapterData;
     public List<ChapterData> chapterDataInPlayerData;
     public List<string> allChapterUnlocked;
     public List<string> allSubchapterUnlocked;
@@ -114,6 +113,7 @@ public class DataManager : MonoBehaviour
         playerData.totalChapterUnlocked = 1;
         playerData.currentChapter = GameManager.Instance.allChapterList[0].chapterName;
         playerData.currentSubchapter = GameManager.Instance.allSubchapterList[0].subchapterName;
+        playerData.totalChapter = GameManager.Instance.allChapterData.Count;
         playerData.chapterUnlocked.Add(playerData.currentChapter, true);
         chapterData = new ChapterData(0, playerData.currentChapter, true, GameManager.Instance.allChapterData[playerData.currentChapter].subchapterList.Count, 1);
         //Debug.Log("subchapter count " + playerData.allChapterUnlocked[playerData.currentChapter].subchapterNameList);
@@ -141,54 +141,7 @@ public class DataManager : MonoBehaviour
         currentTotalSubchapter = 0;
     }
 
-    public void CheckCurrentSubchapterUnlocked()
-    {
-        string currentKeyName = currentChapterName + "|" + currentSubchapterName;
-        if (!playerData.subchapterUnlocked.ContainsKey(currentKeyName))
-        {
-            playerData.subchapterUnlocked.Add(currentKeyName, true);
-            playerData.allChapterUnlocked[currentChapterName].totalSubchapterUnlocked++;
-            SaveData();
-            Debug.Log("unlock new subchapter " + playerData.subchapterUnlocked.Keys.ToList());
-        }
-    }
-
-    public void UnlockNextChapterSubchapter()
-    {
-        Debug.Log("current chapter name " + currentChapterName);
-        if (playerData.allChapterUnlocked[currentChapterName].totalSubchapterUnlocked < currentTotalSubchapter - 1)
-        {
-            if (currentSubchapterID < playerData.allChapterUnlocked[currentChapterName].totalSubchapter - 1)
-            {
-                int nextSubchapterID = currentChapterID++;
-                Debug.Log("next subchapter id " + nextSubchapterID);
-                string nextSubchapterName = playerData.allChapterUnlocked[currentChapterName].subchapterNameList[nextSubchapterID];
-                Debug.Log("next subchapter name " + nextSubchapterName);
-                string nextKeyName = currentChapterName + "|" + nextSubchapterName;
-                if (!playerData.subchapterUnlocked.ContainsKey(nextKeyName))
-                {
-                    playerData.subchapterUnlocked.Add(nextKeyName, true);
-                    playerData.allChapterUnlocked[currentChapterName].totalSubchapterUnlocked++;
-                    SaveData();
-                    currentSubchapterName = playerData.allChapterUnlocked[currentChapterName].subchapterNameList[playerData.allChapterUnlocked[currentChapterName].totalSubchapterUnlocked];
-                    Debug.Log("unlock new subchapter " + currentSubchapterName);
-                }
-            }
-
-        }
-
-        else
-        {
-            string nextChapterName = GameManager.Instance.allcurrentChapter[currentChapterID++];
-            playerData.chapterUnlocked.Add(nextChapterName, true);
-            ChapterData chapterData = new ChapterData(currentChapterID, nextChapterName, true, GameManager.Instance.allChapterData[nextChapterName].subchapterList.Count, 1);
-            playerData.allChapterUnlocked.Add(nextChapterName, chapterData);
-
-            PanelController.Instance.ActiveDeactivePanel("chapter", "subchapter");
-            SaveData();
-            Debug.Log("unlock new chapter " + currentChapterName);
-        }
-    }
+    
 
     public void LoadResources()
     {
@@ -234,7 +187,6 @@ public class DataManager : MonoBehaviour
         public int totalSubchapter = 0;
         public int totalSubchapterUnlocked = 1;
         public List<string> subchapterNameList = new List<string>();
-        public Dictionary<string, SubchapterData> subchapterData = new Dictionary<string, SubchapterData>();
 
         public bool ChapterUnlocked
         { get => chapterUnlocked; set => chapterUnlocked = value; }
@@ -247,23 +199,6 @@ public class DataManager : MonoBehaviour
             chapterUnlocked = _chapterUnlocked;
             totalSubchapter = _totalSubchapter;
             totalSubchapterUnlocked = _totalSubchapterUnlocked;
-        }
-    }
-
-    [Serializable]
-    public class SubchapterData
-    {
-        public int subchapterID;
-        public string subchapterName;
-        private bool subchapterUnlocked = false;
-
-        public bool SubchapterUnlocked { get => subchapterUnlocked; set => subchapterUnlocked = value; }
-
-        public SubchapterData(int _subchapterID, string _subchapterName, bool _subchapterUnlocked)
-        {
-            subchapterID = _subchapterID;
-            subchapterName = _subchapterName;
-            subchapterUnlocked = _subchapterUnlocked;
         }
     }
 #endregion

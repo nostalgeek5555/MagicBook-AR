@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39d9ba0ac174e14abd97c8c6283fb3c, type: 3}
   m_Name: Chapter3
   m_EditorClassIdentifier: 
-  chapterID: 1
+  chapterID: 2
   chapterUnlocked: 0
   chapterName: Bab III
   chapterTitle: Fotosintesis
