@@ -80,7 +80,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -151,9 +151,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a1df451fc536c4785a1fdc50cf4572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contentPartSO: {fileID: 0}
-  contentImage: {fileID: 0}
+  contentID: 
+  contentType: 0
   contentText: {fileID: 8744418234860602664}
+  contentImage: {fileID: 0}
+  imageWatermarkText: {fileID: 0}
+  contentVideoImage: {fileID: 0}
+  videoStatusText: {fileID: 0}
+  videoPlayer: {fileID: 0}
+  thumbnailImageLayer: {fileID: 0}
+  videoButton: {fileID: 0}
+  videoButtonPanelAnimator: {fileID: 0}
+  fileName: 
   URLvideo: 
 --- !u!114 &-9134617737554322844
 MonoBehaviour:

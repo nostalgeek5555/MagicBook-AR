@@ -1,15 +1,13 @@
-using Unity.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 using Lean.Pool;
+using DG.Tweening;
 public class ContentPanelUI : MonoBehaviour
 {
-    [ReadOnly]
+    [Header("Content Data & UI")]
     [SerializeField]
     private string currentSubchapterTitle;
-
     public TextMeshProUGUI contentTitleText;
     public GameObject contentBG;
     public GameObject contentImagePrefab;
@@ -19,9 +17,27 @@ public class ContentPanelUI : MonoBehaviour
     public ScrollRect scrollRect;
     public GameObject buttonsInContentLayout;
     public Button nextButton;
+    [SerializeField] private int previousChapterID = 0;
+    [SerializeField] private int nextChapterID = 0;
+    [SerializeField] private string nextChapterName;
+    [SerializeField] private string nextSubchapterName;
+    [SerializeField] private int prevTotalSubchapter = 0;
+    [SerializeField] private int nextTotalSubchapter = 0;
+
+    [Header("New Chapter Popup")]
+    public Image blackLayer;
+    public GameObject newChapterPopup;
+    public Button closePopupButton;
+    public Button popupBackButton;
+    public Button popupNextButton;
+    public TextMeshProUGUI newChapterNameText;
+    public TextMeshProUGUI nextChapterLoadText;
+    public TextMeshProUGUI allChapterCompleteText;
 
     private void OnEnable()
     {
+        nextChapterName = "";
+        nextSubchapterName = "";
         if (UIManager.Instance != null)
         {
             currentSubchapterTitle = DataManager.Instance.currentSubchapterTitle;
@@ -38,6 +54,7 @@ public class ContentPanelUI : MonoBehaviour
         nextButton.interactable = false;
     }
 
+
     public static void ScrollToTop (ScrollRect scrollRect)
     {
         scrollRect.normalizedPosition = new Vector2(0, 1);
@@ -53,6 +70,7 @@ public class ContentPanelUI : MonoBehaviour
     public void InitAllContents()
     {
         DespawnAllContents();
+
 
         contentTitleText.text = currentSubchapterTitle;
 
@@ -108,18 +126,15 @@ public class ContentPanelUI : MonoBehaviour
                 {
                     LeanPool.Despawn(contentNodeParent.GetChild(i).gameObject);
                 }
-                
             }
         }
     }
 
     public void OnScrolling()
     {
-        Debug.Log("on drag");
         if (scrollRect.verticalNormalizedPosition <= 0.3)
         {
             nextButton.interactable = true;
-            Debug.Log("current button next interactable " + nextButton.interactable);
         }
 
         else
@@ -149,6 +164,7 @@ public class ContentPanelUI : MonoBehaviour
                         GetInstance().playerData.allChapterUnlocked[GetInstance().currentChapterName].totalSubchapterUnlocked++;
                         GetInstance().SaveData();
                     }
+                    Debug.Log("init all content");
                     InitAllContents();
                 }
 
@@ -156,35 +172,58 @@ public class ContentPanelUI : MonoBehaviour
                 {
                     if (GetInstance().currentChapterID < GetInstance().playerData.totalChapter - 1)
                     {
-                        GetInstance().currentSubchapterID = 0;
-                        GetInstance().currentChapterID++;
-                        string nextChapterName = GameManager.Instance.allcurrentChapter[GetInstance().currentChapterID];
-                        if (!GetInstance().playerData.chapterUnlocked.ContainsKey(nextChapterName))
+                        previousChapterID = GetInstance().currentChapterID;
+                        nextChapterID = GetInstance().currentChapterID + 1;
+                        Debug.Log("current chapter id " + GetInstance().currentChapterID);
+                        Debug.Log("next chapter id " + nextChapterID);
+                        //GetInstance().currentChapterID++;
+
+                        string _nextChapterName = GameManager.Instance.allcurrentChapter[nextChapterID];
+                        int _nextTotalSubchapter = GameManager.Instance.allChapterData[_nextChapterName].subchapterList.Count;
+
+                        if (!GetInstance().playerData.chapterUnlocked.ContainsKey(_nextChapterName))
                         {
                             if (GetInstance().playerData.totalChapterUnlocked < GameManager.Instance.allChapterList.Count)
                             {
+                                prevTotalSubchapter = GetInstance().currentTotalSubchapter;
+                                nextTotalSubchapter = _nextTotalSubchapter;
                                 
                                 GetInstance().playerData.totalChapterUnlocked++;
-                                GetInstance().playerData.chapterUnlocked.Add(nextChapterName, true);
-                                GetInstance().chapterData = new DataManager.ChapterData(GetInstance().currentChapterID, nextChapterName, true, GameManager.Instance.allChapterData[nextChapterName].subchapterList.Count, 1);
-                                for (int i = 0; i < GameManager.Instance.allChapterData[nextChapterName].subchapterList.Count; i++)
+                                GetInstance().playerData.chapterUnlocked.Add(_nextChapterName, true);
+                                GetInstance().chapterData = new DataManager.ChapterData(nextChapterID, _nextChapterName, true, GameManager.Instance.allChapterData[_nextChapterName].subchapterList.Count, 1);
+                                for (int i = 0; i < GameManager.Instance.allChapterData[_nextChapterName].subchapterList.Count; i++)
                                 {
-                                    string subchapterName = GameManager.Instance.allChapterData[nextChapterName].subchapterList[i].subchapterName;
+                                    string subchapterName = GameManager.Instance.allChapterData[_nextChapterName].subchapterList[i].subchapterName;
                                     GetInstance().chapterData.subchapterNameList.Add(subchapterName);
                                 }
-                                GetInstance().playerData.allChapterUnlocked.Add(nextChapterName, GetInstance().chapterData);
-                                string nextSubchapterName = GetInstance().playerData.allChapterUnlocked[nextChapterName].subchapterNameList[GetInstance().currentSubchapterID];
-                                string nextKeyName = nextChapterName + "|" + nextSubchapterName;
+                                GetInstance().playerData.allChapterUnlocked.Add(_nextChapterName, GetInstance().chapterData);
+                                string _nextSubchapterName = GetInstance().playerData.allChapterUnlocked[_nextChapterName].subchapterNameList[0];
+                                string nextKeyName = _nextChapterName + "|" + _nextSubchapterName;
                                 GetInstance().playerData.subchapterUnlocked.Add(nextKeyName, true);
                                 GetInstance().SaveData();
-                                PanelController.Instance.ActiveDeactivePanel("subchapter", "content");
+                                
+                                nextChapterName = _nextChapterName;
+                                nextSubchapterName = _nextSubchapterName;
+
+                                Debug.Log("next chapter name " + nextChapterName);
+                                Debug.Log("next subchapter name " + nextSubchapterName);
+                                OpenNewChapterPopup();
+
+                                //PanelController.Instance.ActiveDeactivePanel("subchapter", "content");
                             }
                         }
-                        PanelController.Instance.ActiveDeactivePanel("subchapter", "content");
+
+                        else
+                        {
+                            GetInstance().currentChapterID = previousChapterID;
+                            PanelController.Instance.ActiveDeactivePanel("subchapter", "content");
+                        }
+                        
                     }
 
                     else
                     {
+                        GetInstance().currentChapterID = previousChapterID;
                         PanelController.Instance.ActiveDeactivePanel("subchapter", "content");
                     }
                 }
@@ -192,6 +231,82 @@ public class ContentPanelUI : MonoBehaviour
 
             }
         }
+    }
+
+    public void OpenNewChapterPopup()
+    {
+        PanelController.Instance.backButton.gameObject.SetActive(false);
+        blackLayer.gameObject.SetActive(true);
+        newChapterPopup.SetActive(true);
+        closePopupButton.interactable = false;
+        popupBackButton.interactable = false;
+        popupNextButton.interactable = false;
+
+        if (GetInstance().playerData.chapterUnlocked.Count == GameManager.Instance.allChapterData.Count)
+        {
+            nextChapterLoadText.gameObject.SetActive(false);
+            allChapterCompleteText.gameObject.SetActive(true);
+        }
+
+        else
+        {
+            newChapterNameText.text = nextChapterName;
+            nextChapterLoadText.gameObject.SetActive(true);
+            allChapterCompleteText.gameObject.SetActive(false);
+        }
+
+        CanvasGroup canvasGroup = newChapterPopup.GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 0;
+
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(newChapterPopup.transform.DOPunchScale(Vector3.one * 0.25f, 0.3f, 4, 1));
+        sequence.Join(canvasGroup.DOFade(1, 0.2f));
+        sequence.AppendCallback(() =>
+        {
+            closePopupButton.interactable = true;
+            popupBackButton.interactable = true;
+            popupNextButton.interactable = true;
+
+            //close popup
+            closePopupButton.onClick.RemoveAllListeners();
+            closePopupButton.onClick.AddListener(() =>
+            {
+                GetInstance().currentChapterID = previousChapterID;
+                GetInstance().currentTotalSubchapter = prevTotalSubchapter;
+                blackLayer.gameObject.SetActive(false);
+                newChapterPopup.SetActive(false);
+                PanelController.Instance.backButton.gameObject.SetActive(true);
+            });
+
+            //popup back button 
+            popupBackButton.onClick.RemoveAllListeners();
+            popupBackButton.onClick.AddListener(() =>
+            {
+                blackLayer.gameObject.SetActive(false);
+                newChapterPopup.SetActive(false);
+                PanelController.Instance.backButton.gameObject.SetActive(true);
+                DespawnAllContents();
+                PanelController.Instance.ActiveDeactivePanel("subchapter", "content");
+            });
+
+            //popup next button
+            popupNextButton.onClick.RemoveAllListeners();
+            popupNextButton.onClick.AddListener(() =>
+            {
+                GetInstance().currentSubchapterID = 0;
+                GetInstance().currentChapterID = nextChapterID;
+                GetInstance().currentChapterName = nextChapterName;
+                GetInstance().currentSubchapterName = nextSubchapterName;
+                GetInstance().currentTotalSubchapter = nextTotalSubchapter;
+                blackLayer.gameObject.SetActive(false);
+                newChapterPopup.SetActive(false);
+
+                Debug.Log("load next chapter " + GetInstance().currentChapterName);
+                Debug.Log("load next subchapter " + GetInstance().currentSubchapterName);
+                InitAllContents();
+            });
+
+        });
     }
 
     private static DataManager GetInstance()
