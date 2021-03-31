@@ -26,9 +26,11 @@ public class SubchapterNode : MonoBehaviour
             if (DataManager.Instance.playerData != null)
             {
                 string currentSubchapterKey = DataManager.Instance.currentChapterName + "|" + _subchapterSO.subchapterName;
+                Debug.Log("current subchapter key " + currentSubchapterKey);
                 if (DataManager.Instance.playerData.subchapterUnlocked.ContainsKey(currentSubchapterKey))
                 {
                     subchapterUnlocked = DataManager.Instance.playerData.subchapterUnlocked[currentSubchapterKey];
+                    Debug.Log("subchapter unlocked " + currentSubchapterKey + " unlocked " + subchapterUnlocked);
                     if (subchapterUnlocked)
                     {
                         subchapterButton.interactable = true;

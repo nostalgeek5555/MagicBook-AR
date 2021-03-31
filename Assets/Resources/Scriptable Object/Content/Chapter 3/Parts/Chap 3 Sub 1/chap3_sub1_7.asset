@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
+  m_Name: chap3_sub1_7
+  m_EditorClassIdentifier: 
+  contentType: 0
+  textType: 2
+  alignmentOptions: 513
+  contentImage: {fileID: 0}
+  imageWatermarkText: 
+  contentText: "Jika kenaikan temperatur bumi melebihi 2\xBAC, dunia akan lebih kering.
+    Kekeringan ini akan berdampak pada ekonomi, pertanian, infrastruktur hingga pola
+    cuaca. Belum lagi kerusakan ekosistem karena tidak mampunya beberapa spesies
+    beradaptasi. Jangan lupakan juga gununggunung es di kutub bumi yang akan mencair,
+    lalu menenggelamkan pulau-pulau kecil atau sebagian wilayah pesisir pantai. Atas
+    semua resiko itu, kembali lagi ke pertanyaan awal, jika ada seseorang datang
+    dan meminta kamu bertanggung jawab atas terjadinya pemanasan global, apa yang
+    akan kamu lakukan?"
+  videoName: 
+  videoURL: 

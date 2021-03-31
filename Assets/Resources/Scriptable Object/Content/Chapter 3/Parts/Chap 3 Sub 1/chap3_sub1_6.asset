@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
+  m_Name: chap3_sub1_6
+  m_EditorClassIdentifier: 
+  contentType: 0
+  textType: 2
+  alignmentOptions: 513
+  contentImage: {fileID: 0}
+  imageWatermarkText: 
+  contentText: "Faktanya memang suhu permukaan bumi terus memanas. Dikutip dari Goddard
+    Institute for Space Studies (GISS) NASA, temperatur bumi telah meningkat hampir
+    1\xBACelsius semenjak 1880. Jika tidak ditangani segera, peningkatan ini akan
+    terus berlanjut hingga mencapai lebih dari 2\xBAC pada tahun 2030. Sejurus data
+    di atas tampak \u201Caneh\u201D. Kenapa masalah ini menjadi penting padahal naiknya
+    juga 1-2 derajat saja? Kenaikan dua derajat ini memang tidak terlihat besar\u2014kita
+    bahkan mungkin tidak akan menyadarinya. Tapi perubahan iklim dan pemanasan global
+    bukanlah masalah temporal, melainkan mengacu pada tren jangka panjang."
+  videoName: 
+  videoURL: 

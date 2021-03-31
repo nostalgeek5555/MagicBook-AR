@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08000def2daa89f47990b482c672b9db, type: 3}
+  m_Name: Chapter3_Subchapter1
+  m_EditorClassIdentifier: 
+  subchapterID: 0
+  subchapterUnlocked: 0
+  subchapterName: Chapter3_Subchapter1
+  subchapterTitle: Ayo Hemat Energi!
+  subchapterIcon: {fileID: 0}
+  subchapterContents:
+  - {fileID: 11400000, guid: 41b139cbbc00c4244a0909f793ef1a5f, type: 2}
+  - {fileID: 11400000, guid: 6563bf4dd5692ce49884a8e9b464eb9e, type: 2}
+  - {fileID: 11400000, guid: 64ed58afc21c9f94390ab76b6471503d, type: 2}
+  - {fileID: 11400000, guid: 6529ec3460b529142906fd7a1c182b3a, type: 2}
+  - {fileID: 11400000, guid: 9b93d8c420a60f5429ad9c18d208592b, type: 2}
+  - {fileID: 11400000, guid: 9d009ed8ca1057b489f1d2289f637419, type: 2}
+  - {fileID: 11400000, guid: ae693c6cc3ad2274fbd4562c6015cd66, type: 2}
+  - {fileID: 11400000, guid: 2043edc36efe625439252eb0df8a20aa, type: 2}
+  - {fileID: 11400000, guid: 298984bd41f18ba4ca42963a4d3e4cb8, type: 2}
+  - {fileID: 11400000, guid: d45f3b35df55d6b4abc41d4f1940e694, type: 2}

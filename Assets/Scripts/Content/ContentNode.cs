@@ -13,10 +13,13 @@ public class ContentNode : MonoBehaviour
     public ContentPartSO.ContentType contentType;
     
     [Header("Text Content Type")]
-    public TextMeshProUGUI contentText;
+    [SerializeField] private TextMeshProUGUI contentText;
+    [SerializeField] private float fontSize;
+    [SerializeField] private TMP_FontAsset fontAsset;
 
     [Header("Image Content Type")]
     public Image contentImage;
+    [SerializeField] private bool imageSetNativeSize;
     public TextMeshProUGUI imageWatermarkText;
 
     [Header("Video Content Type")]
@@ -56,6 +59,11 @@ public class ContentNode : MonoBehaviour
             case ContentPartSO.ContentType.Image:
                 contentImage.gameObject.SetActive(true);
                 contentImage.sprite = _contentPartSO.contentImage;
+                imageSetNativeSize = _contentPartSO.imageSetNativeSize;
+                if (imageSetNativeSize)
+                {
+                    SetImageStretch();
+                }
                 imageWatermarkText.text = _contentPartSO.imageWatermarkText;
                 //float imagewidth = contentImage.rectTransform.sizeDelta.x;
                 //contentImage.rectTransform.sizeDelta = new Vector2(imagewidth, 400);
@@ -69,6 +77,13 @@ public class ContentNode : MonoBehaviour
                 contentText.text = _contentPartSO.contentText;
                 contentText.autoSizeTextContainer = true;
                 contentText.alignment = _contentPartSO.alignmentOptions;
+
+                if (_contentPartSO.fontAsset != null)
+                {
+                    contentText.font = _contentPartSO.fontAsset;
+                }
+                
+
                 break;
             
             case ContentPartSO.ContentType.Video:
@@ -83,6 +98,22 @@ public class ContentNode : MonoBehaviour
                 break;
         }
     }
+
+    #region Image Content Type
+    public void SetImageStretch()
+    {
+        contentImage.preserveAspect = true;
+        contentImage.SetNativeSize();
+        contentImage.rectTransform.anchorMin = new Vector2(0, 0);
+        contentImage.rectTransform.anchorMax = new Vector2(1, 1);
+        contentImage.rectTransform.pivot = new Vector2(0.5f, 0.5f);
+        contentImage.rectTransform.anchoredPosition = new Vector2(0, 0);
+        contentImage.rectTransform.sizeDelta = new Vector2(0, 0);
+    }
+
+    #endregion
+
+
 
     #region Video Content Type
 

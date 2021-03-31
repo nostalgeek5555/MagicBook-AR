@@ -119,15 +119,13 @@ public class DataManager : MonoBehaviour
         //Debug.Log("subchapter count " + playerData.allChapterUnlocked[playerData.currentChapter].subchapterNameList);
         for (int i = 0; i < GameManager.Instance.allChapterData[playerData.currentChapter].subchapterList.Count; i++)
         {
-            Debug.Log("new subchapter added name " + GameManager.Instance.allChapterData[playerData.currentChapter].subchapterList[i].subchapterName);
             string subchapterName = GameManager.Instance.allChapterData[playerData.currentChapter].subchapterList[i].subchapterName;
             chapterData.subchapterNameList.Add(subchapterName);
         }
         playerData.allChapterUnlocked.Add(GameManager.Instance.allChapterList[0].chapterName, chapterData);
-        Debug.Log("subchapter count " + playerData.allChapterUnlocked[playerData.currentChapter].subchapterNameList.Count);
-        string subchapterUnlocked = GameManager.Instance.allChapterList[0].chapterName + "|" + GameManager.Instance.allSubchapterList[0].subchapterName;
-        playerData.subchapterUnlocked.Add(subchapterUnlocked, true);
-        Debug.Log("current chapter unlocked data " + playerData.allChapterUnlocked[playerData.currentChapter].totalSubchapterUnlocked);
+        string subchapterKey = GameManager.Instance.allChapterList[0].chapterName + "|" + GameManager.Instance.allSubchapterList[0].subchapterName;
+        playerData.subchapterUnlocked.Add(subchapterKey, true);
+        Debug.Log("current chapter unlocked data " + subchapterKey + " status " + playerData.subchapterUnlocked[subchapterKey]);
         SaveData();
     }
 

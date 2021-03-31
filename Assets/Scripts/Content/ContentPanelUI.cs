@@ -178,8 +178,10 @@ public class ContentPanelUI : MonoBehaviour
                         Debug.Log("next chapter id " + nextChapterID);
                         //GetInstance().currentChapterID++;
 
-                        string _nextChapterName = GameManager.Instance.allcurrentChapter[nextChapterID];
+                        string _nextChapterName = GameManager.Instance.allChapterList[nextChapterID].chapterName;
+                        Debug.Log("next unlocked chapter " + _nextChapterName);
                         int _nextTotalSubchapter = GameManager.Instance.allChapterData[_nextChapterName].subchapterList.Count;
+                        Debug.Log("next total subchapter " + _nextTotalSubchapter);
 
                         if (!GetInstance().playerData.chapterUnlocked.ContainsKey(_nextChapterName))
                         {

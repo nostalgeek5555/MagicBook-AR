@@ -15,8 +15,7 @@ MonoBehaviour:
   chapterID: 2
   chapterUnlocked: 0
   chapterName: Bab III
-  chapterTitle: Fotosintesis
+  chapterTitle: Ayo Hemat Energi
   subchapterList:
-  - {fileID: 11400000, guid: c61d480ec2616f548a3de8b2b758338c, type: 2}
-  - {fileID: 11400000, guid: ad64f68311058274fa741ba1d277a3b2, type: 2}
-  - {fileID: 11400000, guid: 039789608efc65d45996e66201dc7809, type: 2}
+  - {fileID: 11400000, guid: 816069e212f58e04cb04820b356e9d4c, type: 2}
+  - {fileID: 11400000, guid: 3167e8cbb2fabf54dad3aac74f8e1c17, type: 2}

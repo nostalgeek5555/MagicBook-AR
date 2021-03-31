@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08000def2daa89f47990b482c672b9db, type: 3}
+  m_Name: Chapter3_Subchapter2
+  m_EditorClassIdentifier: 
+  subchapterID: 1
+  subchapterUnlocked: 0
+  subchapterName: Chapter3_Subchapter2
+  subchapterTitle: Ayo Cari Solusinya!
+  subchapterIcon: {fileID: 0}
+  subchapterContents:
+  - {fileID: 11400000, guid: f363bdd00e345b043958b3bfcfb8b77a, type: 2}
+  - {fileID: 11400000, guid: 3c8cbf173ed1bef438f21b74d00c40ad, type: 2}
+  - {fileID: 11400000, guid: a846ce20323065f4a985fbb0715224ec, type: 2}
+  - {fileID: 11400000, guid: 16654c600f369cc48b835901dcf344c4, type: 2}
+  - {fileID: 11400000, guid: a4c07aa804d5bd945af88255b2fa964f, type: 2}
+  - {fileID: 11400000, guid: 88fb8965722dd5940babf3e2f96747b8, type: 2}
+  - {fileID: 11400000, guid: 2e4972214bea5764c8da92c73729e874, type: 2}
+  - {fileID: 11400000, guid: 3cf4c9936e9972240a4bf2b3b2d4b723, type: 2}
+  - {fileID: 11400000, guid: 7517300f2c31e4a41ab7c9f678537c8f, type: 2}
+  - {fileID: 11400000, guid: 4b749ffa51fbfa4409ada1b9e2577d04, type: 2}
+  - {fileID: 11400000, guid: df98527b4ce3a904a9c4df50d648cf70, type: 2}
+  - {fileID: 11400000, guid: 17010217ea54063438d320ad62a09ae2, type: 2}
+  - {fileID: 11400000, guid: 74d23e8a5469ba340ad5d36f0a750713, type: 2}
+  - {fileID: 11400000, guid: 9675c5c0b3c45114db59ed94a74a7cdd, type: 2}
+  - {fileID: 11400000, guid: bc1408bac95305c4fbb4c9053755f61f, type: 2}
