@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chapter1_Subchapter1
   m_EditorClassIdentifier: 
   subchapterID: 0
-  subchapterUnlocked: 0
+  subchapterUnlocked: 1
   subchapterName: Chapter1_Subchapter1
   subchapterTitle: Energi
   subchapterIcon: {fileID: 0}
