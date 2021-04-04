@@ -104,6 +104,10 @@ public class ContentNode : MonoBehaviour
     {
         contentImage.preserveAspect = true;
         contentImage.SetNativeSize();
+
+        RectTransform imageParentRect = contentImage.transform.parent.GetComponent<RectTransform>();
+        imageParentRect.sizeDelta = contentImage.rectTransform.sizeDelta;
+
         contentImage.rectTransform.anchorMin = new Vector2(0, 0);
         contentImage.rectTransform.anchorMax = new Vector2(1, 1);
         contentImage.rectTransform.pivot = new Vector2(0.5f, 0.5f);

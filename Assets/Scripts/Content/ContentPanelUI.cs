@@ -71,7 +71,8 @@ public class ContentPanelUI : MonoBehaviour
     {
         DespawnAllContents();
 
-
+        PanelController.Instance.backButton.gameObject.SetActive(true);
+        //PanelController.Instance.backButton.interactable = false;
         contentTitleText.text = currentSubchapterTitle;
 
         if (GameManager.Instance.allSubchapterData.Count > 0)
@@ -110,6 +111,7 @@ public class ContentPanelUI : MonoBehaviour
                     }
                 }
 
+                PanelController.Instance.backButton.interactable = true;
                 buttonsInContentLayout.transform.SetAsLastSibling();
                 ScrollToTop(scrollRect);
             }
@@ -174,14 +176,14 @@ public class ContentPanelUI : MonoBehaviour
                     {
                         previousChapterID = GetInstance().currentChapterID;
                         nextChapterID = GetInstance().currentChapterID + 1;
-                        Debug.Log("current chapter id " + GetInstance().currentChapterID);
-                        Debug.Log("next chapter id " + nextChapterID);
+                        //Debug.Log("current chapter id " + GetInstance().currentChapterID);
+                        //Debug.Log("next chapter id " + nextChapterID);
                         //GetInstance().currentChapterID++;
 
                         string _nextChapterName = GameManager.Instance.allChapterList[nextChapterID].chapterName;
-                        Debug.Log("next unlocked chapter " + _nextChapterName);
+                        //Debug.Log("next unlocked chapter " + _nextChapterName);
                         int _nextTotalSubchapter = GameManager.Instance.allChapterData[_nextChapterName].subchapterList.Count;
-                        Debug.Log("next total subchapter " + _nextTotalSubchapter);
+                        //Debug.Log("next total subchapter " + _nextTotalSubchapter);
 
                         if (!GetInstance().playerData.chapterUnlocked.ContainsKey(_nextChapterName))
                         {
@@ -207,8 +209,8 @@ public class ContentPanelUI : MonoBehaviour
                                 nextChapterName = _nextChapterName;
                                 nextSubchapterName = _nextSubchapterName;
 
-                                Debug.Log("next chapter name " + nextChapterName);
-                                Debug.Log("next subchapter name " + nextSubchapterName);
+                                //Debug.Log("next chapter name " + nextChapterName);
+                                //Debug.Log("next subchapter name " + nextSubchapterName);
                                 OpenNewChapterPopup();
 
                                 //PanelController.Instance.ActiveDeactivePanel("subchapter", "content");

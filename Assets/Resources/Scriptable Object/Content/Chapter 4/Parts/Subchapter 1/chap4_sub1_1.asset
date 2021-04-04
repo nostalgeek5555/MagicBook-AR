@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
+  m_Name: chap4_sub1_1
+  m_EditorClassIdentifier: 
+  contentType: 0
+  textType: 2
+  alignmentOptions: 513
+  fontSize: 0
+  fontAsset: {fileID: 0}
+  graphic: {fileID: 0}
+  contentImage: {fileID: 0}
+  imageSetNativeSize: 0
+  imageWatermarkText: 
+  contentText: Semua makhluk hidup memerlukan energi untuk proses kehidupan. Makhluk
+    hidup tidak dapat menciptakan  energi yang diperlukan untuk hidup sehingga harus
+    menangkap energi dari lingkungannya dan mengubahnya menjadi bentuk energi yang
+    dapat digunakan untuk melakukan kerja biologi. Energi akan mengalami transformasi
+    dari energi potensial yang berupa energi kimia makanan menjadi energi panas dan
+    energi kinetik atau gerak dalam aktivitas makhluk hidup. Makhluk hidup melakukan
+    transformasi energi melalui proses metabolisme yang berlangsung di dalam sel
+    tubuh. Metabolisme (berasal dari Bahasa Yunani metabole = berubah) secara harfiah
+    berarti perubahan.
+  videoName: 
+  videoURL: 

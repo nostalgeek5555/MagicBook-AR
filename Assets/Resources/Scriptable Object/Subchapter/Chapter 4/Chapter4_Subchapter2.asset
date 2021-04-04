@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08000def2daa89f47990b482c672b9db, type: 3}
+  m_Name: Chapter4_Subchapter2
+  m_EditorClassIdentifier: 
+  subchapterID: 1
+  subchapterUnlocked: 0
+  subchapterName: Chapter4_Subchapter2
+  subchapterTitle: Metabolisme Sel
+  subchapterIcon: {fileID: 0}
+  subchapterContents:
+  - {fileID: 11400000, guid: bbaf9ddcc58cd6b4b8f0d6efddb956b1, type: 2}
+  - {fileID: 11400000, guid: d1b8a3186cc0cde46a1ff35672b1f309, type: 2}
+  - {fileID: 11400000, guid: 4176852933dc1c14081315e11a914c74, type: 2}
+  - {fileID: 11400000, guid: 676f9c1434b4e1f489ef1599996f2196, type: 2}
+  - {fileID: 11400000, guid: 9dd73e9e840e7c34da3f7d3a0951ea8a, type: 2}

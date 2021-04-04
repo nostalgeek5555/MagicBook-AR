@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08000def2daa89f47990b482c672b9db, type: 3}
+  m_Name: Chapter4_Subchapter1
+  m_EditorClassIdentifier: 
+  subchapterID: 0
+  subchapterUnlocked: 0
+  subchapterName: Chapter4_Subchapter1
+  subchapterTitle: Transformasi Energi dalam Sel
+  subchapterIcon: {fileID: 0}
+  subchapterContents:
+  - {fileID: 11400000, guid: 7743a9d6f1b47604c990c676321c1b21, type: 2}
+  - {fileID: 11400000, guid: 8b9d159517284074888a50f6c85302fa, type: 2}
+  - {fileID: 11400000, guid: e4f5b45084742144591e1c23eb333c40, type: 2}
