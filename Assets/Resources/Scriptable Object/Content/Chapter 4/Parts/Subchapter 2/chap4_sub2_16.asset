@@ -13,14 +13,19 @@ MonoBehaviour:
   m_Name: chap4_sub2_16
   m_EditorClassIdentifier: 
   contentType: 0
-  textType: 0
-  alignmentOptions: 0
+  textType: 2
+  alignmentOptions: 513
   fontSize: 0
   fontAsset: {fileID: 0}
   graphic: {fileID: 0}
   contentImage: {fileID: 0}
   imageSetNativeSize: 0
   imageWatermarkText: 
-  contentText: 
+  contentText: Sistem pencernaan manusia terdiri dari saluran dan kelenjar pencernaan.
+    Saluran pencernaan berfungsi mengubah makanan secara mekanik dan mengangkut makanan.
+    Kelenjar pencernaan berfungsi menghasilkan enzim penting untuk pencernaan secara
+    kimiawi. Saluran pencernaan manusia dimulai dari rongga mulut, faring, kerongkongan,
+    lambung, usus halus, usus besar, rectum, dan anus. Kelenjar pencernaan terdiri
+    dari kelenjar ludah, kelenjar lambung, hati, pancreas, dan kelenjar usus.
   videoName: 
   videoURL: 

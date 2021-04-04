@@ -13,14 +13,19 @@ MonoBehaviour:
   m_Name: chap4_sub2_13
   m_EditorClassIdentifier: 
   contentType: 0
-  textType: 0
-  alignmentOptions: 0
+  textType: 2
+  alignmentOptions: 513
   fontSize: 0
   fontAsset: {fileID: 0}
   graphic: {fileID: 0}
   contentImage: {fileID: 0}
   imageSetNativeSize: 0
   imageWatermarkText: 
-  contentText: 
+  contentText: Energi yang dihasilkan dari proses respirasi digunakan untuk aktivitas
+    makhluk hidup. Energi kimia merupakan energi potensial yang tersimpan dalam ikatan
+    kimia. Energi ini sangat penting bagi organisme, contohnya, energi kimia dalam
+    molekul makanan dapat diubah menjadi energi kinetik dalam sel otot. Kontraksi
+    otot merupakan contoh energi mekanik yang menghasilkan kerja dengan menggerakkan
+    materi.
   videoName: 
   videoURL: 

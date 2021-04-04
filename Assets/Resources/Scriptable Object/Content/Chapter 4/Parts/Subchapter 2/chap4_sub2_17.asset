@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
   m_Name: chap4_sub2_17
   m_EditorClassIdentifier: 
-  contentType: 0
+  contentType: 1
   textType: 0
   alignmentOptions: 0
   fontSize: 0
   fontAsset: {fileID: 0}
   graphic: {fileID: 0}
-  contentImage: {fileID: 0}
-  imageSetNativeSize: 0
-  imageWatermarkText: 
+  contentImage: {fileID: -5243362646352254694, guid: 08b5ddfa5997e754fada2e05d6e556a8,
+    type: 3}
+  imageSetNativeSize: 1
+  imageWatermarkText: Proses pencernaan Karbohidrat dalam tubuh
   contentText: 
   videoName: 
   videoURL: 

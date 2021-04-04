@@ -13,14 +13,21 @@ MonoBehaviour:
   m_Name: chap4_sub2_15
   m_EditorClassIdentifier: 
   contentType: 0
-  textType: 0
-  alignmentOptions: 0
+  textType: 2
+  alignmentOptions: 513
   fontSize: 0
   fontAsset: {fileID: 0}
   graphic: {fileID: 0}
   contentImage: {fileID: 0}
   imageSetNativeSize: 0
   imageWatermarkText: 
-  contentText: 
+  contentText: Setiap makhluk hidup membutuhkan makanan untuk keberlangsungan hidupnya,
+    fungsi makanan yang paling utama adalah menyediakan energi untuk melakukan semua
+    bentuk kerja. Nutrisi yang diperlukan tubuh meliputi karbohidrat, protein, lemak,
+    vitamin, dan mineral. Setiap jenis nutrisi mempunyai fungsi yang berbeda. Karbohidrat
+    merupakan sumber tenaga, protein untuk membantu pertumbuhan, lemak sebagai cadangan
+    makanan dan cadangan energi. Setiap organisme harus mengekstraksi energi dari
+    molekul makanan organik, karena bentuk nutrient yang lebih sederhana dapat diserap
+    ke dalam darah.
   videoName: 
   videoURL: 

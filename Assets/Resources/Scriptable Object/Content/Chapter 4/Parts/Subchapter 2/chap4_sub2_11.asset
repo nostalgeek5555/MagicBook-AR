@@ -13,14 +13,23 @@ MonoBehaviour:
   m_Name: chap4_sub2_11
   m_EditorClassIdentifier: 
   contentType: 0
-  textType: 0
-  alignmentOptions: 0
+  textType: 2
+  alignmentOptions: 513
   fontSize: 0
   fontAsset: {fileID: 0}
   graphic: {fileID: 0}
   contentImage: {fileID: 0}
   imageSetNativeSize: 0
   imageWatermarkText: 
-  contentText: 
+  contentText: Respirasi merupakan proses penguraian bahan makanan yang menghasilkan
+    energi. Proses respirasi sel mengubah energi kimia dalam makanan menjadi bentuk
+    energi yang dapat digunakan langsung, misalnya sel otot untuk bergerak. Sel memperoleh
+    pasokan energi dalam beragam bentuk, tetapi sel jarang dapat langsung memanfaatkan
+    energi tersebut untuk proses-proses dalam sel. Oleh karena itu sel memiliki mekanisme
+    untuk mengubah energi dari satu bentuk ke bentuk lain. Semua sel aktif melakukan
+    respirasi terus menerus, menyerap oksigen dan melepaskan karbondioksida. Pada
+    proses respirasi sel, yang menjadi bahan bakar adalah gula/glukosa. Pembakaran
+    tersebut memerlukan oksigen bebas serta menghasilkan karbondioksida, air, dan
+    energi. Secara keseluruhan, reaksi respirasi sel dapat ditulis sebagai berikut.
   videoName: 
   videoURL: 

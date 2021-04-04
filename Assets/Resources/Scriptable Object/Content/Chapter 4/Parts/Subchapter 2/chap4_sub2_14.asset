@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentType: 0
   textType: 0
-  alignmentOptions: 0
+  alignmentOptions: 513
   fontSize: 0
   fontAsset: {fileID: 0}
   graphic: {fileID: 0}
   contentImage: {fileID: 0}
   imageSetNativeSize: 0
   imageWatermarkText: 
-  contentText: 
+  contentText: 3) Pencernaan Makanan
   videoName: 
   videoURL: 
