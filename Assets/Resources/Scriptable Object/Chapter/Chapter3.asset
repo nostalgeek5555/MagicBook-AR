@@ -16,6 +16,7 @@ MonoBehaviour:
   chapterUnlocked: 0
   chapterName: Bab III
   chapterTitle: Ayo Hemat Energi
+  fontSize: 40
   subchapterList:
   - {fileID: 11400000, guid: 816069e212f58e04cb04820b356e9d4c, type: 2}
   - {fileID: 11400000, guid: 3167e8cbb2fabf54dad3aac74f8e1c17, type: 2}

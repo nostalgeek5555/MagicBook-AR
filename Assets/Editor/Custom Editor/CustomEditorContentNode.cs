@@ -10,6 +10,7 @@ public class CustomEditorContentNode : Editor
         contentTextFont,
         contentImage,
         contentImageWatermarkTxt,
+        subjectImage,
         contentVideoImage,
         contentVideoStatusText,
         contentVideoPlayer,
@@ -26,6 +27,7 @@ public class CustomEditorContentNode : Editor
         contentText = serializedObject.FindProperty("contentText");
         contentTextFont = serializedObject.FindProperty("fontAsset");
         contentImage = serializedObject.FindProperty("contentImage");
+        subjectImage = serializedObject.FindProperty("subjectImage");
         contentImageWatermarkTxt = serializedObject.FindProperty("imageWatermarkText");
         contentVideoImage = serializedObject.FindProperty("contentVideoImage");
         contentVideoStatusText = serializedObject.FindProperty("videoStatusText");
@@ -81,6 +83,12 @@ public class CustomEditorContentNode : Editor
             case ContentPartSO.ContentType.AR:
                 break;
             case ContentPartSO.ContentType.Question:
+                break;
+
+            case ContentPartSO.ContentType.Subject:
+                EditorGUILayout.LabelField("Subject Content", EditorStyles.boldLabel);
+                EditorGUILayout.PropertyField(subjectImage);
+
                 break;
             default:
                 break;

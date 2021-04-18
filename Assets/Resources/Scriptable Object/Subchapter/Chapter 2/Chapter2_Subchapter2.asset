@@ -10,38 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08000def2daa89f47990b482c672b9db, type: 3}
-  m_Name: Chapter2_Subchapter2
+  m_Name: Chapter2_Subchapter3
   m_EditorClassIdentifier: 
-  subchapterID: 1
+  subchapterID: 0
   subchapterUnlocked: 0
-  subchapterName: Chapter2_Subchapter2
-  subchapterTitle: Energi Kinetik & Energi Potensial
+  subchapterName: 
+  subchapterTitle: 
   subchapterIcon: {fileID: 0}
-  subchapterContents:
-  - {fileID: 11400000, guid: 8e05674559ce65143a42943b9067b6fd, type: 2}
-  - {fileID: 11400000, guid: 633c1a8b2d8f08c45a7dcce0a86455e2, type: 2}
-  - {fileID: 11400000, guid: 25aaf9a8ba7e2ce49879c66d528562f5, type: 2}
-  - {fileID: 11400000, guid: 6bd7cd41d73ac004babd9d5bbecdd5a5, type: 2}
-  - {fileID: 11400000, guid: a3c3edf9317fc3048a29bf9314f62918, type: 2}
-  - {fileID: 11400000, guid: c456cc8633bf94b448410e1bdd2c4db3, type: 2}
-  - {fileID: 11400000, guid: 1f16bf2e491caae4f926f76e1c8fa07e, type: 2}
-  - {fileID: 11400000, guid: 0bcd8cb981d8e43499e0799f684456ff, type: 2}
-  - {fileID: 11400000, guid: b2a1eb3e67c65144980f0026d1e188bf, type: 2}
-  - {fileID: 11400000, guid: 475616ca07a20ed47a61155ec7314fdf, type: 2}
-  - {fileID: 11400000, guid: 6b7ddfe163d273f4f88c94ac39444677, type: 2}
-  - {fileID: 11400000, guid: 4293eaa83976dff4eafb7f70be81a581, type: 2}
-  - {fileID: 11400000, guid: 994d1d03bb07cea46a3dccd937fbc8f6, type: 2}
-  - {fileID: 11400000, guid: a505349a3c93ee047a60effccf5ffc8c, type: 2}
-  - {fileID: 11400000, guid: f719ecd2615603c4898441ed90714b8d, type: 2}
-  - {fileID: 11400000, guid: dfe3d6f27fdf6b3488e13f2b34ce10f9, type: 2}
-  - {fileID: 11400000, guid: f20c0d2b6196c0e4fa71782a2eb6f5fb, type: 2}
-  - {fileID: 11400000, guid: 0de1a888c04384d42bf38881cfb66e5d, type: 2}
-  - {fileID: 11400000, guid: 132e81c71a2ea0b4d9d6073cd038fcd7, type: 2}
-  - {fileID: 11400000, guid: 91a48ded6eab13f4b9f6e950da30a882, type: 2}
-  - {fileID: 11400000, guid: 0a33199242dddcb4a87b0945b63a16a1, type: 2}
-  - {fileID: 11400000, guid: b6a3ea17db1cbd34a8508e9d27904ec5, type: 2}
-  - {fileID: 11400000, guid: 48a4086f8a5bc3442bd8021c6379a801, type: 2}
-  - {fileID: 11400000, guid: cd239049b26c38d4096ad095584771d9, type: 2}
-  - {fileID: 11400000, guid: 9bb274fff6c957b49978a77408211dac, type: 2}
-  - {fileID: 11400000, guid: c8801fd5b7440da4eaba6d22c9e8232b, type: 2}
-  - {fileID: 11400000, guid: 293241760beca154cbf32b18ebeaca75, type: 2}
+  subchapterContents: []

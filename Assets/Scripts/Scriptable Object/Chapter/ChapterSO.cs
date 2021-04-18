@@ -10,6 +10,7 @@ public class ChapterSO : ScriptableObject
     public bool chapterUnlocked;
     public string chapterName;
     public string chapterTitle;
+    public float fontSize;
 
     [ReorderableList] public List<SubchapterSO> subchapterList;
 }

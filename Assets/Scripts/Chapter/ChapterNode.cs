@@ -15,6 +15,7 @@ public class ChapterNode : MonoBehaviour
     [Header("Chapter Node UI")]
     public Button chapterButton;
     public TextMeshProUGUI chapterNameText;
+    [SerializeField] private float titleFontSize;
 
     private void Start()
     {
@@ -31,7 +32,9 @@ public class ChapterNode : MonoBehaviour
         chapterTitle = _chapterSO.chapterTitle;
         totalSubchapter = _chapterSO.subchapterList.Count;
         chapterNameText.text = chapterTitle;
-     
+        titleFontSize = _chapterSO.fontSize;
+        chapterNameText.fontSize = titleFontSize;
+
         if (DataManager.Instance.playerData.allChapterUnlocked.ContainsKey(chapterName))
         {
             chapterUnlocked = DataManager.Instance.playerData.chapterUnlocked[chapterName];

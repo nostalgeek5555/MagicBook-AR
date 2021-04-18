@@ -321,10 +321,26 @@ MonoBehaviour:
     type: 3}
   contentVideoPrefab: {fileID: 5988371485650853114, guid: fac6578208ecc4f4498a8f04c6c6e98f,
     type: 3}
+  contentSubjectPrefab: {fileID: 8216053031272147518, guid: 6ec2854fd7e02184d8b971b96a3f71b1,
+    type: 3}
   contentNodeParent: {fileID: 1306503440792118816}
   scrollRect: {fileID: 1306503442455914715}
   buttonsInContentLayout: {fileID: 5549874428354619525}
   nextButton: {fileID: 3237520015539424301}
+  previousChapterID: 0
+  nextChapterID: 0
+  nextChapterName: 
+  nextSubchapterName: 
+  prevTotalSubchapter: 0
+  nextTotalSubchapter: 0
+  blackLayer: {fileID: 0}
+  newChapterPopup: {fileID: 0}
+  closePopupButton: {fileID: 0}
+  popupBackButton: {fileID: 0}
+  popupNextButton: {fileID: 0}
+  newChapterNameText: {fileID: 0}
+  nextChapterLoadText: {fileID: 0}
+  allChapterCompleteText: {fileID: 0}
 --- !u!1 &1306503442455914717
 GameObject:
   m_ObjectHideFlags: 0

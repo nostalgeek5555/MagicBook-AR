@@ -14,7 +14,11 @@ public class ContentPartSO : ScriptableObject
     public TMP_FontAsset fontAsset;
     public Graphic graphic;
     public Sprite contentImage;
+    public float contentImageSize;
     public bool imageSetNativeSize;
+    public bool preserveAspect;
+    public bool customAnchorPoint;
+    public float leftAnchor, rightAnchor, topAnchor, bottomAnchor;
     public string imageWatermarkText;
     public string contentText;
     public string videoName;
@@ -25,7 +29,7 @@ public class ContentPartSO : ScriptableObject
 
     public enum ContentType
     {
-        Text, Image, Video, Question, AR
+        Text, Image, Video, Question, AR, Subject
     }
 
     public enum TextType

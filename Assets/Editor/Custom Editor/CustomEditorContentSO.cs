@@ -8,7 +8,14 @@ public class CustomEditorContentSO : Editor
     public SerializedProperty
         contentType,
         contentImage,
+        imageSize,
         imageSetNativeSize,
+        preserveAspect,
+        customAnchorPoint,
+        leftAnchor,
+        rightAnchor,
+        topAnchor,
+        bottomAnchor,
         imageWatermark,
         contentText,
         textType,
@@ -22,7 +29,14 @@ public class CustomEditorContentSO : Editor
     {
         contentType = serializedObject.FindProperty("contentType");
         contentImage = serializedObject.FindProperty("contentImage");
+        imageSize = serializedObject.FindProperty("contentImageSize");
         imageSetNativeSize = serializedObject.FindProperty("imageSetNativeSize");
+        preserveAspect = serializedObject.FindProperty("preserveAspect");
+        customAnchorPoint = serializedObject.FindProperty("customAnchorPoint");
+        leftAnchor = serializedObject.FindProperty("leftAnchor");
+        rightAnchor = serializedObject.FindProperty("rightAnchor");
+        topAnchor = serializedObject.FindProperty("topAnchor");
+        bottomAnchor = serializedObject.FindProperty("bottomAnchor");
         imageWatermark = serializedObject.FindProperty("imageWatermarkText");
         contentText = serializedObject.FindProperty("contentText");
         textType = serializedObject.FindProperty("textType");
@@ -61,7 +75,26 @@ public class CustomEditorContentSO : Editor
                     GUILayout.Label(texture);
                 }
                 EditorGUILayout.EndHorizontal();
+                EditorGUILayout.PropertyField(imageSize);
                 EditorGUILayout.PropertyField(imageSetNativeSize);
+                EditorGUILayout.PropertyField(preserveAspect);
+                EditorGUILayout.PropertyField(customAnchorPoint);
+                EditorGUILayout.BeginHorizontal();
+                //var customAnchorToggle = customAnchorPoint.objectReferenceValue;
+
+                //if (customAnchorToggle)
+                //{
+
+                //}
+                EditorGUILayout.PropertyField(leftAnchor);
+                EditorGUILayout.PropertyField(rightAnchor);
+                EditorGUILayout.EndHorizontal();
+                EditorGUILayout.BeginVertical();
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.PropertyField(topAnchor);
+                EditorGUILayout.PropertyField(bottomAnchor);
+                EditorGUILayout.EndHorizontal();
+                EditorGUILayout.EndVertical();
                 EditorGUILayout.PropertyField(imageWatermark);
                 break;
 
@@ -76,6 +109,18 @@ public class CustomEditorContentSO : Editor
             case ContentPartSO.ContentType.Question:
                 break;
 
+            case ContentPartSO.ContentType.Subject:
+                EditorGUILayout.PropertyField(contentImage);
+                EditorGUILayout.BeginHorizontal();
+                var subjectImage = contentImage.objectReferenceValue as Sprite;
+                if (subjectImage != null)
+                {
+                    var texture = AssetPreview.GetAssetPreview(subjectImage);
+                    GUILayout.Label(texture);
+                }
+                EditorGUILayout.EndHorizontal();
+
+                break;
             default:
                 break;
         }

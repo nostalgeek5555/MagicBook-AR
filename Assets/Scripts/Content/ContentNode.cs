@@ -8,6 +8,7 @@ using DG.Tweening;
 
 public class ContentNode : MonoBehaviour
 {
+    [SerializeField] ContentPartSO contentPartSO;
     [Header("Main Content Identifier")]
     public string contentID;
     public ContentPartSO.ContentType contentType;
@@ -29,7 +30,11 @@ public class ContentNode : MonoBehaviour
     public Image thumbnailImageLayer;
     public Button videoButton;
     public Animator videoButtonPanelAnimator;
-    
+
+    [Header("Subject Content Type")]
+    public Image subjectImage;
+    [SerializeField] private bool subjectImageSetNativeSize;
+
     [SerializeField]
     private string fileName;
 
@@ -39,6 +44,7 @@ public class ContentNode : MonoBehaviour
 
     public void InitContentNode(ContentPartSO _contentPartSO, int _contentOrder)
     {
+        contentPartSO = _contentPartSO;
         transform.SetSiblingIndex(_contentOrder);
         contentID = _contentPartSO.name;
         contentType = _contentPartSO.contentType;
@@ -60,9 +66,29 @@ public class ContentNode : MonoBehaviour
                 contentImage.gameObject.SetActive(true);
                 contentImage.sprite = _contentPartSO.contentImage;
                 imageSetNativeSize = _contentPartSO.imageSetNativeSize;
+
                 if (imageSetNativeSize)
                 {
                     SetImageStretch();
+                }
+
+                else
+                {
+                    //if (contentPartSO.customAnchorPoint)
+                    //{
+                    //    StretchImageWithoutPreserve();
+                    //}
+
+                    //else
+                    //{
+                        Debug.Log("set default image size");    
+                        contentImage.rectTransform.sizeDelta = new Vector2(0, _contentPartSO.contentImageSize);
+                        contentImage.rectTransform.anchorMin = new Vector2(0, 0);
+                        contentImage.rectTransform.anchorMax = new Vector2(1, 1);
+                        contentImage.rectTransform.pivot = new Vector2(0.5f, 0.5f);
+                        contentImage.rectTransform.anchoredPosition = new Vector2(0, 0);
+                    //}
+                    
                 }
                 imageWatermarkText.text = _contentPartSO.imageWatermarkText;
                 //float imagewidth = contentImage.rectTransform.sizeDelta.x;
@@ -94,6 +120,12 @@ public class ContentNode : MonoBehaviour
             case ContentPartSO.ContentType.AR:
                 break;
 
+            case ContentPartSO.ContentType.Subject:
+                subjectImage.gameObject.SetActive(true);
+                subjectImage.sprite = _contentPartSO.contentImage;
+                SetImageNative();
+
+                break;
             default:
                 break;
         }
@@ -102,8 +134,23 @@ public class ContentNode : MonoBehaviour
     #region Image Content Type
     public void SetImageStretch()
     {
-        contentImage.preserveAspect = true;
         contentImage.SetNativeSize();
+        contentImage.preserveAspect = true;
+        
+        RectTransform imageParentRect = contentImage.transform.parent.GetComponent<RectTransform>();
+        imageParentRect.sizeDelta = contentImage.rectTransform.sizeDelta;
+
+        contentImage.rectTransform.anchorMin = new Vector2(0, 0);
+        contentImage.rectTransform.anchorMax = new Vector2(1, 1);
+        contentImage.rectTransform.pivot = new Vector2(0.5f, 0.5f);
+        contentImage.rectTransform.anchoredPosition = new Vector2(0, 0);
+        contentImage.rectTransform.sizeDelta = new Vector2(0, 0);
+    }
+
+    public void StretchImageWithoutPreserve()
+    {
+        contentImage.SetNativeSize();
+        contentImage.preserveAspect = false;
 
         RectTransform imageParentRect = contentImage.transform.parent.GetComponent<RectTransform>();
         imageParentRect.sizeDelta = contentImage.rectTransform.sizeDelta;
@@ -114,6 +161,8 @@ public class ContentNode : MonoBehaviour
         contentImage.rectTransform.anchoredPosition = new Vector2(0, 0);
         contentImage.rectTransform.sizeDelta = new Vector2(0, 0);
     }
+
+    
 
     #endregion
 
@@ -287,4 +336,22 @@ public class ContentNode : MonoBehaviour
     {
         Show, Hide
     }
+
+    #region Subject Content Type
+    public void SetImageNative()
+    {
+        subjectImage.SetNativeSize();
+        subjectImage.preserveAspect = true;
+
+        RectTransform imageParentRect = subjectImage.transform.parent.GetComponent<RectTransform>();
+        imageParentRect.sizeDelta = subjectImage.rectTransform.sizeDelta;
+
+        subjectImage.rectTransform.position = new Vector2(0, 0);
+        subjectImage.rectTransform.localPosition = new Vector2(0, 0);
+        subjectImage.rectTransform.pivot = new Vector2(0.5f, 0.5f);
+        subjectImage.rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+        subjectImage.rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+        
+    }
+    #endregion
 }

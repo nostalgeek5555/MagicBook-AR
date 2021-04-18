@@ -13,6 +13,7 @@ public class ContentPanelUI : MonoBehaviour
     public GameObject contentImagePrefab;
     public GameObject contentTextPrefab;
     public GameObject contentVideoPrefab;
+    public GameObject contentSubjectPrefab;
     public Transform contentNodeParent;
     public ScrollRect scrollRect;
     public GameObject buttonsInContentLayout;
@@ -105,6 +106,11 @@ public class ContentPanelUI : MonoBehaviour
                         case ContentPartSO.ContentType.Question:
                             break;
                         case ContentPartSO.ContentType.AR:
+                            break;
+
+                        case ContentPartSO.ContentType.Subject:
+                            contentNode = LeanPool.Spawn(contentSubjectPrefab, contentNodeParent).GetComponent<ContentNode>();
+                            contentNode.InitContentNode(contentPartSO, i);
                             break;
                         default:
                             break;

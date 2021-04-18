@@ -16,6 +16,7 @@ MonoBehaviour:
   chapterUnlocked: 0
   chapterName: Bab II
   chapterTitle: Perubahan Energi
+  fontSize: 40
   subchapterList:
   - {fileID: 11400000, guid: e43d0208c62e4c24498889c920f7b414, type: 2}
   - {fileID: 11400000, guid: 75d12212ecbacde418d78e2fa85c4f9d, type: 2}

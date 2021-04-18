@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08000def2daa89f47990b482c672b9db, type: 3}
+  m_Name: Chapter1_Subchapter4
+  m_EditorClassIdentifier: 
+  subchapterID: 0
+  subchapterUnlocked: 0
+  subchapterName: Chapter1_Subchapter4
+  subchapterTitle: Merangkai berbagai macam pembangkit listrik
+  subchapterIcon: {fileID: 0}
+  subchapterContents:
+  - {fileID: 11400000, guid: fcce0c6728833bf48b85b5c79a806eef, type: 2}
+  - {fileID: 11400000, guid: c07d29c183824a34490ef729e17140ad, type: 2}
+  - {fileID: 11400000, guid: ae6661e849a0700408d34174ec0acef4, type: 2}

@@ -1836,8 +1836,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 46
+  m_fontSizeBase: 46
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1903,7 +1903,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -35, y: -100}
-  m_SizeDelta: {x: 700, y: 100}
+  m_SizeDelta: {x: 800, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &1772127877
 GameObject:
@@ -2723,8 +2723,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1306503440792118816, guid: 86e781fa1254a814583312545aa935a9,
         type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306503440792118816, guid: 86e781fa1254a814583312545aa935a9,
+        type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306503440792118816, guid: 86e781fa1254a814583312545aa935a9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306503440792118817, guid: 86e781fa1254a814583312545aa935a9,
+        type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306503440792118817, guid: 86e781fa1254a814583312545aa935a9,
+        type: 3}
+      propertyPath: m_ChildControlWidth
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1306503440792118817, guid: 86e781fa1254a814583312545aa935a9,
         type: 3}
@@ -2829,7 +2849,7 @@ PrefabInstance:
     - target: {fileID: 1306503442035633820, guid: 86e781fa1254a814583312545aa935a9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -125
+      value: -125.00003
       objectReference: {fileID: 0}
     - target: {fileID: 1306503442035633820, guid: 86e781fa1254a814583312545aa935a9,
         type: 3}
@@ -2970,6 +2990,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VerticalFit
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549874428354619525, guid: 86e781fa1254a814583312545aa935a9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5881524577974167800, guid: 86e781fa1254a814583312545aa935a9,
         type: 3}

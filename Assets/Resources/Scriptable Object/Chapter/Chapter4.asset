@@ -15,7 +15,8 @@ MonoBehaviour:
   chapterID: 3
   chapterUnlocked: 0
   chapterName: Bab IV
-  chapterTitle: Final Exam!
+  chapterTitle: Transformasi Energi dalam Makhluk Hidup
+  fontSize: 38
   subchapterList:
   - {fileID: 11400000, guid: 1a90e2409bf1e064387d8178d679cf0d, type: 2}
   - {fileID: 11400000, guid: ae4ece9400b299643b99ec705b632769, type: 2}
