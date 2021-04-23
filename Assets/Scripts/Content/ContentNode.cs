@@ -46,8 +46,9 @@ public class ContentNode : MonoBehaviour
     public int questionID;
     public string questionContent;
     [SerializeField] private int matchAnswerID;
+    public int _matchAnswerID { get => matchAnswerID; set => matchAnswerID = value; }
     public List<string> _allAnswers;
-    [SerializeField] private int thisQuestionScore = 0;
+    public int thisQuestionScore = 0;
 
 
 
@@ -144,6 +145,17 @@ public class ContentNode : MonoBehaviour
 
                 break;
             case ContentPartSO.ContentType.Question:
+
+                if (answerToggleGroup.transform.childCount > 0)
+                {
+                    Debug.Log("toggle child " + answerToggleGroup.transform.childCount);
+                    for (int i = answerToggleGroup.transform.childCount - 1; i >= 0; i--)
+                    {
+                        LeanPool.Despawn(answerToggleGroup.transform.GetChild(i).gameObject);
+                        Debug.Log("despawn");
+                    }
+                }
+
                 questionID = _contentPartSO.questionID;
                 questionContent = _contentPartSO.question;
                 matchAnswerID = _contentPartSO.matchAnswerID;
@@ -152,17 +164,11 @@ public class ContentNode : MonoBehaviour
                 questionNumberText.text = questionID + ".";
                 questionText.text = questionContent;
 
-                for (int i = _allAnswers.Count; i <= 0; i--)
-                {
-                    LeanPool.Despawn(answerToggleGroup.transform.GetChild(i));
-                }
-
                 AnswerQuestionContent answerQuestionContent;
                 for (int i = 0; i < _allAnswers.Count; i++)
                 {
                     answerQuestionContent = LeanPool.Spawn(answerPrefab, answerToggleGroup.transform).GetComponent<AnswerQuestionContent>();
-                    answerQuestionContent.answerInit(i, _allAnswers[i]);
-                    Debug.Log("answer name " + answerQuestionContent.answer);
+                    answerQuestionContent.AnswerInit(i, _allAnswers[i]);
                 }
 
                 break;
