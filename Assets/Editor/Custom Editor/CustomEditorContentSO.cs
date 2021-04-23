@@ -23,11 +23,16 @@ public class CustomEditorContentSO : Editor
         fontSize,
         fontAsset,
         videoName,
-        videoURL;
+        videoURL,
+        questionID,
+        question,
+        matchAnswerID,
+        allAnswers;
 
     private void OnEnable()
     {
         contentType = serializedObject.FindProperty("contentType");
+
         contentImage = serializedObject.FindProperty("contentImage");
         imageSize = serializedObject.FindProperty("contentImageSize");
         imageSetNativeSize = serializedObject.FindProperty("imageSetNativeSize");
@@ -38,13 +43,20 @@ public class CustomEditorContentSO : Editor
         topAnchor = serializedObject.FindProperty("topAnchor");
         bottomAnchor = serializedObject.FindProperty("bottomAnchor");
         imageWatermark = serializedObject.FindProperty("imageWatermarkText");
+
         contentText = serializedObject.FindProperty("contentText");
         textType = serializedObject.FindProperty("textType");
         fontSize = serializedObject.FindProperty("fontSize");
         fontAsset = serializedObject.FindProperty("fontAsset");
         alignmentOptions = serializedObject.FindProperty("alignmentOptions");
+
         videoName = serializedObject.FindProperty("videoName");
         videoURL = serializedObject.FindProperty("videoURL");
+
+        questionID = serializedObject.FindProperty("questionID");
+        question = serializedObject.FindProperty("question");
+        matchAnswerID = serializedObject.FindProperty("matchAnswerID");
+        allAnswers = serializedObject.FindProperty("allAnswers");
     }
 
     public override void OnInspectorGUI()
@@ -107,6 +119,10 @@ public class CustomEditorContentSO : Editor
                 break;
 
             case ContentPartSO.ContentType.Question:
+                EditorGUILayout.PropertyField(questionID);
+                EditorGUILayout.PropertyField(question);
+                EditorGUILayout.PropertyField(matchAnswerID);
+                EditorGUILayout.PropertyField(allAnswers);
                 break;
 
             case ContentPartSO.ContentType.Subject:
@@ -121,6 +137,7 @@ public class CustomEditorContentSO : Editor
                 EditorGUILayout.EndHorizontal();
 
                 break;
+
             default:
                 break;
         }

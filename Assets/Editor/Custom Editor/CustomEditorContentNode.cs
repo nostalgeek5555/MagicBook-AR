@@ -18,7 +18,16 @@ public class CustomEditorContentNode : Editor
         contentVideoButton,
         contentVideoName,
         contentVideoURL,
-        contentVideoButtonPanelAnimator;
+        contentVideoButtonPanelAnimator,
+        contentQuestionNumberText,
+        contentQuestionText,
+        contentAnswerToggleGroup,
+        contentAnswerPrefab,
+        contentQuestionID,
+        contentQuestionQuest,
+        contentQuestionAnswerID,
+        contentQuestionAllAnswers,
+        contentQuestionScore;
 
     private void OnEnable()
     {
@@ -37,6 +46,16 @@ public class CustomEditorContentNode : Editor
         contentVideoName = serializedObject.FindProperty("fileName");
         contentVideoURL = serializedObject.FindProperty("URLvideo");
         contentVideoButtonPanelAnimator = serializedObject.FindProperty("videoButtonPanelAnimator");
+
+        contentQuestionNumberText = serializedObject.FindProperty("questionNumberText");
+        contentQuestionText = serializedObject.FindProperty("questionText");
+        contentAnswerToggleGroup = serializedObject.FindProperty("answerToggleGroup");
+        contentAnswerPrefab = serializedObject.FindProperty("answerPrefab");
+        contentQuestionID = serializedObject.FindProperty("questionID");
+        contentQuestionQuest = serializedObject.FindProperty("questionContent");
+        contentQuestionAnswerID = serializedObject.FindProperty("matchAnswerID");
+        contentQuestionAllAnswers = serializedObject.FindProperty("_allAnswers");
+        contentQuestionScore = serializedObject.FindProperty("thisQuestionScore");
     }
 
     public override void OnInspectorGUI()
@@ -82,7 +101,18 @@ public class CustomEditorContentNode : Editor
 
             case ContentPartSO.ContentType.AR:
                 break;
+
             case ContentPartSO.ContentType.Question:
+                EditorGUILayout.LabelField("Question Content", EditorStyles.boldLabel);
+                EditorGUILayout.PropertyField(contentQuestionNumberText);
+                EditorGUILayout.PropertyField(contentQuestionText);
+                EditorGUILayout.PropertyField(contentAnswerToggleGroup);
+                EditorGUILayout.PropertyField(contentAnswerPrefab);
+                EditorGUILayout.PropertyField(contentQuestionID);
+                EditorGUILayout.PropertyField(contentQuestionQuest);
+                EditorGUILayout.PropertyField(contentQuestionAnswerID);
+                EditorGUILayout.PropertyField(contentQuestionAllAnswers);
+                EditorGUILayout.PropertyField(contentQuestionScore);
                 break;
 
             case ContentPartSO.ContentType.Subject:

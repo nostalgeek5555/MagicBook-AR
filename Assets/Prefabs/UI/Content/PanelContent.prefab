@@ -323,6 +323,8 @@ MonoBehaviour:
     type: 3}
   contentSubjectPrefab: {fileID: 8216053031272147518, guid: 6ec2854fd7e02184d8b971b96a3f71b1,
     type: 3}
+  contentQuestionPrefab: {fileID: 7386626543264353964, guid: 6180e78d5580b8d4aa342201bf184b26,
+    type: 3}
   contentNodeParent: {fileID: 1306503440792118816}
   scrollRect: {fileID: 1306503442455914715}
   buttonsInContentLayout: {fileID: 5549874428354619525}

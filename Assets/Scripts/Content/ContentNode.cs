@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.Video;
 using TMPro;
 using DG.Tweening;
+using Lean.Pool;
 
 public class ContentNode : MonoBehaviour
 {
@@ -34,6 +36,21 @@ public class ContentNode : MonoBehaviour
     [Header("Subject Content Type")]
     public Image subjectImage;
     [SerializeField] private bool subjectImageSetNativeSize;
+
+    [Header("Question Content Type")]
+    public TextMeshProUGUI questionNumberText;
+    public TextMeshProUGUI questionText;
+    public ToggleGroup answerToggleGroup;
+    public GameObject answerPrefab;
+
+    public int questionID;
+    public string questionContent;
+    [SerializeField] private int matchAnswerID;
+    public List<string> _allAnswers;
+    [SerializeField] private int thisQuestionScore = 0;
+
+
+
 
     [SerializeField]
     private string fileName;
@@ -124,6 +141,29 @@ public class ContentNode : MonoBehaviour
                 subjectImage.gameObject.SetActive(true);
                 subjectImage.sprite = _contentPartSO.contentImage;
                 SetImageNative();
+
+                break;
+            case ContentPartSO.ContentType.Question:
+                questionID = _contentPartSO.questionID;
+                questionContent = _contentPartSO.question;
+                matchAnswerID = _contentPartSO.matchAnswerID;
+                _allAnswers = _contentPartSO.allAnswers;
+
+                questionNumberText.text = questionID + ".";
+                questionText.text = questionContent;
+
+                for (int i = _allAnswers.Count; i <= 0; i--)
+                {
+                    LeanPool.Despawn(answerToggleGroup.transform.GetChild(i));
+                }
+
+                AnswerQuestionContent answerQuestionContent;
+                for (int i = 0; i < _allAnswers.Count; i++)
+                {
+                    answerQuestionContent = LeanPool.Spawn(answerPrefab, answerToggleGroup.transform).GetComponent<AnswerQuestionContent>();
+                    answerQuestionContent.answerInit(i, _allAnswers[i]);
+                    Debug.Log("answer name " + answerQuestionContent.answer);
+                }
 
                 break;
             default:

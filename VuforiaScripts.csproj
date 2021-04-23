@@ -56,11 +56,11 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Scripts\DefaultTrackableEventHandler.cs" />
-    <Compile Include="Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Scripts\Internal\RuntimeOpenSourceInitializer.cs" />
-    <Compile Include="Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Scripts\BoundingBoxRenderer.cs" />
-    <Compile Include="Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Scripts\Internal\ARFoundationIntegration\ARFoundationInitializer.cs" />
     <Compile Include="Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Scripts\DefaultInitializationErrorHandler.cs" />
+    <Compile Include="Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Scripts\DefaultTrackableEventHandler.cs" />
+    <Compile Include="Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Scripts\BoundingBoxRenderer.cs" />
+    <Compile Include="Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Scripts\Internal\RuntimeOpenSourceInitializer.cs" />
+    <Compile Include="Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Scripts\Internal\ARFoundationIntegration\ARFoundationInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Scripts\VuforiaScripts.asmdef" />
@@ -292,8 +292,14 @@
     <Reference Include="DemiLib">
       <HintPath>Assets\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
     </Reference>
+    <Reference Include="Vuforia.UnityExtensions.Editor">
+      <HintPath>Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Plugins\Managed\Editor\Vuforia.UnityExtensions.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="DOTweenProEditor">
       <HintPath>Assets\Demigiant\DOTweenPro\Editor\DOTweenProEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Vuforia.UnityExtensions">
+      <HintPath>Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Plugins\Managed\Runtime\Vuforia.UnityExtensions.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenEditor">
       <HintPath>Assets\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
@@ -306,12 +312,6 @@
     </Reference>
     <Reference Include="DOTweenPro">
       <HintPath>Assets\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Vuforia.UnityExtensions.Editor">
-      <HintPath>Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Plugins\Managed\Editor\Vuforia.UnityExtensions.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Vuforia.UnityExtensions">
-      <HintPath>Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Plugins\Managed\Runtime\Vuforia.UnityExtensions.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.2f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>

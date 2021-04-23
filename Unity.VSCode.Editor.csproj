@@ -303,8 +303,14 @@
     <Reference Include="DemiLib">
       <HintPath>Assets\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
     </Reference>
+    <Reference Include="Vuforia.UnityExtensions.Editor">
+      <HintPath>Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Plugins\Managed\Editor\Vuforia.UnityExtensions.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="DOTweenProEditor">
       <HintPath>Assets\Demigiant\DOTweenPro\Editor\DOTweenProEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Vuforia.UnityExtensions">
+      <HintPath>Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Plugins\Managed\Runtime\Vuforia.UnityExtensions.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenEditor">
       <HintPath>Assets\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
@@ -317,12 +323,6 @@
     </Reference>
     <Reference Include="DOTweenPro">
       <HintPath>Assets\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Vuforia.UnityExtensions.Editor">
-      <HintPath>Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Plugins\Managed\Editor\Vuforia.UnityExtensions.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Vuforia.UnityExtensions">
-      <HintPath>Library\PackageCache\com.ptc.vuforia.engine@868c7672e6\Vuforia\Plugins\Managed\Runtime\Vuforia.UnityExtensions.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>

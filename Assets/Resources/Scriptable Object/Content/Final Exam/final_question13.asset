@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
+  m_Name: final_question13
+  m_EditorClassIdentifier: 
+  contentType: 3
+  textType: 0
+  alignmentOptions: 0
+  fontSize: 0
+  fontAsset: {fileID: 0}
+  graphic: {fileID: 0}
+  contentImage: {fileID: 0}
+  contentImageSize: 0
+  imageSetNativeSize: 0
+  preserveAspect: 0
+  customAnchorPoint: 0
+  leftAnchor: 0
+  rightAnchor: 0
+  topAnchor: 0
+  bottomAnchor: 0
+  imageWatermarkText: 
+  contentText: 
+  videoName: 
+  videoURL: 
+  questionID: 14
+  question: "Perhatikan perilaku berikut. \n(1) Memasang lampu yang berdaya rendah.
+    \n(2) Membuka jendela ketika hari sudah terang.\n(3) Memadamkan lampu pada siang
+    hari, kecuali jika diperlukan. \n(4) Memilih televisi yang dayanya besar. \n\nCara
+    menghemat energi ditunjukkan oleh perilaku nomor...."
+  matchAnswerID: 0
+  allAnswers:
+  - (1), (2), dan (3)
+  - (1), (2), dan (4)
+  - (1), (3), dan (4)
+  - (2), (3), dan (4)

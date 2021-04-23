@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
+  m_Name: final_question9
+  m_EditorClassIdentifier: 
+  contentType: 3
+  textType: 0
+  alignmentOptions: 0
+  fontSize: 0
+  fontAsset: {fileID: 0}
+  graphic: {fileID: 0}
+  contentImage: {fileID: 0}
+  contentImageSize: 0
+  imageSetNativeSize: 0
+  preserveAspect: 0
+  customAnchorPoint: 0
+  leftAnchor: 0
+  rightAnchor: 0
+  topAnchor: 0
+  bottomAnchor: 0
+  imageWatermarkText: 
+  contentText: 
+  videoName: 
+  videoURL: 
+  questionID: 10
+  question: Bola yang bermassa 1 kg jatuh bebas dari gedung bertingkat. Ketika bola
+    berada pada ketinggian 2 m dari tanah, energi mekaniknya 50 J dan gravitasi di
+    tempat itu sebesar 10 m/s2. Pernyataan berikut yang benar adalah....
+  matchAnswerID: 1
+  allAnswers:
+  - Energi potensial terbesar adalah 50 J
+  - Energi kinetik saat ketinggian 2 m sebesar 30 J
+  - Kecepatan bola pada saat tepat menyentuh tanah sebesar 5 m/s
+  - Tinggi Gedung tersebut adalah 5 m

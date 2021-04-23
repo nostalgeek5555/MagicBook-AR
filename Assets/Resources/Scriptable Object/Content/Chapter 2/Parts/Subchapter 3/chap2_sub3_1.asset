@@ -10,13 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
-  m_Name: chap2_sub2_1
+  m_Name: chap2_sub3_1
   m_EditorClassIdentifier: 
-  contentType: 0
-  textType: 1
-  alignmentOptions: 513
-  contentImage: {fileID: 0}
+  contentType: 5
+  textType: 0
+  alignmentOptions: 0
+  fontSize: 0
+  fontAsset: {fileID: 0}
+  graphic: {fileID: 0}
+  contentImage: {fileID: 21300000, guid: 54e61aefcfbfe3d43baad2ef2e8163aa, type: 3}
+  contentImageSize: 0
+  imageSetNativeSize: 0
+  preserveAspect: 0
+  customAnchorPoint: 0
+  leftAnchor: 0
+  rightAnchor: 0
+  topAnchor: 0
+  bottomAnchor: 0
   imageWatermarkText: 
-  contentText: Energi merupakan kemampuan suatu benda untuk melakukan usaha.
+  contentText: 
   videoName: 
   videoURL: 
