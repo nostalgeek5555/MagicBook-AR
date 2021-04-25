@@ -27,7 +27,11 @@ public class CustomEditorContentNode : Editor
         contentQuestionQuest,
         contentQuestionAnswerID,
         contentQuestionAllAnswers,
-        contentQuestionScore;
+        contentQuestionScore,
+        contentARDisplayNameTMP,
+        contentARDisplayButton,
+        contentARKeyName,
+        contentARDisplayName;
 
     private void OnEnable()
     {
@@ -56,6 +60,11 @@ public class CustomEditorContentNode : Editor
         contentQuestionAnswerID = serializedObject.FindProperty("matchAnswerID");
         contentQuestionAllAnswers = serializedObject.FindProperty("_allAnswers");
         contentQuestionScore = serializedObject.FindProperty("thisQuestionScore");
+
+        contentARDisplayNameTMP = serializedObject.FindProperty("arDisplayNameTMP");
+        contentARDisplayButton = serializedObject.FindProperty("arDisplayButton");
+        contentARKeyName = serializedObject.FindProperty("arKeyName");
+        contentARDisplayName = serializedObject.FindProperty("arDisplayName");
     }
 
     public override void OnInspectorGUI()
@@ -100,6 +109,10 @@ public class CustomEditorContentNode : Editor
                 break;
 
             case ContentPartSO.ContentType.AR:
+                EditorGUILayout.PropertyField(contentARDisplayNameTMP);
+                EditorGUILayout.PropertyField(contentARDisplayButton);
+                EditorGUILayout.PropertyField(contentARKeyName);
+                EditorGUILayout.PropertyField(contentARDisplayName);
                 break;
 
             case ContentPartSO.ContentType.Question:

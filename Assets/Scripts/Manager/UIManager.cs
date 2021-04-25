@@ -4,12 +4,16 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
+    public Canvas generalCanvas;
     public Scene currentScene;
 
     [Header("All panel")]
     public GameObject chapterPanel;
     public GameObject subchapterPanel;
     public GameObject contentPanel;
+
+    [Header("AR Content Displayed")]
+    public bool onArDisplayed = false;
 
     private void Awake()
     {
@@ -69,5 +73,7 @@ public class UIManager : MonoBehaviour
         }
         
     }
+
+
 }
     

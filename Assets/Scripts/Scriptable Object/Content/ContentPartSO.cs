@@ -38,6 +38,10 @@ public class ContentPartSO : ScriptableObject
     public int matchAnswerID;
     [ReorderableList] public List<string> allAnswers;
 
+    [Header("AR Content Type")]
+    public string arKeyName;
+    public string arDisplayName;
+
     [SerializeField]
     public Dictionary<string, List<Tuple<int, int>>> keyValuePairs;
 

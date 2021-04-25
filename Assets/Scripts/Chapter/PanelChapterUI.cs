@@ -29,6 +29,7 @@ public class PanelChapterUI : MonoBehaviour
         {
             GameObject panelController = transform.parent.gameObject;
             PanelController.Instance.panelController = panelController;
+            
         }
 
         StartCoroutine(InitAllChapterNode());

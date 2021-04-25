@@ -26,9 +26,13 @@ public class DataManager : MonoBehaviour
     public int currentChapterID;
     public string currentChapterName;
     public int currentTotalSubchapter;
+    public ContentPanelUI.ContentPanelType panelType;
     public string currentSubchapterName;
     public string currentSubchapterTitle;
     public int currentSubchapterID;
+
+    [Header("AR Display Scene")]
+    public string activeARContentID;
 
     private void Awake()
     {

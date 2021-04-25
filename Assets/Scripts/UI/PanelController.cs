@@ -20,6 +20,10 @@ public class PanelController : MonoBehaviour
     private string currentSubchapterName;
     public string chapterName { get => currentChapterName; set => currentChapterName = value; }
     public string subchapterName { get => currentSubchapterName; set => currentSubchapterName = value; }
+
+    [Header("On AR content display")]
+    public bool onArDisplayed = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -70,27 +74,35 @@ public class PanelController : MonoBehaviour
 
     public void OnBack()
     {
-        if (UIManager.Instance.chapterPanel.activeInHierarchy == true)
+        if (!UIManager.Instance.onArDisplayed)
         {
-            //Debug.Log("back to main menu");
-            SceneManager.LoadScene(0);
-            Refresh();
+            if (UIManager.Instance.chapterPanel.activeInHierarchy == true)
+            {
+                //Debug.Log("back to main menu");
+                SceneManager.LoadScene(0);
+                Refresh();
+            }
+
+            else if (UIManager.Instance.subchapterPanel.activeInHierarchy == true)
+            {
+                //Debug.Log("back to chapter panel");
+                UIManager.Instance.subchapterPanel.SetActive(false);
+                UIManager.Instance.chapterPanel.SetActive(true);
+                Refresh();
+            }
+
+            else if (UIManager.Instance.contentPanel.activeInHierarchy == true)
+            {
+                //Debug.Log("back to chapter panel");
+                UIManager.Instance.contentPanel.SetActive(false);
+                UIManager.Instance.subchapterPanel.SetActive(true);
+                Refresh();
+            }
         }
 
-        else if (UIManager.Instance.subchapterPanel.activeInHierarchy == true)
-        { 
-            //Debug.Log("back to chapter panel");
-            UIManager.Instance.subchapterPanel.SetActive(false);
-            UIManager.Instance.chapterPanel.SetActive(true);
-            Refresh();
-        }
-
-        else if (UIManager.Instance.contentPanel.activeInHierarchy == true)
+        else
         {
-            //Debug.Log("back to chapter panel");
-            UIManager.Instance.contentPanel.SetActive(false);
-            UIManager.Instance.subchapterPanel.SetActive(true);
-            Refresh();
+            SceneManager.LoadScene(1);
         }
     }
 
@@ -106,7 +118,7 @@ public class PanelController : MonoBehaviour
         else if (currentScene.buildIndex != 0)
         {
             backButton.gameObject.SetActive(true);
-            
+            UIManager.Instance.onArDisplayed = false;
         }
     }
 }

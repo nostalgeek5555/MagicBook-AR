@@ -5,6 +5,8 @@ using NaughtyAttributes;
 [CreateAssetMenu(fileName = "Subchapter", menuName = "Scriptable Object/Subchapter")]
 public class SubchapterSO : ScriptableObject
 {
+    public ContentPanelUI.ContentPanelType panelType;
+
     public int subchapterID;
     public bool subchapterUnlocked;
     public string subchapterName;

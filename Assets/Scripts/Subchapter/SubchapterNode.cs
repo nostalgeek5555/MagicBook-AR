@@ -5,6 +5,7 @@ using TMPro;
 public class SubchapterNode : MonoBehaviour
 {
     [Header("Subchapter Data")]
+    public ContentPanelUI.ContentPanelType panelType;
     public int subchapterID;
     public bool subchapterUnlocked;
     public string subchapterName;
@@ -16,6 +17,7 @@ public class SubchapterNode : MonoBehaviour
     
     public void InitSubchapter(SubchapterSO _subchapterSO)
     {
+        panelType = _subchapterSO.panelType;
         subchapterID = _subchapterSO.subchapterID;
         subchapterName = _subchapterSO.subchapterName;
         subchapterTitle = _subchapterSO.subchapterTitle;
@@ -58,6 +60,7 @@ public class SubchapterNode : MonoBehaviour
 
     private void OpenContentPanel()
     {
+        DataManager.Instance.panelType = panelType;
         DataManager.Instance.currentSubchapterID = subchapterID;
         DataManager.Instance.currentSubchapterName = subchapterName;
         DataManager.Instance.currentSubchapterTitle = subchapterTitle;

@@ -27,7 +27,9 @@ public class CustomEditorContentSO : Editor
         questionID,
         question,
         matchAnswerID,
-        allAnswers;
+        allAnswers,
+        arKeyName,
+        arDisplayName;
 
     private void OnEnable()
     {
@@ -57,6 +59,9 @@ public class CustomEditorContentSO : Editor
         question = serializedObject.FindProperty("question");
         matchAnswerID = serializedObject.FindProperty("matchAnswerID");
         allAnswers = serializedObject.FindProperty("allAnswers");
+
+        arKeyName = serializedObject.FindProperty("arKeyName");
+        arDisplayName = serializedObject.FindProperty("arDisplayName");
     }
 
     public override void OnInspectorGUI()
@@ -116,6 +121,8 @@ public class CustomEditorContentSO : Editor
                 break;
 
             case ContentPartSO.ContentType.AR:
+                EditorGUILayout.PropertyField(arKeyName);
+                EditorGUILayout.PropertyField(arDisplayName);
                 break;
 
             case ContentPartSO.ContentType.Question:

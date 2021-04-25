@@ -7,6 +7,7 @@ using UnityEngine.Video;
 using TMPro;
 using DG.Tweening;
 using Lean.Pool;
+using UnityEngine.SceneManagement;
 
 public class ContentNode : MonoBehaviour
 {
@@ -42,6 +43,7 @@ public class ContentNode : MonoBehaviour
     public TextMeshProUGUI questionText;
     public ToggleGroup answerToggleGroup;
     public GameObject answerPrefab;
+    public bool questionAnswered = false;
 
     public int questionID;
     public string questionContent;
@@ -50,6 +52,11 @@ public class ContentNode : MonoBehaviour
     public List<string> _allAnswers;
     public int thisQuestionScore = 0;
 
+    [Header("AR Content Type")]
+    public TextMeshProUGUI arDisplayNameTMP;
+    public Button arDisplayButton;
+    public string arKeyName;
+    public string arDisplayName;
 
 
 
@@ -136,6 +143,18 @@ public class ContentNode : MonoBehaviour
                 break;
             
             case ContentPartSO.ContentType.AR:
+                arKeyName = _contentPartSO.arKeyName;
+                arDisplayName = _contentPartSO.arDisplayName;
+                arDisplayNameTMP.text = arDisplayName;
+
+                arDisplayButton.onClick.RemoveAllListeners();
+                arDisplayButton.onClick.AddListener(() =>
+                {
+                    UIManager.Instance.onArDisplayed = true;
+                    DataManager.Instance.activeARContentID = arKeyName;
+                    SceneManager.LoadScene(2);
+                });
+
                 break;
 
             case ContentPartSO.ContentType.Subject:
@@ -146,13 +165,16 @@ public class ContentNode : MonoBehaviour
                 break;
             case ContentPartSO.ContentType.Question:
 
+                Debug.Log("despawn answer " + answerToggleGroup.transform.childCount);
                 if (answerToggleGroup.transform.childCount > 0)
                 {
-                    Debug.Log("toggle child " + answerToggleGroup.transform.childCount);
                     for (int i = answerToggleGroup.transform.childCount - 1; i >= 0; i--)
                     {
-                        LeanPool.Despawn(answerToggleGroup.transform.GetChild(i).gameObject);
-                        Debug.Log("despawn");
+                        if (answerToggleGroup.transform.GetChild(i).GetComponent<AnswerQuestionContent>() != null)
+                        {
+                            LeanPool.Despawn(answerToggleGroup.transform.GetChild(i).gameObject);
+                            Debug.Log("despawn");
+                        }
                     }
                 }
 
@@ -164,10 +186,9 @@ public class ContentNode : MonoBehaviour
                 questionNumberText.text = questionID + ".";
                 questionText.text = questionContent;
 
-                AnswerQuestionContent answerQuestionContent;
                 for (int i = 0; i < _allAnswers.Count; i++)
                 {
-                    answerQuestionContent = LeanPool.Spawn(answerPrefab, answerToggleGroup.transform).GetComponent<AnswerQuestionContent>();
+                    AnswerQuestionContent answerQuestionContent = LeanPool.Spawn(answerPrefab, answerToggleGroup.transform).GetComponent<AnswerQuestionContent>();
                     answerQuestionContent.AnswerInit(i, _allAnswers[i]);
                 }
 
