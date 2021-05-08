@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39d9ba0ac174e14abd97c8c6283fb3c, type: 3}
   m_Name: Chapter4
   m_EditorClassIdentifier: 
+  chapterType: 1
+  chapterFillerType: 0
   chapterID: 3
   chapterUnlocked: 0
-  chapterName: Bab IV
-  chapterTitle: Transformasi Energi dalam Makhluk Hidup
+  chapterName: Chapter 4
+  chapterTitle: Chapter 4
   fontSize: 38
   subchapterList:
   - {fileID: 11400000, guid: 1a90e2409bf1e064387d8178d679cf0d, type: 2}

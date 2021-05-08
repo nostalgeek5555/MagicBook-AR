@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39d9ba0ac174e14abd97c8c6283fb3c, type: 3}
+  m_Name: 1PetaKonsep
+  m_EditorClassIdentifier: 
+  chapterType: 0
+  chapterFillerType: 1
+  chapterID: 0
+  chapterUnlocked: 1
+  chapterName: petakonsep
+  chapterTitle: Peta Konsep
+  fontSize: 40
+  subchapterList:
+  - {fileID: 11400000, guid: 4e705e1fcf0b3104f8c7d9a50c96b4f8, type: 2}

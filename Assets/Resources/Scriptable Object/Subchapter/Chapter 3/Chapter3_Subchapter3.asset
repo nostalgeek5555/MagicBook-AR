@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08000def2daa89f47990b482c672b9db, type: 3}
+  m_Name: Chapter3_Subchapter3
+  m_EditorClassIdentifier: 
+  panelType: 0
+  subchapterID: 2
+  subchapterUnlocked: 0
+  subchapterName: Chapter3_Subchapter3
+  subchapterTitle: Energi Terbarukan
+  subchapterIcon: {fileID: 0}
+  subchapterContents:
+  - {fileID: 11400000, guid: ea9bfdfbf1c728c438d7b469cebc9b59, type: 2}
+  - {fileID: 11400000, guid: e669e2ad95604414abe6438e9016bc6f, type: 2}
+  - {fileID: 11400000, guid: 7341adddfc27af04099cf5b202e67088, type: 2}

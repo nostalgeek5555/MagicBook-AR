@@ -10,6 +10,7 @@ public class PanelController : MonoBehaviour
 {
     public static PanelController Instance;
     public GameObject panelController;
+    public GameObject panelFiller;
 
     [Header("Page Navigation")]
     public Scene currentScene;
@@ -24,6 +25,7 @@ public class PanelController : MonoBehaviour
     [Header("On AR content display")]
     public bool onArDisplayed = false;
 
+    //[Header("")]
     private void Awake()
     {
         if (Instance == null)
@@ -72,6 +74,37 @@ public class PanelController : MonoBehaviour
         }
     }
 
+    public void ActivateDeactivateSinglePanel(Transform panelParent, string panelName, bool active)
+    {
+        if (panelParent.childCount > 0)
+        {
+            for (int i = 0; i < panelParent.childCount; i++)
+            {
+                if (panelParent.GetChild(i).tag == panelName)
+                {
+                    panelParent.GetChild(i).gameObject.SetActive(active);
+                    Debug.Log("opened panel " + panelController.transform.GetChild(i).gameObject.tag);
+                    break;
+                }
+            }
+        }
+    }
+
+    public void RegisterPanel(Transform panelParent, string panelName)
+    {
+        if (panelParent.childCount > 0)
+        {
+            for (int i = 0; i < panelParent.childCount; i++)
+            {
+                if (panelController.transform.GetChild(i).tag == panelName)
+                {
+                    panelFiller = panelController.transform.GetChild(i).gameObject;
+                    break;
+                }
+            }
+        }
+    }
+
     public void OnBack()
     {
         if (!UIManager.Instance.onArDisplayed)
@@ -98,6 +131,13 @@ public class PanelController : MonoBehaviour
                 UIManager.Instance.subchapterPanel.SetActive(true);
                 Refresh();
             }
+
+            else if (UIManager.Instance.fillerPanel.activeInHierarchy == true)
+            {
+                UIManager.Instance.fillerPanel.SetActive(false);
+                UIManager.Instance.chapterPanel.SetActive(true);
+                Refresh();
+            }
         }
 
         else
@@ -119,6 +159,7 @@ public class PanelController : MonoBehaviour
         {
             backButton.gameObject.SetActive(true);
             UIManager.Instance.onArDisplayed = false;
+
         }
     }
 }

@@ -15,8 +15,25 @@ MonoBehaviour:
   contentType: 4
   textType: 0
   alignmentOptions: 0
+  fontSize: 0
+  fontAsset: {fileID: 0}
+  graphic: {fileID: 0}
   contentImage: {fileID: 0}
+  contentImageSize: 0
+  imageSetNativeSize: 0
+  preserveAspect: 0
+  customAnchorPoint: 0
+  leftAnchor: 0
+  rightAnchor: 0
+  topAnchor: 0
+  bottomAnchor: 0
   imageWatermarkText: 
   contentText: 
   videoName: 
   videoURL: 
+  questionID: 0
+  question: 
+  matchAnswerID: 0
+  allAnswers: []
+  arKeyName: windmill
+  arDisplayName: Kincir Angin

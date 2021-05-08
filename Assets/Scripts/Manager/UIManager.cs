@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public GameObject chapterPanel;
     public GameObject subchapterPanel;
     public GameObject contentPanel;
+    public GameObject fillerPanel;
 
     [Header("AR Content Displayed")]
     public bool onArDisplayed = false;
@@ -54,11 +55,13 @@ public class UIManager : MonoBehaviour
 
         if (currentScene.buildIndex == 1)
         {
+            
             if (chapterPanel == null && subchapterPanel == null)
             {
                 chapterPanel = GameObject.FindGameObjectWithTag("chapter");
                 subchapterPanel = GameObject.FindGameObjectWithTag("subchapter");
                 contentPanel = GameObject.FindGameObjectWithTag("content");
+                fillerPanel = GameObject.FindGameObjectWithTag("filler");
             }
         }
         

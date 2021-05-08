@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39d9ba0ac174e14abd97c8c6283fb3c, type: 3}
   m_Name: Chapter3
   m_EditorClassIdentifier: 
+  chapterType: 1
+  chapterFillerType: 0
   chapterID: 2
   chapterUnlocked: 0
-  chapterName: Bab III
-  chapterTitle: Ayo Hemat Energi
+  chapterName: Chapter 3
+  chapterTitle: Chapter 3
   fontSize: 40
   subchapterList:
   - {fileID: 11400000, guid: 816069e212f58e04cb04820b356e9d4c, type: 2}
   - {fileID: 11400000, guid: 3167e8cbb2fabf54dad3aac74f8e1c17, type: 2}
+  - {fileID: 11400000, guid: ab7af50b299647a40a04cad2b5a9bd9f, type: 2}

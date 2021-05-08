@@ -29,7 +29,7 @@ public class PanelChapterUI : MonoBehaviour
         {
             GameObject panelController = transform.parent.gameObject;
             PanelController.Instance.panelController = panelController;
-            
+            PanelController.Instance.RegisterPanel(PanelController.Instance.panelController.transform, "filler");
         }
 
         StartCoroutine(InitAllChapterNode());
@@ -48,7 +48,8 @@ public class PanelChapterUI : MonoBehaviour
             ChapterNode chapterNode;
             for (int i = 0; i < GameManager.Instance.allChapterList.Count; i++)
             {
-                ChapterSO chapterSO = GameManager.Instance.allChapterData[GameManager.Instance.allChapterList[i].chapterName];
+                //ChapterSO chapterSO = GameManager.Instance.allChapterData[GameManager.Instance.allChapterList[i].chapterName];
+                ChapterSO chapterSO = GameManager.Instance.allChapterList[i];
                 chapterNode = LeanPool.Spawn(chapterNodePrefab, chapterNodeParent).GetComponent<ChapterNode>();
                 chapterNode.InitChapterNode(chapterSO);
 

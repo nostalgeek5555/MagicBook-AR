@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08000def2daa89f47990b482c672b9db, type: 3}
   m_Name: Chapter2_Subchapter2
   m_EditorClassIdentifier: 
+  panelType: 0
   subchapterID: 1
   subchapterUnlocked: 0
   subchapterName: Chapter2_Subchapter2
@@ -21,7 +22,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8e05674559ce65143a42943b9067b6fd, type: 2}
   - {fileID: 11400000, guid: 633c1a8b2d8f08c45a7dcce0a86455e2, type: 2}
   - {fileID: 11400000, guid: 25aaf9a8ba7e2ce49879c66d528562f5, type: 2}
-  - {fileID: 11400000, guid: 6bd7cd41d73ac004babd9d5bbecdd5a5, type: 2}
+  - {fileID: 11400000, guid: 4d096992e9a084046b953ef4a449cbe8, type: 2}
   - {fileID: 11400000, guid: a3c3edf9317fc3048a29bf9314f62918, type: 2}
   - {fileID: 11400000, guid: c456cc8633bf94b448410e1bdd2c4db3, type: 2}
   - {fileID: 11400000, guid: 1f16bf2e491caae4f926f76e1c8fa07e, type: 2}
@@ -45,3 +46,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9bb274fff6c957b49978a77408211dac, type: 2}
   - {fileID: 11400000, guid: c8801fd5b7440da4eaba6d22c9e8232b, type: 2}
   - {fileID: 11400000, guid: 293241760beca154cbf32b18ebeaca75, type: 2}
+  - {fileID: 11400000, guid: 39495e635c289c04ab4194b7925b5d21, type: 2}
+  - {fileID: 11400000, guid: 6067e5e26518cc8449172a825cd4e578, type: 2}

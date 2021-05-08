@@ -80,9 +80,10 @@
     <Compile Include="Assets\Scripts\Chapter\ChapterNode.cs" />
     <Compile Include="Assets\Scripts\UI\PanelController.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\Scripts\Manager\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Subchapter\PanelSubchapterUI.cs" />
     <Compile Include="Assets\Scripts\Content\Question Content Type\AnswerQuestionContent.cs" />
-    <Compile Include="Assets\Scripts\Manager\CameraManager.cs" />
+    <Compile Include="Assets\Scripts\Filler Panel\FillerPanel.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -10,13 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
-  m_Name: chap2_sub2_5
+  m_Name: about_author
   m_EditorClassIdentifier: 
   contentType: 1
   textType: 0
   alignmentOptions: 0
-  contentImage: {fileID: 21300000, guid: deca26f0b1b03164d8f1dc43f6d7b3fb, type: 3}
+  fontSize: 0
+  fontAsset: {fileID: 0}
+  graphic: {fileID: 0}
+  contentImage: {fileID: 0}
+  contentImageSize: 0
+  imageSetNativeSize: 0
+  preserveAspect: 0
+  customAnchorPoint: 0
+  leftAnchor: 0
+  rightAnchor: 0
+  topAnchor: 0
+  bottomAnchor: 0
   imageWatermarkText: 
   contentText: 
   videoName: 
   videoURL: 
+  questionID: 0
+  question: 
+  matchAnswerID: 0
+  allAnswers: []
+  arKeyName: 
+  arDisplayName: 

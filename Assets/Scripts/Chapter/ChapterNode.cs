@@ -5,6 +5,7 @@ using TMPro;
 
 public class ChapterNode : MonoBehaviour
 {
+    public ChapterSO chapterSO;
     [Header("Chapter Data")]
     [ReadOnly] public int chapterID;
     [ReadOnly] public string chapterName;
@@ -17,6 +18,9 @@ public class ChapterNode : MonoBehaviour
     public TextMeshProUGUI chapterNameText;
     [SerializeField] private float titleFontSize;
 
+    [Header("Filler Panel")]
+    public ChapterSO.ChapterFillerType ChapterFillerType;
+
     private void Start()
     {
         for (int i = 0; i < DataManager.Instance.playerData.allChapterUnlocked[DataManager.Instance.playerData.currentChapter].subchapterNameList.Count; i++)
@@ -27,6 +31,7 @@ public class ChapterNode : MonoBehaviour
 
     public void InitChapterNode(ChapterSO _chapterSO)
     {
+        chapterSO = _chapterSO;
         chapterID = _chapterSO.chapterID;
         chapterName = _chapterSO.chapterName;
         chapterTitle = _chapterSO.chapterTitle;
@@ -35,36 +40,54 @@ public class ChapterNode : MonoBehaviour
         titleFontSize = _chapterSO.fontSize;
         chapterNameText.fontSize = titleFontSize;
 
-        if (DataManager.Instance.playerData.allChapterUnlocked.ContainsKey(chapterName))
+        if (_chapterSO.chapterType == ChapterSO.ChapterType.Content)
         {
-            chapterUnlocked = DataManager.Instance.playerData.chapterUnlocked[chapterName];
-
-            if (chapterUnlocked)
+            if (DataManager.Instance.playerData.allChapterUnlocked.ContainsKey(chapterName))
             {
-                chapterButton.interactable = chapterUnlocked;
-                chapterButton.onClick.RemoveAllListeners();
-                chapterButton.onClick.AddListener(() =>
+                chapterUnlocked = DataManager.Instance.playerData.chapterUnlocked[chapterName];
+
+                if (chapterUnlocked)
                 {
-                    OpenSubchapterPanel();
-                });
+                    chapterButton.interactable = chapterUnlocked;
+                    chapterButton.onClick.RemoveAllListeners();
+                    chapterButton.onClick.AddListener(() =>
+                    {
+                        OpenSubchapterPanel();
+                    });
+                }
+
+                else
+                {
+                    chapterButton.interactable = false;
+                }
             }
-            
+
             else
             {
+                chapterUnlocked = false;
                 chapterButton.interactable = false;
             }
         }
-
+        
         else
         {
-            chapterUnlocked = false;
-            chapterButton.interactable = false;
+            ChapterFillerType = _chapterSO.chapterFillerType;
+            chapterButton.interactable = true;
+            chapterButton.onClick.RemoveAllListeners();
+            chapterButton.onClick.AddListener(() =>
+            {
+                PanelController.Instance.ActiveDeactivePanel("filler", "chapter");
+                DataManager.Instance._chapterFillerType = _chapterSO.chapterFillerType;
+
+                FillerPanel.Instance.ActivateChildrenPanel();
+            });
         }
         
     }
     
     private void OpenSubchapterPanel()
     {
+        DataManager.Instance.currentChapterType = chapterSO.chapterType;
         PanelController.Instance.chapterName = chapterName;
         DataManager.Instance.currentChapterID = chapterID;
         DataManager.Instance.currentChapterName = chapterName;

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
-  m_Name: chap2_sub3_4
+  m_Name: petakonsep_content
   m_EditorClassIdentifier: 
-  contentType: 5
+  contentType: 1
   textType: 0
   alignmentOptions: 0
   fontSize: 0
   fontAsset: {fileID: 0}
   graphic: {fileID: 0}
-  contentImage: {fileID: 21300000, guid: fb35030ac29cd9447ad1619349319db5, type: 3}
+  contentImage: {fileID: 21300000, guid: cdcdb97342f2fb54ca11a12a67722a43, type: 3}
   contentImageSize: 0
-  imageSetNativeSize: 0
+  imageSetNativeSize: 1
   preserveAspect: 0
   customAnchorPoint: 0
   leftAnchor: 0
@@ -31,3 +31,9 @@ MonoBehaviour:
   contentText: 
   videoName: 
   videoURL: 
+  questionID: 0
+  question: 
+  matchAnswerID: 0
+  allAnswers: []
+  arKeyName: 
+  arDisplayName: 

@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public List<ChapterSO> sortedChapterList;
     public List<ChapterSO> allChapterList;
     public List<SubchapterSO> allSubchapterList;
     public Dictionary<string, ChapterSO> allChapterData;
@@ -54,22 +55,56 @@ public class GameManager : MonoBehaviour
         }
 
         allChapterList = new List<ChapterSO>(Resources.LoadAll<ChapterSO>("Scriptable Object/Chapter"));
+        sortedChapterList = new List<ChapterSO>();
         allChapterData = new Dictionary<string, ChapterSO>();
         allSubchapterData = new Dictionary<string, SubchapterSO>();
         for (int i = 0; i < allChapterList.Count; i++)
         {
-            Debug.Log(allChapterList[i].chapterName);
-            allChapterData.Add(allChapterList[i].chapterName, allChapterList[i]);
-            
-            if (allChapterList[i].subchapterList.Count > 0)
+            ChapterSO currentChapterSO = allChapterList[i];
+            if (currentChapterSO.chapterType == ChapterSO.ChapterType.Content)
             {
-                allSubchapterList = new List<SubchapterSO>(allChapterList[i].subchapterList);
-                for (int j = 0; j < allChapterList[i].subchapterList.Count; j++)
+                sortedChapterList.Add(currentChapterSO);
+                Debug.Log(currentChapterSO.chapterName);
+
+                allChapterData.Add(currentChapterSO.chapterName, currentChapterSO);
+
+                if (currentChapterSO.subchapterList.Count > 0)
                 {
-                    string subchapterKey = allChapterList[i].chapterName + "|" + allChapterList[i].subchapterList[j].subchapterName;
-                    allSubchapterData.Add(subchapterKey, allSubchapterList[j]);
+                    allSubchapterList = new List<SubchapterSO>(currentChapterSO.subchapterList);
+                    for (int j = 0; j < currentChapterSO.subchapterList.Count; j++)
+                    {
+                        string subchapterKey = currentChapterSO.chapterName + "|" + currentChapterSO.subchapterList[j].subchapterName;
+                        allSubchapterData.Add(subchapterKey, allSubchapterList[j]);
+                    }
                 }
             }
+
+            else
+            {
+                allChapterData.Add(currentChapterSO.chapterName, currentChapterSO);
+                if (currentChapterSO.subchapterList.Count > 0)
+                {
+                    allSubchapterList = new List<SubchapterSO>(currentChapterSO.subchapterList);
+                    for (int j = 0; j < currentChapterSO.subchapterList.Count; j++)
+                    {
+                        string subchapterKey = currentChapterSO.chapterName + "|" + currentChapterSO.subchapterList[j].subchapterName;
+                        allSubchapterData.Add(subchapterKey, allSubchapterList[j]);
+                    }
+                }
+            }
+            //Debug.Log(allChapterList[i].chapterName);
+
+            //allChapterData.Add(allChapterList[i].chapterName, allChapterList[i]);
+
+            //if (allChapterList[i].subchapterList.Count > 0)
+            //{
+            //    allSubchapterList = new List<SubchapterSO>(allChapterList[i].subchapterList);
+            //    for (int j = 0; j < allChapterList[i].subchapterList.Count; j++)
+            //    {
+            //        string subchapterKey = allChapterList[i].chapterName + "|" + allChapterList[i].subchapterList[j].subchapterName;
+            //        allSubchapterData.Add(subchapterKey, allSubchapterList[j]);
+            //    }
+            //}
         }
     }
 }

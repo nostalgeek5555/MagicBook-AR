@@ -8,6 +8,11 @@ TagManager:
   - subchapter
   - chapter
   - ARCamera
+  - Guide
+  - Glosarium
+  - About
+  - filler
+  - ConceptMap
   layers:
   - Default
   - TransparentFX

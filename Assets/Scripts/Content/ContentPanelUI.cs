@@ -79,6 +79,8 @@ public class ContentPanelUI : MonoBehaviour
             currentSubchapterTitle = DataManager.Instance.currentSubchapterTitle;
         }
         nextButton.interactable = false;
+
+        
         contentBG.SetActive(true);
         ScrollToTop(scrollRect);
         InitAllContents();
@@ -182,6 +184,16 @@ public class ContentPanelUI : MonoBehaviour
 
                 PanelController.Instance.backButton.interactable = true;
 
+                if (DataManager.Instance.currentChapterType == ChapterSO.ChapterType.Content)
+                {
+                    nextButton.gameObject.SetActive(true);
+                }
+
+                else
+                {
+                    nextButton.gameObject.SetActive(false);
+                }
+
                 foreach (var button in buttonsInContentLayout)
                 {
                     button.transform.SetAsLastSibling();
@@ -259,14 +271,15 @@ public class ContentPanelUI : MonoBehaviour
                         //Debug.Log("next chapter id " + nextChapterID);
                         //GetInstance().currentChapterID++;
 
-                        string _nextChapterName = GameManager.Instance.allChapterList[nextChapterID].chapterName;
+                        //string _nextChapterName = GameManager.Instance.allChapterList[nextChapterID].chapterName;
+                        string _nextChapterName = GameManager.Instance.sortedChapterList[nextChapterID].chapterName;
                         //Debug.Log("next unlocked chapter " + _nextChapterName);
                         int _nextTotalSubchapter = GameManager.Instance.allChapterData[_nextChapterName].subchapterList.Count;
                         //Debug.Log("next total subchapter " + _nextTotalSubchapter);
 
                         if (!GetInstance().playerData.chapterUnlocked.ContainsKey(_nextChapterName))
                         {
-                            if (GetInstance().playerData.totalChapterUnlocked < GameManager.Instance.allChapterList.Count)
+                            if (GetInstance().playerData.totalChapterUnlocked < /*GameManager.Instance.allChapterList.Count*/GameManager.Instance.sortedChapterList.Count)
                             {
                                 prevTotalSubchapter = GetInstance().currentTotalSubchapter;
                                 nextTotalSubchapter = _nextTotalSubchapter;
@@ -284,11 +297,12 @@ public class ContentPanelUI : MonoBehaviour
                                 string nextKeyName = _nextChapterName + "|" + _nextSubchapterName;
                                 GetInstance().playerData.subchapterUnlocked.Add(nextKeyName, true);
                                 GetInstance().SaveData();
-                                
+
+                                currentSubchapterTitle = GameManager.Instance.allSubchapterData[nextKeyName].subchapterTitle;
                                 nextChapterName = _nextChapterName;
                                 nextSubchapterName = _nextSubchapterName;
 
-                                //Debug.Log("next chapter name " + nextChapterName);
+                                Debug.Log("next chapter name " + nextChapterName);
                                 //Debug.Log("next subchapter name " + nextSubchapterName);
                                 OpenNewChapterPopup();
 

@@ -23,6 +23,7 @@ public class DataManager : MonoBehaviour
     public string folderName = "Videos";
 
     [Header("Current Chapter/Subchapter Data")]
+    public ChapterSO.ChapterType currentChapterType;
     public int currentChapterID;
     public string currentChapterName;
     public int currentTotalSubchapter;
@@ -30,6 +31,7 @@ public class DataManager : MonoBehaviour
     public string currentSubchapterName;
     public string currentSubchapterTitle;
     public int currentSubchapterID;
+    public ChapterSO.ChapterFillerType _chapterFillerType;
 
     [Header("AR Display Scene")]
     public string activeARContentID;
@@ -115,7 +117,8 @@ public class DataManager : MonoBehaviour
     {
         playerData = new PlayerData();
         playerData.totalChapterUnlocked = 1;
-        playerData.currentChapter = GameManager.Instance.allChapterList[0].chapterName;
+        //playerData.currentChapter = GameManager.Instance.allChapterList[0].chapterName;
+        playerData.currentChapter = GameManager.Instance.sortedChapterList[0].chapterName;
         playerData.currentSubchapter = GameManager.Instance.allSubchapterList[0].subchapterName;
         playerData.totalChapter = GameManager.Instance.allChapterData.Count;
         playerData.chapterUnlocked.Add(playerData.currentChapter, true);
@@ -126,8 +129,10 @@ public class DataManager : MonoBehaviour
             string subchapterName = GameManager.Instance.allChapterData[playerData.currentChapter].subchapterList[i].subchapterName;
             chapterData.subchapterNameList.Add(subchapterName);
         }
-        playerData.allChapterUnlocked.Add(GameManager.Instance.allChapterList[0].chapterName, chapterData);
-        string firstChapterName = GameManager.Instance.allChapterList[0].chapterName;
+        //playerData.allChapterUnlocked.Add(GameManager.Instance.allChapterList[0].chapterName, chapterData);
+        playerData.allChapterUnlocked.Add(GameManager.Instance.sortedChapterList[0].chapterName, chapterData);
+        //string firstChapterName = GameManager.Instance.allChapterList[0].chapterName;
+        string firstChapterName = GameManager.Instance.sortedChapterList[0].chapterName;
         string subchapterKey = firstChapterName + "|" + GameManager.Instance.allChapterData[firstChapterName].subchapterList[0].subchapterName;
         playerData.subchapterUnlocked.Add(subchapterKey, true);
         Debug.Log("current chapter unlocked data " + subchapterKey + " status " + playerData.subchapterUnlocked[subchapterKey]);

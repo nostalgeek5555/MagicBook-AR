@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39d9ba0ac174e14abd97c8c6283fb3c, type: 3}
   m_Name: Chapter1
   m_EditorClassIdentifier: 
+  chapterType: 1
+  chapterFillerType: 0
   chapterID: 0
   chapterUnlocked: 0
-  chapterName: Bab I
-  chapterTitle: Energi
+  chapterName: Chapter 1
+  chapterTitle: Chapter 1
   fontSize: 40
   subchapterList:
   - {fileID: 11400000, guid: c61d480ec2616f548a3de8b2b758338c, type: 2}
