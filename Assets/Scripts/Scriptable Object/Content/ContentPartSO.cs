@@ -11,6 +11,8 @@ public class ContentPartSO : ScriptableObject
     public ContentType contentType;
 
     [Header("Text Content Type")]
+    [TextArea]
+    public string contentText;
     public TextType textType;
     public TextAlignmentOptions alignmentOptions;
     public float fontSize;
@@ -25,7 +27,7 @@ public class ContentPartSO : ScriptableObject
     public bool customAnchorPoint;
     public float leftAnchor, rightAnchor, topAnchor, bottomAnchor;
     public string imageWatermarkText;
-    public string contentText;
+    
 
     [Header("Video Content Type")]
     public string videoName;

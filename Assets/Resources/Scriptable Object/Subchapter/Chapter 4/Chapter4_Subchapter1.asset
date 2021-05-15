@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08000def2daa89f47990b482c672b9db, type: 3}
   m_Name: Chapter4_Subchapter1
   m_EditorClassIdentifier: 
+  panelType: 0
   subchapterID: 0
   subchapterUnlocked: 0
   subchapterName: Chapter4_Subchapter1
@@ -19,5 +20,9 @@ MonoBehaviour:
   subchapterIcon: {fileID: 0}
   subchapterContents:
   - {fileID: 11400000, guid: 7743a9d6f1b47604c990c676321c1b21, type: 2}
-  - {fileID: 11400000, guid: 8b9d159517284074888a50f6c85302fa, type: 2}
-  - {fileID: 11400000, guid: e4f5b45084742144591e1c23eb333c40, type: 2}
+  - {fileID: 11400000, guid: 20750da16af1da84ebdc8ae1211cbd53, type: 2}
+  - {fileID: 11400000, guid: f266a7f00dd4388488ca736b92187bef, type: 2}
+  - {fileID: 11400000, guid: 6951bddd40be35f4ca9ac9217eab8435, type: 2}
+  - {fileID: 11400000, guid: 33fc6e750a156f943911d4fffe36a529, type: 2}
+  - {fileID: 11400000, guid: 17a81a7bebfb05a449ec7e56a92d1022, type: 2}
+  - {fileID: 11400000, guid: 8596a5f2957fbf44ea31bba8b9dcca17, type: 2}

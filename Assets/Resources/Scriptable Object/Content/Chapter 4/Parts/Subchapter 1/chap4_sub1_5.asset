@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
-  m_Name: chap4_sub1_2
+  m_Name: chap4_sub1_5
   m_EditorClassIdentifier: 
   contentType: 1
   contentText: 
@@ -19,7 +19,7 @@ MonoBehaviour:
   fontSize: 0
   fontAsset: {fileID: 0}
   graphic: {fileID: 0}
-  contentImage: {fileID: 21300000, guid: 8bb4bdb454047fb4496df777ae8ff831, type: 3}
+  contentImage: {fileID: 21300000, guid: f966ef535fedd7f4a8a3d8875db01563, type: 3}
   contentImageSize: 0
   imageSetNativeSize: 1
   preserveAspect: 1

@@ -43,6 +43,7 @@ public class ContentPanelUI : MonoBehaviour
     public Button closePopupButton;
     public Button popupBackButton;
     public Button popupNextButton;
+    public Button popupHomeButton;
     public TextMeshProUGUI newChapterNameText;
     public TextMeshProUGUI nextChapterLoadText;
     public TextMeshProUGUI allChapterCompleteText;
@@ -384,6 +385,17 @@ public class ContentPanelUI : MonoBehaviour
                 PanelController.Instance.backButton.gameObject.SetActive(true);
                 DespawnAllContents();
                 PanelController.Instance.ActiveDeactivePanel("subchapter", "content");
+            });
+
+            //popup home button
+            popupHomeButton.onClick.RemoveAllListeners();
+            popupHomeButton.onClick.AddListener(() =>
+            {
+                blackLayer.gameObject.SetActive(false);
+                newChapterPopup.SetActive(false);
+                PanelController.Instance.backButton.gameObject.SetActive(true);
+                DespawnAllContents();
+                SceneManager.LoadScene(0);
             });
 
             //popup next button

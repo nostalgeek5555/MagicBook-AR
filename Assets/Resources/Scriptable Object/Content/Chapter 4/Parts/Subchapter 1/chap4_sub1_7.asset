@@ -10,13 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81b8786e70eb5d54d88d648744513233, type: 3}
-  m_Name: chap2_sub3_14
+  m_Name: chap4_sub1_7
   m_EditorClassIdentifier: 
   contentType: 0
-  textType: 1
+  contentText: 2) Transformasi Energi oleh Mitokondria
+  textType: 0
   alignmentOptions: 513
+  fontSize: 40
+  fontAsset: {fileID: 0}
+  graphic: {fileID: 0}
   contentImage: {fileID: 0}
+  contentImageSize: 0
+  imageSetNativeSize: 0
+  preserveAspect: 0
+  customAnchorPoint: 0
+  leftAnchor: 0
+  rightAnchor: 0
+  topAnchor: 0
+  bottomAnchor: 0
   imageWatermarkText: 
-  contentText: g    = percepatan gravitasi (m/s2)
   videoName: 
   videoURL: 
+  questionID: 0
+  question: 
+  matchAnswerID: 0
+  allAnswers: []
+  arKeyName: 
+  arDisplayName: 

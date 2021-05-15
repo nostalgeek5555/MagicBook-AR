@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08000def2daa89f47990b482c672b9db, type: 3}
   m_Name: Chapter1_Subchapter3
   m_EditorClassIdentifier: 
+  panelType: 0
   subchapterID: 2
   subchapterUnlocked: 0
   subchapterName: Chapter1_Subchapter3
@@ -26,8 +27,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d1d160e8d008d1a4f8aa6c44743b4fbf, type: 2}
   - {fileID: 11400000, guid: ceea5fbc8be47e143b61afa9c33ca209, type: 2}
   - {fileID: 11400000, guid: e86176503c465794682b503e1c86d99a, type: 2}
-  - {fileID: 11400000, guid: c15315bf1dd51a34f88f77ff53834e92, type: 2}
   - {fileID: 11400000, guid: 6c8a171b8b5a915438428f2cb1a3752e, type: 2}
+  - {fileID: 11400000, guid: c15315bf1dd51a34f88f77ff53834e92, type: 2}
   - {fileID: 11400000, guid: f72884b6f276af340ac1f5d6bc1f247b, type: 2}
   - {fileID: 11400000, guid: d4610c0fab80f5b42ae13879a13ca512, type: 2}
   - {fileID: 11400000, guid: ccc50b5f3f633ca45ad8a8940cf379a8, type: 2}
