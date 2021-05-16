@@ -13,10 +13,27 @@ MonoBehaviour:
   m_Name: chap2_sub3_17
   m_EditorClassIdentifier: 
   contentType: 0
+  contentText: 1/2 * (mv)^2 = mgh
   textType: 1
   alignmentOptions: 514
+  fontSize: 0
+  fontAsset: {fileID: 0}
+  graphic: {fileID: 0}
   contentImage: {fileID: 0}
+  contentImageSize: 0
+  imageSetNativeSize: 0
+  preserveAspect: 0
+  customAnchorPoint: 0
+  leftAnchor: 0
+  rightAnchor: 0
+  topAnchor: 0
+  bottomAnchor: 0
   imageWatermarkText: 
-  contentText: "1/2 \u3016mv\u3017^2=mgh"
   videoName: 
   videoURL: 
+  questionID: 0
+  question: 
+  matchAnswerID: 0
+  allAnswers: []
+  arKeyName: 
+  arDisplayName: 

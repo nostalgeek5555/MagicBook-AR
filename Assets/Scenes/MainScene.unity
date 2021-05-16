@@ -1019,6 +1019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b24839d4f1d186468992627e4e14fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sortedChapterList: []
   allChapterList: []
   allSubchapterList: []
   allcurrentChapter: []
@@ -1137,6 +1138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelController: {fileID: 0}
+  panelFiller: {fileID: 0}
   currentScene:
     m_Handle: 0
   backButton: {fileID: 2031066555}

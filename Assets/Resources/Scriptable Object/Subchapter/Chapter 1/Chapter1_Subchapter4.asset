@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08000def2daa89f47990b482c672b9db, type: 3}
   m_Name: Chapter1_Subchapter4
   m_EditorClassIdentifier: 
+  panelType: 0
   subchapterID: 0
   subchapterUnlocked: 0
   subchapterName: Chapter1_Subchapter4
@@ -20,4 +21,3 @@ MonoBehaviour:
   subchapterContents:
   - {fileID: 11400000, guid: fcce0c6728833bf48b85b5c79a806eef, type: 2}
   - {fileID: 11400000, guid: c07d29c183824a34490ef729e17140ad, type: 2}
-  - {fileID: 11400000, guid: ae6661e849a0700408d34174ec0acef4, type: 2}
