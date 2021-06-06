@@ -11,10 +11,12 @@ public class PanelChapterUI : MonoBehaviour
     public GameObject thisPanel;
     public Image whiteBG;
     public Image chapterBG;
+
+    public GameObject chapterContainer;
     public Transform chapterNodeParent;
     public GameObject chapterNodePrefab;
-    //public delegate IEnumerator TweenChapterNode();
-    //public TweenChapterNode animateChapterNode;
+    public Button nextButtonToChapter;
+
     private void Start()
     {
         if (Instance == null)
@@ -32,7 +34,14 @@ public class PanelChapterUI : MonoBehaviour
             PanelController.Instance.RegisterPanel(PanelController.Instance.panelController.transform, "filler");
         }
 
-        StartCoroutine(InitAllChapterNode());
+        nextButtonToChapter.onClick.RemoveAllListeners();
+        nextButtonToChapter.onClick.AddListener(() =>
+        {
+            UIManager.Instance.coverPanel.SetActive(false);
+            chapterContainer.SetActive(true);
+            StartCoroutine(InitAllChapterNode());
+        });
+        //StartCoroutine(InitAllChapterNode());
     }
 
 

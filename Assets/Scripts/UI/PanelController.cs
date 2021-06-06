@@ -109,10 +109,17 @@ public class PanelController : MonoBehaviour
     {
         if (!UIManager.Instance.onArDisplayed)
         {
-            if (UIManager.Instance.chapterPanel.activeInHierarchy == true)
+            if (UIManager.Instance.coverPanel.activeInHierarchy == true)
             {
                 //Debug.Log("back to main menu");
                 SceneManager.LoadScene(0);
+                Refresh();
+            }
+
+            else if (UIManager.Instance.chapterPanel.activeInHierarchy == true)
+            {
+                PanelChapterUI.Instance.chapterContainer.SetActive(false);
+                UIManager.Instance.coverPanel.SetActive(true);
                 Refresh();
             }
 
@@ -122,6 +129,8 @@ public class PanelController : MonoBehaviour
                 UIManager.Instance.subchapterPanel.SetActive(false);
                 UIManager.Instance.chapterPanel.SetActive(true);
                 Refresh();
+
+                StartCoroutine(PanelChapterUI.Instance.InitAllChapterNode());
             }
 
             else if (UIManager.Instance.contentPanel.activeInHierarchy == true)

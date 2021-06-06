@@ -80,7 +80,6 @@ public class ContentPanelUI : MonoBehaviour
             currentSubchapterTitle = DataManager.Instance.currentSubchapterTitle;
         }
         nextButton.interactable = false;
-
         
         contentBG.SetActive(true);
         ScrollToTop(scrollRect);

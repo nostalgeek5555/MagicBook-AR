@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public Scene currentScene;
 
     [Header("All panel")]
+    public GameObject coverPanel;
     public GameObject chapterPanel;
     public GameObject subchapterPanel;
     public GameObject contentPanel;
@@ -58,6 +59,7 @@ public class UIManager : MonoBehaviour
             
             if (chapterPanel == null && subchapterPanel == null)
             {
+                coverPanel = GameObject.FindGameObjectWithTag("cover");
                 chapterPanel = GameObject.FindGameObjectWithTag("chapter");
                 subchapterPanel = GameObject.FindGameObjectWithTag("subchapter");
                 contentPanel = GameObject.FindGameObjectWithTag("content");

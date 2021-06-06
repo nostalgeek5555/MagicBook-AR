@@ -13,6 +13,7 @@ TagManager:
   - About
   - filler
   - ConceptMap
+  - cover
   layers:
   - Default
   - TransparentFX
